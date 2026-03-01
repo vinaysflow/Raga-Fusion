@@ -1,0 +1,170 @@
+{
+  "raga": {
+    "name": "Yaman",
+    "aliases": ["Yaman Kalyan", "Iman"],
+    "thaat": "Kalyan",
+    "family": "Kalyan",
+    "jati": "Sampoorna-Sampoorna",
+    "description": "One of the most fundamental ragas in Hindustani classical music. The raised Ma (tivra Ma) gives it a distinctive brightness compared to Bilaval. Often the first serious raga taught to students. Creates a mood of devotion and quiet joy."
+  },
+
+  "scale": {
+    "degrees": [0, 2, 4, 6, 7, 9, 11],
+    "svaras": ["S", "R", "G", "M'", "P", "D", "N"],
+    "svaras_full": ["Sa", "Re", "Ga", "Ma (tivra)", "Pa", "Dha", "Ni"],
+    "western_notes_sa_c": ["C", "D", "E", "F#", "G", "A", "B"],
+    "note_types": {
+      "S":  { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
+      "R":  { "degree": 2,  "type": "shuddh",  "western": "2 (major 2nd)" },
+      "G":  { "degree": 4,  "type": "shuddh",  "western": "3 (major 3rd)" },
+      "M'": { "degree": 6,  "type": "tivra",   "western": "#4 (augmented 4th)" },
+      "P":  { "degree": 7,  "type": "shuddh",  "western": "5 (perfect 5th)" },
+      "D":  { "degree": 9,  "type": "shuddh",  "western": "6 (major 6th)" },
+      "N":  { "degree": 11, "type": "shuddh",  "western": "7 (major 7th)" }
+    },
+    "forbidden": [
+      {
+        "degree": 5,
+        "svara": "m",
+        "name": "Shuddh Madhyam",
+        "reason": "Yaman uses only tivra (raised) Ma. Shuddh Ma belongs to Bilaval thaat and would destroy the Kalyan character."
+      }
+    ]
+  },
+
+  "movement": {
+    "aroha": "N R G M' P D N S'",
+    "avaroha": "S' N D P M' G R S",
+    "aroha_degrees": [11, 2, 4, 6, 7, 9, 11, 12],
+    "avaroha_degrees": [12, 11, 9, 7, 6, 4, 2, 0],
+    "pakad": [
+      "N R G",
+      "R G M' P",
+      "G M' D N"
+    ],
+    "pakad_string": "N R G, R G M' P, G M' D N",
+    "characteristic_phrases": [
+      { "phrase": "N R G R S",   "context": "Opening — establishes Yaman immediately" },
+      { "phrase": "R G M' P",    "context": "Ascending movement through tivra Ma" },
+      { "phrase": "G M' D N",    "context": "Upper tetrachord ascent" },
+      { "phrase": "N D P M' G",  "context": "Descending from upper Sa" },
+      { "phrase": "P M' G R S",  "context": "Resolution to Sa through lower tetrachord" }
+    ],
+    "note_rules": {
+      "Sa_approach": "Approached from Ni below (N S), rarely directly from Re descending",
+      "Ma_treatment": "Always tivra. Used as a stepping stone, not a resting note",
+      "Ni_role": "Extremely important — Yaman alaap often begins with Ni from the lower octave",
+      "Ga_role": "Vadi note — receives extended treatment and emphasis in alaap"
+    }
+  },
+
+  "emphasis": {
+    "vadi": {
+      "degree": 4,
+      "svara": "G",
+      "full_name": "Shuddh Gandhar",
+      "western": "E (major 3rd, when Sa=C)",
+      "role": "King note — the emotional centre of the raga. Should receive the most musical emphasis and longest sustain in alaap."
+    },
+    "samvadi": {
+      "degree": 11,
+      "svara": "N",
+      "full_name": "Shuddh Nishad",
+      "western": "B (major 7th, when Sa=C)",
+      "role": "Queen note — supports the vadi. A perfect 5th above Ga, it anchors the upper register."
+    },
+    "important_notes": ["G", "N", "R", "D"],
+    "resting_notes": ["S", "G", "P", "N"]
+  },
+
+  "context": {
+    "time": {
+      "prahar": "First prahar of night",
+      "window": "6:00 PM – 9:00 PM",
+      "season": "All seasons"
+    },
+    "mood": ["Serene", "Devotional", "Romantic", "Joyful"],
+    "rasa": "Shringara (romance) and Bhakti (devotion)",
+    "aesthetic": "Evokes the calm beauty of early evening — transitioning from day to night. The raised Ma creates a sense of brightness and uplift despite the nighttime association."
+  },
+
+  "western_equivalent": {
+    "mode": "Lydian",
+    "key_example": "C Lydian",
+    "interval_pattern": ["W", "W", "W", "H", "W", "W", "H"],
+    "interval_semitones": [2, 2, 2, 1, 2, 2, 1],
+    "relationship": "The Lydian mode is identical to the Kalyan thaat. The raised 4th degree (#4 / tivra Ma) is the defining characteristic of both systems.",
+    "common_lydian_songs": [
+      "The Simpsons Theme",
+      "Flying in a Blue Dream (Joe Satriani)",
+      "Possibly Maybe (Bjork)"
+    ]
+  },
+
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.95,
+      "notes": "Lydian brightness pairs beautifully with lofi warmth. The major 7th (Ni) and #4 (tivra Ma) create dreamy, nostalgic textures. Use slow Ga-centered melodies over mellow beats."
+    },
+    "jazz": {
+      "score": 0.90,
+      "notes": "Lydian is native to jazz harmony (Lydian Chromatic Concept). Maps directly to maj7#11 chords. Works over Cmaj7#11, Dmaj7, and related voicings."
+    },
+    "ambient": {
+      "score": 0.92,
+      "notes": "The serene, devotional mood translates perfectly to ambient textures. Sustained Ga and Ni over drone-like pads create meditative soundscapes."
+    },
+    "classical_fusion": {
+      "score": 0.88,
+      "notes": "Strong melodic structure adapts well to orchestral or chamber arrangements. The clear aroha/avaroha gives composers a framework to build on."
+    },
+    "electronic": {
+      "score": 0.85,
+      "notes": "The bright Lydian tonality works with progressive and melodic electronic styles. Arpeggiations of Yaman phrases over synth pads are effective."
+    },
+    "r_and_b": {
+      "score": 0.80,
+      "notes": "The major 7th and romantic mood overlap with R&B harmonic sensibilities. The #4 adds an exotic colour to standard progressions."
+    },
+    "rock": {
+      "score": 0.70,
+      "notes": "Lydian is used in rock (Satriani, Vai) but Yaman's meditative phrasing may need adaptation to rock energy levels."
+    },
+    "hip_hop": {
+      "score": 0.75,
+      "notes": "Yaman melodic fragments work as sample material or melodic hooks. The devotional mood adds depth to introspective tracks."
+    }
+  },
+
+  "analysis_reference": {
+    "source_recordings": [
+      {
+        "file": "yaman_alaap_QrGANVarjCY.mp3",
+        "duration_sec": 310.0,
+        "detected_sa": "D4",
+        "confidence": 0.60,
+        "top_notes_by_duration": ["Sa", "Ni", "Re", "Ga", "Pa", "Dha"]
+      },
+      {
+        "file": "yaman_full_Bad7pPuntuw.mp3",
+        "duration_sec": 3052.3,
+        "detected_sa": "C#4",
+        "confidence": 0.59,
+        "top_notes_by_duration": ["Sa", "Ni", "Ma'", "Pa", "Re", "Ga", "Dha"]
+      }
+    ],
+    "observations": [
+      "Both recordings confirm Kalyan thaat and Lydian mode",
+      "Ni consistently appears as the most prominent melodic note (12.4-12.6%), ahead of textbook vadi Ga (3.6-6.3%)",
+      "All 7 Kalyan thaat notes detected in the full performance",
+      "Tivra Ma clearly present (0.8-7.0%) — shuddh Ma absent or negligible",
+      "Sa dominates at 56-58% due to alaap style dwelling on tonic"
+    ]
+  },
+
+  "metadata": {
+    "version": "1.0",
+    "created_by": "analyze_raga.py",
+    "schema": "raga_rules_v1"
+  }
+}

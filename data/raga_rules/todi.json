@@ -1,0 +1,81 @@
+{
+  "raga": {
+    "name": "Todi",
+    "aliases": ["Miyan ki Todi"],
+    "thaat": "Todi",
+    "family": "Todi",
+    "jati": "Shadav-Sampoorna",
+    "description": "A profound, introspective raga with komal Re, komal Ga, tivra Ma, komal Dha, and komal Ni. Known for its gravity and depth."
+  },
+  "scale": {
+    "degrees": [0, 1, 3, 6, 7, 8, 10],
+    "svaras": ["S", "r", "g", "M'", "P", "d", "n"],
+    "svaras_full": ["Sa", "Re (komal)", "Ga (komal)", "Ma (tivra)", "Pa", "Dha (komal)", "Ni (komal)"],
+    "western_notes_sa_c": ["C", "Db", "Eb", "F#", "G", "Ab", "Bb"],
+    "note_types": {
+      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
+      "r": { "degree": 1, "type": "komal", "western": "b2 (minor 2nd)" },
+      "g": { "degree": 3, "type": "komal", "western": "b3 (minor 3rd)" },
+      "M'": { "degree": 6, "type": "tivra", "western": "#4 (augmented 4th)" },
+      "P": { "degree": 7, "type": "shuddh", "western": "5 (perfect 5th)" },
+      "d": { "degree": 8, "type": "komal", "western": "b6 (minor 6th)" },
+      "n": { "degree": 10, "type": "komal", "western": "b7 (minor 7th)" }
+    },
+    "forbidden": [
+      { "degree": 2, "svara": "R", "name": "Shuddh Re", "reason": "Todi requires komal Re." },
+      { "degree": 4, "svara": "G", "name": "Shuddh Ga", "reason": "Todi requires komal Ga." },
+      { "degree": 5, "svara": "m", "name": "Shuddh Ma", "reason": "Todi uses tivra Ma." },
+      { "degree": 9, "svara": "D", "name": "Shuddh Dha", "reason": "Todi requires komal Dha." },
+      { "degree": 11, "svara": "N", "name": "Shuddh Ni", "reason": "Todi requires komal Ni." }
+    ]
+  },
+  "movement": {
+    "aroha": "S r g M' d n S'",
+    "avaroha": "S' n d P M' g r S",
+    "aroha_degrees": [0, 1, 3, 6, 8, 10, 12],
+    "avaroha_degrees": [12, 10, 8, 7, 6, 3, 1, 0],
+    "pakad": ["r g M' d", "d n S' n d", "P M' g r S"],
+    "pakad_string": "r g M' d, d n S' n d, P M' g r S"
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 8,
+      "svara": "d",
+      "full_name": "Komal Dhaivat",
+      "western": "Ab (minor 6th, when Sa=C)",
+      "role": "King note — heavy, contemplative emphasis."
+    },
+    "samvadi": {
+      "degree": 3,
+      "svara": "g",
+      "full_name": "Komal Gandhar",
+      "western": "Eb (minor 3rd, when Sa=C)",
+      "role": "Queen note — supports Todi's somber coloration."
+    },
+    "important_notes": ["d", "g", "M'"],
+    "resting_notes": ["S", "M'", "d"]
+  },
+  "context": {
+    "time": { "prahar": "Late morning", "window": "9:00 AM – 12:00 PM", "season": "All seasons" },
+    "mood": ["Serious", "Introspective", "Devotional"],
+    "rasa": "Karuna (compassion) and Bhakti (devotion)",
+    "aesthetic": "Deep, meditative, and weighty."
+  },
+  "western_equivalent": {
+    "mode": "Phrygian #4 (approx)",
+    "key_example": "C Phrygian #4",
+    "interval_semitones": [1, 2, 3, 1, 2, 2, 1],
+    "relationship": "The raised 4th with minor 2nd/3rd yields a distinctive exotic color."
+  },
+  "genre_compatibility": {
+    "ambient": { "score": 0.8, "notes": "Slow phrases work well for meditative textures." },
+    "cinematic": { "score": 0.85, "notes": "Dramatic tension suits cinematic scoring." },
+    "downtempo": { "score": 0.78, "notes": "Moody grooves complement its depth." },
+    "lofi": { "score": 0.72, "notes": "Works best with sparse, minimal beats." }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual_seed",
+    "schema": "raga_rules_v1"
+  }
+}

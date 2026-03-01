@@ -1,0 +1,14 @@
+source_key,raga,title,url,source_platform,license_type,rights_status,expected_count,notes
+yt_yaman_bestof,yaman,Best of Raag Yaman collection,https://www.youtube.com/playlist?list=PLtEIXIv3Uf_2N2bB-pWpNvZxWN7NJJ3Wl,youtube,unknown,reference_only,,Playlist suitable for top-50 discovery; verify each item's raga purity.
+raagist_yaman,yaman,Raagist: Yaman,https://raagist.appspot.com/raags/yaman,raagist,unknown,reference_only,,Popular performances list; use for candidate discovery only.
+yt_bhairav_playlist,bhairav,Raag Bhairav (राग भैरव) Playlist,https://www.youtube.com/playlist?list=PLLXMPBeGOqcsENAQOhy-kDj2TmWQFOdBs,youtube,unknown,reference_only,,Mixed source playlist; verify raga purity per item.
+yt_bhairavi_playlist,bhairavi,Songs on Raag Bhairavi,https://www.youtube.com/playlist?list=PLctp1HwuXzZTwqwv79ybBkLQlnt2o-BfF,youtube,unknown,reference_only,,Playlist for candidate discovery.
+yt_malkauns_playlist,malkauns,Raag Malkauns,https://www.youtube.com/playlist?list=PLS4ypfAsHzSp2Uyq2pHBIAPqTwO_0XTp8,youtube,unknown,reference_only,,Playlist for Malkauns discovery.
+yt_desh_playlist,desh,Raag Des (राग देस) Playlist,https://www.youtube.com/playlist?list=PLLXMPBeGOqcs0-R05cPhoGRyYf98HB2_C,youtube,unknown,reference_only,,Playlist for Desh discovery.
+yt_bilawal_playlist,bilawal,Raag Bilawal,https://www.youtube.com/playlist?list=PLC2eT6iN-MsHzSJsVR9vOgqVtPfaZgkOo,youtube,unknown,reference_only,,Playlist for Bilawal discovery.
+yt_khamaj_playlist,khamaj,Raag Khamaj,https://www.youtube.com/playlist?list=PLjdtozybUj-93PSZgh_SdO55G5BmbjkAn,youtube,unknown,reference_only,,Playlist for Khamaj discovery.
+yt_kafi_playlist,kafi,Raag Kafi (Kapi) All Songs,https://www.youtube.com/playlist?list=PL7PTfZJ_x78nhtCR2uJNnMp1t1PqvDlWu,youtube,unknown,reference_only,,Playlist for Kafi discovery.
+yt_todi_playlist,todi,Raag Todi,https://www.youtube.com/playlist?list=PLLPRQcoHLanudsKMFdUSNZpy4Gw7gxOwn,youtube,unknown,reference_only,200,Large playlist; useful to mine top-50 candidates.
+yt_marwa_playlist,marwa,Raag Marwa,https://www.youtube.com/playlist?list=PLLXMPBeGOqctmAHk8bQ8rQu5wD4926vmM,youtube,unknown,reference_only,,Playlist for Marwa discovery.
+yt_purvi_playlist,purvi,Raga: Purvi kalyani / Poorvikalyani,https://www.youtube.com/playlist?list=PLib2_dZVr0Vq5Z915b2yooHynxLcqnj1G,youtube,unknown,reference_only,9,Verify raga match; list may include related variants.
+saregama_asavari_catalog,asavari,Saregama: Raaga Asavari songs,https://www.saregama.com/classical/hindustani_20/raaga/asavari_8928/songs,saregama,unknown,reference_only,,Catalog page; use for manual curation.

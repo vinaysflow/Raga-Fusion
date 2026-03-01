@@ -1,0 +1,134 @@
+{
+  "raga": {
+    "name": "Bhairav",
+    "aliases": ["Bhairava", "Bhairav Thaat"],
+    "thaat": "Bhairav",
+    "family": "Bhairav",
+    "jati": "Sampoorna-Sampoorna",
+    "description": "Named after Lord Shiva in his fierce aspect. The juxtaposition of komal Re and shuddh Ga, and komal Dha with shuddh Ni, creates a unique tension — majestic and awe-inspiring. One of the six principal ragas of the classical system."
+  },
+
+  "scale": {
+    "degrees": [0, 1, 4, 5, 7, 8, 11],
+    "svaras": ["S", "r", "G", "m", "P", "d", "N"],
+    "svaras_full": ["Sa", "Re (komal)", "Ga (shuddh)", "Ma (shuddh)", "Pa", "Dha (komal)", "Ni (shuddh)"],
+    "western_notes_sa_c": ["C", "Db", "E", "F", "G", "Ab", "B"],
+    "note_types": {
+      "S":  { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
+      "r":  { "degree": 1,  "type": "komal",   "western": "b2 (minor 2nd)" },
+      "G":  { "degree": 4,  "type": "shuddh",  "western": "3 (major 3rd)" },
+      "m":  { "degree": 5,  "type": "shuddh",  "western": "4 (perfect 4th)" },
+      "P":  { "degree": 7,  "type": "shuddh",  "western": "5 (perfect 5th)" },
+      "d":  { "degree": 8,  "type": "komal",   "western": "b6 (minor 6th)" },
+      "N":  { "degree": 11, "type": "shuddh",  "western": "7 (major 7th)" }
+    },
+    "forbidden": [
+      {
+        "degree": 2,
+        "svara": "R",
+        "name": "Shuddh Rishabh",
+        "reason": "Bhairav requires komal Re for its characteristic tension against shuddh Ga."
+      },
+      {
+        "degree": 9,
+        "svara": "D",
+        "name": "Shuddh Dhaivat",
+        "reason": "Bhairav requires komal Dha, mirroring the komal Re in the lower tetrachord."
+      }
+    ]
+  },
+
+  "movement": {
+    "aroha": "S r G m P d N S'",
+    "avaroha": "S' N d P m G r S",
+    "aroha_degrees": [0, 1, 4, 5, 7, 8, 11, 12],
+    "avaroha_degrees": [12, 11, 8, 7, 5, 4, 1, 0],
+    "pakad": [
+      "r G m P",
+      "G m d P",
+      "d N S' N d P"
+    ],
+    "pakad_string": "r G m P, G m d P, d N S' N d P",
+    "characteristic_phrases": [
+      { "phrase": "S r G r S",     "context": "Opening — the komal Re to shuddh Ga tension defines Bhairav instantly" },
+      { "phrase": "r G m P",       "context": "Ascending through lower tetrachord" },
+      { "phrase": "G m d P",       "context": "The leap from Ma to komal Dha — dramatic Bhairav movement" },
+      { "phrase": "d N S' N d P",  "context": "Upper register — the d-N semitone mirrors the r-G tension" },
+      { "phrase": "P m G r S",     "context": "Resolution — majestic descent to Sa" }
+    ],
+    "note_rules": {
+      "Sa_approach": "Approached from komal Re below — the semitone r→S gives Bhairav its gravity",
+      "Re_Ga_tension": "The komal Re (b2) to shuddh Ga (3) interval of 3 semitones is Bhairav's signature sound — an augmented second",
+      "Dha_Ni_mirror": "Komal Dha to shuddh Ni mirrors the Re-Ga tension in the upper register, creating symmetry",
+      "Pa_role": "Central anchor — phrases pivot around Pa between lower and upper tetrachords"
+    }
+  },
+
+  "emphasis": {
+    "vadi": {
+      "degree": 8,
+      "svara": "d",
+      "full_name": "Komal Dhaivat",
+      "western": "Ab (minor 6th, when Sa=C)",
+      "role": "King note — carries the raga's gravitas. Extended treatment in alaap with slow approaches and sustained emphasis."
+    },
+    "samvadi": {
+      "degree": 1,
+      "svara": "r",
+      "full_name": "Komal Rishabh",
+      "western": "Db (minor 2nd, when Sa=C)",
+      "role": "Queen note — the komal Re is the soul of Bhairav. Its relationship to Sa and Ga defines the raga's emotional landscape."
+    },
+    "important_notes": ["d", "r", "G", "N"],
+    "resting_notes": ["S", "G", "P", "d"]
+  },
+
+  "context": {
+    "time": {
+      "prahar": "First prahar of day",
+      "window": "6:00 AM – 9:00 AM",
+      "season": "All seasons, especially winter"
+    },
+    "mood": ["Majestic", "Serious", "Awe-inspiring", "Devotional", "Solemn"],
+    "rasa": "Vibhatsa (awe) and Bhakti (devotion) — specifically Shiva bhakti",
+    "aesthetic": "Evokes the austere beauty of dawn — the first light breaking through darkness. The augmented seconds (r-G, d-N) create a sense of gravity and ancient power."
+  },
+
+  "western_equivalent": {
+    "mode": "Double Harmonic Major",
+    "key_example": "C Double Harmonic (Byzantine)",
+    "interval_pattern": ["H", "A", "H", "W", "H", "A", "H"],
+    "interval_semitones": [1, 3, 1, 2, 1, 3, 1],
+    "relationship": "Also called the Byzantine or Arabic scale. The two augmented seconds (b2→3 and b6→7) give it a distinctly Middle Eastern/Indian sound. Used in Flamenco as the Phrygian Dominant parent scale.",
+    "common_usage": [
+      "Miserlou (Dick Dale / Pulp Fiction)",
+      "Middle Eastern and Balkan folk music",
+      "Flamenco traditions"
+    ]
+  },
+
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.75,
+      "notes": "The augmented seconds add exotic colour to lofi. Works best with slower, more contemplative beats. The gravity may clash with overly bright lofi textures."
+    },
+    "ambient": {
+      "score": 0.90,
+      "notes": "Bhairav's solemn mood translates powerfully to ambient. The komal Re and komal Dha sustained over drones create deeply evocative atmospheres."
+    },
+    "calm": {
+      "score": 0.78,
+      "notes": "Bhairav is more intense than 'calm' — but at slow tempos with careful phrasing, it achieves a profound stillness."
+    },
+    "upbeat": {
+      "score": 0.55,
+      "notes": "The serious, majestic character doesn't naturally lend itself to upbeat production, though Bhairav-based trance or psytrance can be powerful."
+    }
+  },
+
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual",
+    "schema": "raga_rules_v1"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "total_sources": 197,
+  "by_raga": {
+    "asavari": 2,
+    "bhairav": 15,
+    "bhairavi": 42,
+    "bilawal": 18,
+    "desh": 17,
+    "kafi": 7,
+    "khamaj": 4,
+    "malkauns": 5,
+    "marwa": 10,
+    "purvi": 10,
+    "todi": 49,
+    "yaman": 18
+  },
+  "by_rights_status": {
+    "ingestible": 177,
+    "reference_only": 20
+  },
+  "missing_fields": {
+    "artist": 177
+  },
+  "ingestible_missing_download_url": 177,
+  "duplicates": {
+    "source_key": [],
+    "link": []
+  },
+  "report_key": "20260301T070119Z",
+  "generated_at": "2026-03-01T07:01:19.319125+00:00"
+}

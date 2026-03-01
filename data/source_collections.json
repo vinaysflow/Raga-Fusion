@@ -1,0 +1,145 @@
+[
+  {
+    "source_key": "yt_yaman_bestof",
+    "raga": "yaman",
+    "title": "Best of Raag Yaman collection",
+    "url": "https://www.youtube.com/playlist?list=PLtEIXIv3Uf_2N2bB-pWpNvZxWN7NJJ3Wl",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist suitable for top-50 discovery; verify each item's raga purity."
+  },
+  {
+    "source_key": "raagist_yaman",
+    "raga": "yaman",
+    "title": "Raagist: Yaman",
+    "url": "https://raagist.appspot.com/raags/yaman",
+    "source_platform": "raagist",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Popular performances list; use for candidate discovery only."
+  },
+  {
+    "source_key": "yt_bhairav_playlist",
+    "raga": "bhairav",
+    "title": "Raag Bhairav (राग भैरव) Playlist",
+    "url": "https://www.youtube.com/playlist?list=PLLXMPBeGOqcsENAQOhy-kDj2TmWQFOdBs",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Mixed source playlist; verify raga purity per item."
+  },
+  {
+    "source_key": "yt_bhairavi_playlist",
+    "raga": "bhairavi",
+    "title": "Songs on Raag Bhairavi",
+    "url": "https://www.youtube.com/playlist?list=PLctp1HwuXzZTwqwv79ybBkLQlnt2o-BfF",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for candidate discovery."
+  },
+  {
+    "source_key": "yt_malkauns_playlist",
+    "raga": "malkauns",
+    "title": "Raag Malkauns",
+    "url": "https://www.youtube.com/playlist?list=PLS4ypfAsHzSp2Uyq2pHBIAPqTwO_0XTp8",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Malkauns discovery."
+  },
+  {
+    "source_key": "yt_desh_playlist",
+    "raga": "desh",
+    "title": "Raag Des (राग देस) Playlist",
+    "url": "https://www.youtube.com/playlist?list=PLLXMPBeGOqcs0-R05cPhoGRyYf98HB2_C",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Desh discovery."
+  },
+  {
+    "source_key": "yt_bilawal_playlist",
+    "raga": "bilawal",
+    "title": "Raag Bilawal",
+    "url": "https://www.youtube.com/playlist?list=PLC2eT6iN-MsHzSJsVR9vOgqVtPfaZgkOo",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Bilawal discovery."
+  },
+  {
+    "source_key": "yt_khamaj_playlist",
+    "raga": "khamaj",
+    "title": "Raag Khamaj",
+    "url": "https://www.youtube.com/playlist?list=PLjdtozybUj-93PSZgh_SdO55G5BmbjkAn",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Khamaj discovery."
+  },
+  {
+    "source_key": "yt_kafi_playlist",
+    "raga": "kafi",
+    "title": "Raag Kafi (Kapi) All Songs",
+    "url": "https://www.youtube.com/playlist?list=PL7PTfZJ_x78nhtCR2uJNnMp1t1PqvDlWu",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Kafi discovery."
+  },
+  {
+    "source_key": "yt_todi_playlist",
+    "raga": "todi",
+    "title": "Raag Todi",
+    "url": "https://www.youtube.com/playlist?list=PLLPRQcoHLanudsKMFdUSNZpy4Gw7gxOwn",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": 200,
+    "notes": "Large playlist; useful to mine top-50 candidates."
+  },
+  {
+    "source_key": "yt_marwa_playlist",
+    "raga": "marwa",
+    "title": "Raag Marwa",
+    "url": "https://www.youtube.com/playlist?list=PLLXMPBeGOqctmAHk8bQ8rQu5wD4926vmM",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Playlist for Marwa discovery."
+  },
+  {
+    "source_key": "yt_purvi_playlist",
+    "raga": "purvi",
+    "title": "Raga: Purvi kalyani / Poorvikalyani",
+    "url": "https://www.youtube.com/playlist?list=PLib2_dZVr0Vq5Z915b2yooHynxLcqnj1G",
+    "source_platform": "youtube",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": 9,
+    "notes": "Verify raga match; list may include related variants."
+  },
+  {
+    "source_key": "saregama_asavari_catalog",
+    "raga": "asavari",
+    "title": "Saregama: Raaga Asavari songs",
+    "url": "https://www.saregama.com/classical/hindustani_20/raaga/asavari_8928/songs",
+    "source_platform": "saregama",
+    "license_type": "unknown",
+    "rights_status": "reference_only",
+    "expected_count": null,
+    "notes": "Catalog page; use for manual curation."
+  }
+]

@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-03-01T07:03:29.786786+00:00",
+  "style": "lofi",
+  "duration": 60.0,
+  "source": "library",
+  "total_ragas": 12,
+  "passes": 7,
+  "pass_rate": 0.583,
+  "results": [
+    {
+      "raga": "asavari",
+      "passes": false,
+      "score": 0.0,
+      "metrics": {},
+      "violations": [
+        "No phrases selected"
+      ],
+      "total_phrases": 0,
+      "avg_authenticity": 0,
+      "avg_recommendation_score": 0
+    },
+    {
+      "raga": "bhairav",
+      "passes": true,
+      "score": 0.994,
+      "metrics": {
+        "avg_pakad_match": 0.6096,
+        "avg_vadi_emphasis": 0.1044,
+        "avg_forbidden_ratio": 0.0024,
+        "avg_scale_compliance": 0.9877
+      },
+      "violations": [],
+      "total_phrases": 19,
+      "avg_authenticity": 0.6781,
+      "avg_recommendation_score": 0.7969
+    },
+    {
+      "raga": "bhairavi",
+      "passes": false,
+      "score": 0.9778,
+      "metrics": {
+        "avg_pakad_match": 0.5125,
+        "avg_vadi_emphasis": 0.0479,
+        "avg_forbidden_ratio": 0.0056,
+        "avg_scale_compliance": 0.9285
+      },
+      "violations": [
+        "Low vadi emphasis (0.05 < 0.05): king note needs more presence"
+      ],
+      "total_phrases": 20,
+      "avg_authenticity": 0.609,
+      "avg_recommendation_score": 0.7422
+    },
+    {
+      "raga": "bilawal",
+      "passes": false,
+      "score": 0.655,
+      "metrics": {
+        "avg_pakad_match": 0.6926,
+        "avg_vadi_emphasis": 0.0202,
+        "avg_forbidden_ratio": 0.0903,
+        "avg_scale_compliance": 0.9097
+      },
+      "violations": [
+        "Low vadi emphasis (0.02 < 0.05): king note needs more presence"
+      ],
+      "total_phrases": 27,
+      "avg_authenticity": 0.5844,
+      "avg_recommendation_score": 0.7104
+    },
+    {
+      "raga": "desh",
+      "passes": true,
+      "score": 0.9879,
+      "metrics": {
+        "avg_pakad_match": 0.7739,
+        "avg_vadi_emphasis": 0.0714,
+        "avg_forbidden_ratio": 0.0048,
+        "avg_scale_compliance": 0.915
+      },
+      "violations": [],
+      "total_phrases": 23,
+      "avg_authenticity": 0.6365,
+      "avg_recommendation_score": 0.7976
+    },
+    {
+      "raga": "kafi",
+      "passes": false,
+      "score": 0.9905,
+      "metrics": {
+        "avg_pakad_match": 0.7333,
+        "avg_vadi_emphasis": 0.0476,
+        "avg_forbidden_ratio": 0.0,
+        "avg_scale_compliance": 0.9048
+      },
+      "violations": [
+        "Low vadi emphasis (0.05 < 0.05): king note needs more presence"
+      ],
+      "total_phrases": 6,
+      "avg_authenticity": 0.6216,
+      "avg_recommendation_score": 0.7224
+    },
+    {
+      "raga": "khamaj",
+      "passes": true,
+      "score": 0.887,
+      "metrics": {
+        "avg_pakad_match": 0.8,
+        "avg_vadi_emphasis": 0.0552,
+        "avg_forbidden_ratio": 0.0452,
+        "avg_scale_compliance": 0.7401
+      },
+      "violations": [],
+      "total_phrases": 19,
+      "avg_authenticity": 0.4854,
+      "avg_recommendation_score": 0.718
+    },
+    {
+      "raga": "malkauns",
+      "passes": true,
+      "score": 0.937,
+      "metrics": {
+        "avg_pakad_match": 0.6373,
+        "avg_vadi_emphasis": 0.2931,
+        "avg_forbidden_ratio": 0.0252,
+        "avg_scale_compliance": 0.7751
+      },
+      "violations": [],
+      "total_phrases": 17,
+      "avg_authenticity": 0.5272,
+      "avg_recommendation_score": 0.7105
+    },
+    {
+      "raga": "marwa",
+      "passes": true,
+      "score": 0.9866,
+      "metrics": {
+        "avg_pakad_match": 0.6118,
+        "avg_vadi_emphasis": 0.2036,
+        "avg_forbidden_ratio": 0.0053,
+        "avg_scale_compliance": 0.984
+      },
+      "violations": [],
+      "total_phrases": 17,
+      "avg_authenticity": 0.68,
+      "avg_recommendation_score": 0.7272
+    },
+    {
+      "raga": "purvi",
+      "passes": false,
+      "score": 0.75,
+      "metrics": {
+        "avg_pakad_match": 0.6071,
+        "avg_vadi_emphasis": 0.0809,
+        "avg_forbidden_ratio": 0.1413,
+        "avg_scale_compliance": 0.8215
+      },
+      "violations": [
+        "High forbidden notes (0.14 > 0.1): raga purity at risk"
+      ],
+      "total_phrases": 20,
+      "avg_authenticity": 0.5013,
+      "avg_recommendation_score": 0.692
+    },
+    {
+      "raga": "todi",
+      "passes": true,
+      "score": 0.9694,
+      "metrics": {
+        "avg_pakad_match": 0.4407,
+        "avg_vadi_emphasis": 0.1189,
+        "avg_forbidden_ratio": 0.0123,
+        "avg_scale_compliance": 0.9877
+      },
+      "violations": [],
+      "total_phrases": 27,
+      "avg_authenticity": 0.5989,
+      "avg_recommendation_score": 0.7467
+    },
+    {
+      "raga": "yaman",
+      "passes": true,
+      "score": 0.9909,
+      "metrics": {
+        "avg_pakad_match": 0.6159,
+        "avg_vadi_emphasis": 0.0906,
+        "avg_forbidden_ratio": 0.0036,
+        "avg_scale_compliance": 0.8999
+      },
+      "violations": [],
+      "total_phrases": 23,
+      "avg_authenticity": 0.541,
+      "avg_recommendation_score": 0.7553
+    }
+  ]
+}

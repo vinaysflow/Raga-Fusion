@@ -1,0 +1,132 @@
+{
+  "raga": {
+    "name": "Malkauns",
+    "aliases": ["Malkosh", "Malakaunsa"],
+    "thaat": "Bhairavi",
+    "family": "Bhairavi",
+    "jati": "Audav-Audav",
+    "description": "A pentatonic raga of immense depth and gravity. Omits Re and Pa entirely, creating a haunting, gapped scale. Associated with the deepest hours of night. Said to have the power to invoke supernatural concentration. One of the most powerful ragas in the system."
+  },
+
+  "scale": {
+    "degrees": [0, 3, 5, 8, 10],
+    "svaras": ["S", "g", "m", "d", "n"],
+    "svaras_full": ["Sa", "Ga (komal)", "Ma (shuddh)", "Dha (komal)", "Ni (komal)"],
+    "western_notes_sa_c": ["C", "Eb", "F", "Ab", "Bb"],
+    "note_types": {
+      "S": { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
+      "g": { "degree": 3,  "type": "komal",   "western": "b3 (minor 3rd)" },
+      "m": { "degree": 5,  "type": "shuddh",  "western": "4 (perfect 4th)" },
+      "d": { "degree": 8,  "type": "komal",   "western": "b6 (minor 6th)" },
+      "n": { "degree": 10, "type": "komal",   "western": "b7 (minor 7th)" }
+    },
+    "forbidden": [
+      {
+        "degree": 2,
+        "svara": "R",
+        "name": "Rishabh (any form)",
+        "reason": "Malkauns is an audav (pentatonic) raga — Re is completely absent. Its inclusion would destroy the characteristic gaps."
+      },
+      {
+        "degree": 7,
+        "svara": "P",
+        "name": "Pancham",
+        "reason": "Pa is completely absent from Malkauns. This omission is what gives the raga its unusual, otherworldly quality — the most stable interval after Sa is deliberately removed."
+      }
+    ]
+  },
+
+  "movement": {
+    "aroha": "S g m d n S'",
+    "avaroha": "S' n d m g S",
+    "aroha_degrees": [0, 3, 5, 8, 10, 12],
+    "avaroha_degrees": [12, 10, 8, 5, 3, 0],
+    "pakad": [
+      "m d n d",
+      "m g S",
+      "g m g S n S"
+    ],
+    "pakad_string": "m d n d, m g S, g m g S n S",
+    "characteristic_phrases": [
+      { "phrase": "S g m g S",     "context": "Opening — oscillation around Sa through komal Ga" },
+      { "phrase": "m d n d m g",   "context": "The definitive Malkauns phrase — ascent and immediate descent around komal Dha" },
+      { "phrase": "g m g S n S",   "context": "Resolution phrase — the low Ni approaching Sa from below is haunting" },
+      { "phrase": "d n S' n d",    "context": "Upper register — brief touch of upper Sa before retreating" },
+      { "phrase": "n d m g S",     "context": "Full descent — the pentatonic steps create a meditative gravity" }
+    ],
+    "note_rules": {
+      "Sa_approach": "Approached from komal Ga above (g S) or komal Ni below (n S) — both create characteristic Malkauns tension",
+      "Ma_treatment": "The most important note — acts as the gravitational centre since Pa is absent",
+      "absence_of_Pa": "The deliberate omission of Pa removes the strongest consonance after the octave, making every phrase feel suspended and searching",
+      "pentatonic_character": "The wide gaps between notes (minor 3rds) give Malkauns its spacious, meditative quality"
+    }
+  },
+
+  "emphasis": {
+    "vadi": {
+      "degree": 5,
+      "svara": "m",
+      "full_name": "Shuddh Madhyam",
+      "western": "F (perfect 4th, when Sa=C)",
+      "role": "King note — Ma becomes the anchor since Pa is absent. Receives the deepest, most sustained treatment."
+    },
+    "samvadi": {
+      "degree": 0,
+      "svara": "S",
+      "full_name": "Shadja",
+      "western": "C (root, when Sa=C)",
+      "role": "Queen note — Sa serves as the resolution point. The Ma→Sa axis is the emotional spine of Malkauns."
+    },
+    "important_notes": ["m", "g", "d"],
+    "resting_notes": ["S", "m", "d"]
+  },
+
+  "context": {
+    "time": {
+      "prahar": "Third prahar of night",
+      "window": "12:00 AM – 3:00 AM",
+      "season": "All seasons, especially deep winter"
+    },
+    "mood": ["Serious", "Meditative", "Introspective", "Haunting", "Profound"],
+    "rasa": "Veera (heroic) and Shanta (peace) — the stillness of deep concentration",
+    "aesthetic": "Evokes the absolute stillness of deep night — the hour when the world sleeps and the mind turns inward. The pentatonic gaps create a sense of vast, empty space."
+  },
+
+  "western_equivalent": {
+    "mode": "Minor Pentatonic (variant)",
+    "key_example": "C minor pentatonic (C Eb F Ab Bb)",
+    "interval_pattern": ["m3", "W", "m3", "W"],
+    "interval_semitones": [3, 2, 3, 2],
+    "relationship": "Closely related to the minor pentatonic used universally in blues, rock, and folk music worldwide. The specific pattern (1 b3 4 b6 b7) is the same as the Japanese Yo scale and appears in many world music traditions.",
+    "common_pentatonic_songs": [
+      "My Girl (The Temptations)",
+      "Stairway to Heaven solo (Led Zeppelin)",
+      "Pentatonic blues licks across all guitar traditions"
+    ]
+  },
+
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.92,
+      "notes": "Minor pentatonic is the backbone of hip-hop melody. Malkauns maps perfectly to lofi's introspective mood. The absence of Pa creates a haunting, unresolved quality ideal for late-night beats."
+    },
+    "ambient": {
+      "score": 0.97,
+      "notes": "Perhaps the single most ambient-compatible raga. The pentatonic spaciousness, the meditative mood, the deep-night association — all align perfectly with ambient aesthetics."
+    },
+    "calm": {
+      "score": 0.85,
+      "notes": "Deeply calm, but with an intensity that goes beyond mere relaxation. Works for meditation and deep focus tracks."
+    },
+    "upbeat": {
+      "score": 0.45,
+      "notes": "Malkauns is fundamentally a raga of stillness and depth. Upbeat treatment would fight against its nature."
+    }
+  },
+
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual",
+    "schema": "raga_rules_v1"
+  }
+}

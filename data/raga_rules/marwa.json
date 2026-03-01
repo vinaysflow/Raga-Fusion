@@ -1,0 +1,80 @@
+{
+  "raga": {
+    "name": "Marwa",
+    "aliases": ["Marva"],
+    "thaat": "Marwa",
+    "family": "Marwa",
+    "jati": "Shadav-Shadav",
+    "description": "A tense, contemplative raga with komal Re and tivra Ma, typically omitting Pa. Known for its austere, searching character."
+  },
+  "scale": {
+    "degrees": [0, 1, 4, 6, 9, 11],
+    "svaras": ["S", "r", "G", "M'", "D", "N"],
+    "svaras_full": ["Sa", "Re (komal)", "Ga (shuddh)", "Ma (tivra)", "Dha (shuddh)", "Ni (shuddh)"],
+    "western_notes_sa_c": ["C", "Db", "E", "F#", "A", "B"],
+    "note_types": {
+      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
+      "r": { "degree": 1, "type": "komal", "western": "b2 (minor 2nd)" },
+      "G": { "degree": 4, "type": "shuddh", "western": "3 (major 3rd)" },
+      "M'": { "degree": 6, "type": "tivra", "western": "#4 (augmented 4th)" },
+      "D": { "degree": 9, "type": "shuddh", "western": "6 (major 6th)" },
+      "N": { "degree": 11, "type": "shuddh", "western": "7 (major 7th)" }
+    },
+    "forbidden": [
+      { "degree": 7, "svara": "P", "name": "Pa", "reason": "Marwa typically omits Pa; its absence is a key color." },
+      { "degree": 2, "svara": "R", "name": "Shuddh Re", "reason": "Marwa requires komal Re." },
+      { "degree": 5, "svara": "m", "name": "Shuddh Ma", "reason": "Marwa uses tivra Ma." },
+      { "degree": 8, "svara": "d", "name": "Komal Dha", "reason": "Marwa uses shuddh Dha." },
+      { "degree": 10, "svara": "n", "name": "Komal Ni", "reason": "Marwa uses shuddh Ni." }
+    ]
+  },
+  "movement": {
+    "aroha": "S r G M' D N S'",
+    "avaroha": "S' N D M' G r S",
+    "aroha_degrees": [0, 1, 4, 6, 9, 11, 12],
+    "avaroha_degrees": [12, 11, 9, 6, 4, 1, 0],
+    "pakad": ["r G M' D", "D N S' N D", "M' G r S"],
+    "pakad_string": "r G M' D, D N S' N D, M' G r S"
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 1,
+      "svara": "r",
+      "full_name": "Komal Rishabh",
+      "western": "Db (minor 2nd, when Sa=C)",
+      "role": "King note — defines Marwa's tension."
+    },
+    "samvadi": {
+      "degree": 9,
+      "svara": "D",
+      "full_name": "Shuddh Dhaivat",
+      "western": "A (major 6th, when Sa=C)",
+      "role": "Queen note — balances the vadi in the upper register."
+    },
+    "important_notes": ["r", "M'", "D"],
+    "resting_notes": ["r", "D"]
+  },
+  "context": {
+    "time": { "prahar": "Late afternoon", "window": "3:00 PM – 6:00 PM", "season": "All seasons" },
+    "mood": ["Serious", "Pensive", "Austere"],
+    "rasa": "Vairagya (detachment)",
+    "aesthetic": "Unresolved, searching, and intense."
+  },
+  "western_equivalent": {
+    "mode": "Lydian b2 (approx)",
+    "key_example": "C Lydian b2",
+    "interval_semitones": [1, 3, 2, 3, 2, 1],
+    "relationship": "Raised 4th with a minor 2nd gives Marwa its tension."
+  },
+  "genre_compatibility": {
+    "cinematic": { "score": 0.88, "notes": "Tension suits dramatic scoring." },
+    "ambient": { "score": 0.75, "notes": "Works for introspective soundscapes." },
+    "downtempo": { "score": 0.7, "notes": "Best with sparse, moody grooves." },
+    "electronic": { "score": 0.72, "notes": "Works in minimal or experimental settings." }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual_seed",
+    "schema": "raga_rules_v1"
+  }
+}

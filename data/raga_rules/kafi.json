@@ -1,0 +1,79 @@
+{
+  "raga": {
+    "name": "Kafi",
+    "aliases": ["Kaffi"],
+    "thaat": "Kafi",
+    "family": "Kafi",
+    "jati": "Sampoorna-Sampoorna",
+    "description": "A gentle, folk-inflected raga with komal Ga and komal Ni. Often evokes softness, intimacy, and the mood of spring."
+  },
+  "scale": {
+    "degrees": [0, 2, 3, 5, 7, 9, 10],
+    "svaras": ["S", "R", "g", "m", "P", "D", "n"],
+    "svaras_full": ["Sa", "Re", "Ga (komal)", "Ma (shuddh)", "Pa", "Dha", "Ni (komal)"],
+    "western_notes_sa_c": ["C", "D", "Eb", "F", "G", "A", "Bb"],
+    "note_types": {
+      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
+      "R": { "degree": 2, "type": "shuddh", "western": "2 (major 2nd)" },
+      "g": { "degree": 3, "type": "komal", "western": "b3 (minor 3rd)" },
+      "m": { "degree": 5, "type": "shuddh", "western": "4 (perfect 4th)" },
+      "P": { "degree": 7, "type": "shuddh", "western": "5 (perfect 5th)" },
+      "D": { "degree": 9, "type": "shuddh", "western": "6 (major 6th)" },
+      "n": { "degree": 10, "type": "komal", "western": "b7 (minor 7th)" }
+    },
+    "forbidden": [
+      { "degree": 4, "svara": "G", "name": "Shuddh Ga", "reason": "Kafi requires komal Ga." },
+      { "degree": 11, "svara": "N", "name": "Shuddh Ni", "reason": "Kafi requires komal Ni." },
+      { "degree": 6, "svara": "M'", "name": "Tivra Ma", "reason": "Kafi uses shuddh Ma." }
+    ]
+  },
+  "movement": {
+    "aroha": "S R g m P D n S'",
+    "avaroha": "S' n D P m g R S",
+    "aroha_degrees": [0, 2, 3, 5, 7, 9, 10, 12],
+    "avaroha_degrees": [12, 10, 9, 7, 5, 3, 2, 0],
+    "pakad": ["g m P", "D n S' n D", "P m g R S"],
+    "pakad_string": "g m P, D n S' n D, P m g R S"
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 7,
+      "svara": "P",
+      "full_name": "Pa",
+      "western": "G (perfect 5th, when Sa=C)",
+      "role": "King note — provides stability and rest."
+    },
+    "samvadi": {
+      "degree": 0,
+      "svara": "S",
+      "full_name": "Sa",
+      "western": "C (root, when Sa=C)",
+      "role": "Queen note — tonic anchor."
+    },
+    "important_notes": ["P", "g", "n"],
+    "resting_notes": ["S", "P"]
+  },
+  "context": {
+    "time": { "prahar": "Second prahar of day", "window": "9:00 AM – 12:00 PM", "season": "Spring" },
+    "mood": ["Soft", "Intimate", "Playful"],
+    "rasa": "Shringara (romance)",
+    "aesthetic": "Gentle, folk-like, and warm."
+  },
+  "western_equivalent": {
+    "mode": "Dorian",
+    "key_example": "C Dorian",
+    "interval_semitones": [2, 1, 2, 2, 2, 1, 2],
+    "relationship": "Kafi maps to the Dorian mode (minor 3rd with major 6th)."
+  },
+  "genre_compatibility": {
+    "lofi": { "score": 0.88, "notes": "Soft minor color suits relaxed beats." },
+    "ambient": { "score": 0.86, "notes": "Gentle phrasing works with long pads." },
+    "jazz_fusion": { "score": 0.78, "notes": "Dorian aligns with modal jazz harmony." },
+    "chillhop": { "score": 0.84, "notes": "Folk-inflected feel pairs with jazzy rhythms." }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual_seed",
+    "schema": "raga_rules_v1"
+  }
+}

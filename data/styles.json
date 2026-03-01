@@ -1,0 +1,135 @@
+{
+  "lofi": {
+    "bpm": 75,
+    "melody": 0.60,
+    "drums": 0.20,
+    "bass": 0.20,
+    "crackle": true,
+    "drum_pattern": "lofi",
+    "bass_pattern": "root_fifth",
+    "fx": ["crackle"],
+    "description": "Mellow beats, warm bass, vinyl texture"
+  },
+  "ambient": {
+    "bpm": 60,
+    "melody": 0.75,
+    "drums": 0.08,
+    "bass": 0.17,
+    "crackle": true,
+    "drum_pattern": "minimal",
+    "bass_pattern": "drone",
+    "fx": ["crackle", "pad"],
+    "description": "Sparse drums, melody forward, meditative"
+  },
+  "calm": {
+    "bpm": 70,
+    "melody": 0.65,
+    "drums": 0.15,
+    "bass": 0.20,
+    "crackle": true,
+    "drum_pattern": "lofi",
+    "bass_pattern": "root_fifth",
+    "fx": ["crackle"],
+    "description": "Balanced, relaxed, evening mood"
+  },
+  "upbeat": {
+    "bpm": 85,
+    "melody": 0.55,
+    "drums": 0.25,
+    "bass": 0.20,
+    "crackle": false,
+    "drum_pattern": "lofi",
+    "bass_pattern": "root_fifth",
+    "fx": [],
+    "description": "More drums, brighter energy"
+  },
+
+  "chillhop": {
+    "bpm": 85,
+    "melody": 0.55,
+    "drums": 0.22,
+    "bass": 0.23,
+    "crackle": true,
+    "drum_pattern": "jazzy",
+    "bass_pattern": "walking",
+    "fx": ["crackle"],
+    "description": "Jazzy swing drums, walking bass, warm vinyl — the coffeehouse vibe"
+  },
+  "trap": {
+    "bpm": 140,
+    "melody": 0.40,
+    "drums": 0.30,
+    "bass": 0.30,
+    "crackle": false,
+    "drum_pattern": "trap",
+    "bass_pattern": "sub_808",
+    "fx": ["sidechain"],
+    "description": "Hard 808s, hi-hat rolls, sparse kicks — raga meets Atlanta"
+  },
+  "bass_house": {
+    "bpm": 128,
+    "melody": 0.40,
+    "drums": 0.28,
+    "bass": 0.32,
+    "crackle": false,
+    "drum_pattern": "four_on_floor",
+    "bass_pattern": "wobble",
+    "fx": ["sidechain"],
+    "description": "4-on-floor kick, wobble bass, club energy — Nucleya / Ritviz territory"
+  },
+  "psytrance": {
+    "bpm": 145,
+    "melody": 0.35,
+    "drums": 0.30,
+    "bass": 0.35,
+    "crackle": false,
+    "drum_pattern": "driving",
+    "bass_pattern": "driving",
+    "fx": ["sidechain"],
+    "description": "Relentless 16th bass, driving kick, psychedelic energy"
+  },
+  "downtempo": {
+    "bpm": 95,
+    "melody": 0.55,
+    "drums": 0.20,
+    "bass": 0.25,
+    "crackle": false,
+    "drum_pattern": "organic",
+    "bass_pattern": "walking",
+    "fx": ["delay", "pad"],
+    "description": "Organic drums, spacious mix, Anoushka Shankar vibes"
+  },
+  "jazz_fusion": {
+    "bpm": 110,
+    "melody": 0.50,
+    "drums": 0.22,
+    "bass": 0.28,
+    "crackle": false,
+    "drum_pattern": "jazzy",
+    "bass_pattern": "walking",
+    "fx": [],
+    "description": "Brushed drums, walking bass through raga scale, modal jazz meets raga"
+  },
+  "cinematic": {
+    "bpm": 80,
+    "melody": 0.50,
+    "drums": 0.12,
+    "bass": 0.18,
+    "crackle": false,
+    "drum_pattern": "minimal",
+    "bass_pattern": "drone",
+    "fx": ["delay", "pad"],
+    "description": "Orchestral pads, minimal percussion, film trailer depth"
+  },
+  "reggae_dub": {
+    "bpm": 72,
+    "melody": 0.50,
+    "drums": 0.22,
+    "bass": 0.28,
+    "crackle": false,
+    "drum_pattern": "offbeat",
+    "bass_pattern": "root_fifth",
+    "fx": ["delay"],
+    "description": "Offbeat skanks, deep bass, dub delay — raga riddims"
+  }
+}
