@@ -1,0 +1,227 @@
+[
+  {
+    "raga_name": "yaman",
+    "arc_profile": { "alap_ratio": 0.28, "peak_position_ratio": 0.65, "peak_ceiling": 0.78, "opening_energy": 0.32 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.90, "notes": "Lydian mode with sharp Ma aligns perfectly with modal jazz; serene romantic mood supports cool improvisation and extended harmonies." },
+      "cinematic": { "score": 0.80, "notes": "Uplifting devotional quality suits emotional orchestral swells and sunset scenes." },
+      "downtempo": { "score": 0.75, "notes": "Bright phrases breathe well in spacious 80-100 BPM organic mixes." },
+      "electronic": { "score": 0.85, "notes": "Clean intervals and teevra Ma loop elegantly on synths at 120-140 BPM; proven in disco reworks." },
+      "chillhop": { "score": 0.88, "notes": "Melodic warmth pairs naturally with jazzy drums and vinyl crackle." },
+      "reggae_dub": { "score": 0.70, "notes": "Romantic lift works with offbeat skanks, though higher register needs deep bass anchoring." },
+      "trap": { "score": 0.75, "notes": "Uplifting phrases make strong melodic hooks over 808s." },
+      "rock": { "score": 0.75, "notes": "Bright energy translates to guitar leads with drive." }
+    },
+    "fusion_notes": "Teevra Ma shines in fusion but avoid over-flattening; phrases survive tempo acceleration well."
+  },
+  {
+    "raga_name": "bhairavi",
+    "arc_profile": { "alap_ratio": 0.30, "peak_position_ratio": 0.55, "peak_ceiling": 0.80, "opening_energy": 0.25 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.85, "notes": "Phrygian-inflected scale offers exotic tension for modal solos; melancholic compassion fits bluesy feels." },
+      "cinematic": { "score": 0.90, "notes": "Deep emotional pathos ideal for dramatic scoring and closers." },
+      "downtempo": { "score": 0.85, "notes": "Versatile komal palette creates intimate organic grooves." },
+      "electronic": { "score": 0.80, "notes": "Proven in electronic disco; all-komal phrases adapt to synth arps." },
+      "chillhop": { "score": 0.82, "notes": "Melancholic lines pair with walking bass warmth." },
+      "reggae_dub": { "score": 0.75, "notes": "Compassionate mood suits dub delay and deep bass." },
+      "trap": { "score": 0.70, "notes": "Versatile hooks work but keep ornamentation subtle." },
+      "rock": { "score": 0.72, "notes": "Emotional weight adds power-ballad depth." }
+    },
+    "fusion_notes": "Often used as closer; all-komal palette allows flexible reharmonization; survives acceleration better than heavier ragas."
+  },
+  {
+    "raga_name": "darbari_kanada",
+    "arc_profile": { "alap_ratio": 0.42, "peak_position_ratio": 0.68, "peak_ceiling": 0.67, "opening_energy": 0.20 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.75, "notes": "Natural-minor feel with andolan suits slow blues/jazz, but gravity limits fast improv." },
+      "cinematic": { "score": 0.92, "notes": "Majestic somber depth perfect for epic orchestral tension." },
+      "downtempo": { "score": 0.88, "notes": "Patient exploration thrives in spacious organic mixes." },
+      "electronic": { "score": 0.45, "notes": "Heavy andolan loses character above 100 BPM; better at slower house." },
+      "chillhop": { "score": 0.78, "notes": "Somber lines add vinyl-depth melancholy." },
+      "reggae_dub": { "score": 0.80, "notes": "Low-register gravity anchors deep dub bass perfectly." },
+      "trap": { "score": 0.40, "notes": "Grave mood clashes with aggressive hi-hats; too patient for rolls." },
+      "rock": { "score": 0.55, "notes": "Majestic power works in slow heavy riffs, not fast punk." }
+    },
+    "fusion_notes": "Heavy andolan (oscillation) on komal Ga and komal Dha does not survive tempo acceleration above ~90 BPM; substitute with slow meend or gamak in faster genres."
+  },
+  {
+    "raga_name": "malkauns",
+    "arc_profile": { "alap_ratio": 0.40, "peak_position_ratio": 0.70, "peak_ceiling": 0.66, "opening_energy": 0.21 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.80, "notes": "Pentatonic minor variant offers spacious modal freedom." },
+      "cinematic": { "score": 0.90, "notes": "Haunting meditative quality for profound scenes." },
+      "downtempo": { "score": 0.90, "notes": "Wide note gaps create natural spaciousness." },
+      "electronic": { "score": 0.85, "notes": "Proven in disco; pentatonic phrases loop cleanly on synths." },
+      "chillhop": { "score": 0.85, "notes": "Meditative lines pair beautifully with jazzy swing." },
+      "reggae_dub": { "score": 0.78, "notes": "Deep haunting suits dub echoes and bass." },
+      "trap": { "score": 0.78, "notes": "Pentatonic hooks cut through 808s effectively." },
+      "rock": { "score": 0.65, "notes": "Haunting atmosphere works in atmospheric rock." }
+    },
+    "fusion_notes": "Pentatonic (no Re, no Pa) creates wide gaps ideal for ambient pads and electronic layering; emphasize madhyam as vadi."
+  },
+  {
+    "raga_name": "bageshree",
+    "arc_profile": { "alap_ratio": 0.35, "peak_position_ratio": 0.64, "peak_ceiling": 0.73, "opening_energy": 0.27 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.85, "notes": "Dorian-like with sweet komal Ga/Ma for intimate modal play." },
+      "cinematic": { "score": 0.82, "notes": "Soft melancholy for tender emotional scoring." },
+      "downtempo": { "score": 0.85, "notes": "Intimate romantic flow in organic drums." },
+      "electronic": { "score": 0.70, "notes": "Melodic phrases adapt but keep mid-tempo." },
+      "chillhop": { "score": 0.87, "notes": "Sweet melancholy ideal for warm jazzy beats." },
+      "reggae_dub": { "score": 0.72, "notes": "Romantic softness fits relaxed skanks." },
+      "trap": { "score": 0.65, "notes": "Intimate lines can serve subtle hooks." },
+      "rock": { "score": 0.60, "notes": "Soft character better in ballad rock." }
+    },
+    "fusion_notes": "Komal Ga and Ma provide sweet melancholy; preserve in slower fusion sections."
+  },
+  {
+    "raga_name": "bhairav",
+    "arc_profile": { "alap_ratio": 0.34, "peak_position_ratio": 0.63, "peak_ceiling": 0.76, "opening_energy": 0.24 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.80, "notes": "Double-harmonic exotic tension for adventurous modal jazz." },
+      "cinematic": { "score": 0.88, "notes": "Majestic solemn power for dramatic tension." },
+      "downtempo": { "score": 0.78, "notes": "Weighty phrases suit spacious mixes." },
+      "electronic": { "score": 0.65, "notes": "Augmented seconds add edge to synths at moderate BPM." },
+      "chillhop": { "score": 0.70, "notes": "Solemn lines add depth to chill grooves." },
+      "reggae_dub": { "score": 0.68, "notes": "Powerful mood anchors deep bass." },
+      "trap": { "score": 0.60, "notes": "Exotic tension for dark trap hooks." },
+      "rock": { "score": 0.75, "notes": "Exotic intervals drive guitar riffs." }
+    },
+    "fusion_notes": "Komal Re and Dha create augmented seconds; highlight for exotic rock/electronic flavor."
+  },
+  {
+    "raga_name": "bhoopali",
+    "arc_profile": { "alap_ratio": 0.24, "peak_position_ratio": 0.61, "peak_ceiling": 0.81, "opening_energy": 0.36 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.88, "notes": "Major pentatonic simplicity allows open jazz improvisation." },
+      "cinematic": { "score": 0.75, "notes": "Bright serenity for hopeful or pastoral scenes." },
+      "downtempo": { "score": 0.72, "notes": "Clean open intervals breathe in organic settings." },
+      "electronic": { "score": 0.82, "notes": "Proven in disco; simple phrases loop perfectly." },
+      "chillhop": { "score": 0.90, "notes": "Bright clean melodies perfect with vinyl warmth." },
+      "reggae_dub": { "score": 0.68, "notes": "Serene uplift works with offbeat rhythm." },
+      "trap": { "score": 0.80, "notes": "Catchy pentatonic hooks shine over beats." },
+      "rock": { "score": 0.78, "notes": "Bright energy translates to uplifting guitar." }
+    },
+    "fusion_notes": "Clean pentatonic (no Ma, no Ni) offers open intervals; highly adaptable to Western harmony."
+  },
+  {
+    "raga_name": "todi",
+    "arc_profile": { "alap_ratio": 0.39, "peak_position_ratio": 0.67, "peak_ceiling": 0.69, "opening_energy": 0.22 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.70, "notes": "Exotic Phrygian#4 for adventurous modal work." },
+      "cinematic": { "score": 0.88, "notes": "Deep pathos for intense emotional depth." },
+      "downtempo": { "score": 0.85, "notes": "Meditative weight in spacious mixes." },
+      "electronic": { "score": 0.75, "notes": "Proven in electronic; tivra Ma adds color." },
+      "chillhop": { "score": 0.75, "notes": "Serious lines add sophisticated melancholy." },
+      "reggae_dub": { "score": 0.65, "notes": "Weighty mood fits deep dub." },
+      "trap": { "score": 0.60, "notes": "Exotic phrases for dark hooks." },
+      "rock": { "score": 0.65, "notes": "Pathos suits atmospheric rock." }
+    },
+    "fusion_notes": "Komal Re/Ga/Dha + tivra Ma create unique tension; preserve in slower sections."
+  },
+  {
+    "raga_name": "desh",
+    "arc_profile": { "alap_ratio": 0.23, "peak_position_ratio": 0.62, "peak_ceiling": 0.83, "opening_energy": 0.37 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.92, "notes": "Mixolydian warmth with komal Ni ideal for funky modal jazz." },
+      "cinematic": { "score": 0.78, "notes": "Playful romantic for lighter narrative scoring." },
+      "downtempo": { "score": 0.70, "notes": "Light phrases in organic grooves." },
+      "electronic": { "score": 0.80, "notes": "Upbeat character survives 4-on-floor." },
+      "chillhop": { "score": 0.85, "notes": "Playful warmth with swing drums." },
+      "reggae_dub": { "score": 0.75, "notes": "Romantic playful fits skank rhythm." },
+      "trap": { "score": 0.72, "notes": "Light hooks over hard beats." },
+      "rock": { "score": 0.80, "notes": "Most naturally upbeat; strong guitar energy." }
+    },
+    "fusion_notes": "Komal Ni as color note; naturally upbeat—easiest for high-energy fusions."
+  },
+  {
+    "raga_name": "kafi",
+    "arc_profile": { "alap_ratio": 0.31, "peak_position_ratio": 0.65, "peak_ceiling": 0.74, "opening_energy": 0.29 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.88, "notes": "Dorian with komal Ga/Ni for bittersweet modal improv." },
+      "cinematic": { "score": 0.80, "notes": "Folk-inflected romance for storytelling." },
+      "downtempo": { "score": 0.78, "notes": "Bittersweet in organic drums." },
+      "electronic": { "score": 0.70, "notes": "Folk phrases adapt at moderate BPM." },
+      "chillhop": { "score": 0.85, "notes": "Jazzy folk warmth perfect." },
+      "reggae_dub": { "score": 0.72, "notes": "Romantic folk suits dub." },
+      "trap": { "score": 0.65, "notes": "Bittersweet hooks possible." },
+      "rock": { "score": 0.70, "notes": "Folk energy for roots-rock." }
+    },
+    "fusion_notes": "Folk-inflected; komal Ga/Ni give bluesy quality—enhances jazz/rock."
+  },
+  {
+    "raga_name": "khamaj",
+    "arc_profile": { "alap_ratio": 0.25, "peak_position_ratio": 0.63, "peak_ceiling": 0.79, "opening_energy": 0.35 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.90, "notes": "Mixolydian lightness for swinging improv." },
+      "cinematic": { "score": 0.75, "notes": "Light playful for upbeat scenes." },
+      "downtempo": { "score": 0.72, "notes": "Romantic in spacious mix." },
+      "electronic": { "score": 0.78, "notes": "Playful phrases on synths." },
+      "chillhop": { "score": 0.82, "notes": "Light warmth with vinyl." },
+      "reggae_dub": { "score": 0.75, "notes": "Playful skank compatibility." },
+      "trap": { "score": 0.68, "notes": "Light hooks." },
+      "rock": { "score": 0.78, "notes": "Playful energy for rock." }
+    },
+    "fusion_notes": "Similar to Desh; thumri lightness favors lighter genres."
+  },
+  {
+    "raga_name": "marwa",
+    "arc_profile": { "alap_ratio": 0.37, "peak_position_ratio": 0.69, "peak_ceiling": 0.71, "opening_energy": 0.23 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.75, "notes": "Lydian b2 dissonance for tense modal jazz." },
+      "cinematic": { "score": 0.85, "notes": "Restless unsettled for suspense." },
+      "downtempo": { "score": 0.70, "notes": "Tension in spacious settings." },
+      "electronic": { "score": 0.60, "notes": "Dissonance adds edge but needs careful pacing." },
+      "chillhop": { "score": 0.65, "notes": "Tense for moody chill." },
+      "reggae_dub": { "score": 0.55, "notes": "Restless mood less relaxed." },
+      "trap": { "score": 0.70, "notes": "Tension for dark trap." },
+      "rock": { "score": 0.80, "notes": "Unsettled energy drives rock riffs." }
+    },
+    "fusion_notes": "Avoids Pa entirely—bass lines must avoid standard V chord; komal Re + tivra Ma dissonance needs special harmonic treatment."
+  },
+  {
+    "raga_name": "purvi",
+    "arc_profile": { "alap_ratio": 0.36, "peak_position_ratio": 0.66, "peak_ceiling": 0.72, "opening_energy": 0.24 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.65, "notes": "Complex Lydian b2 b6 chromaticism for advanced modal work." },
+      "cinematic": { "score": 0.87, "notes": "Devotional tense grandeur for epic scores." },
+      "downtempo": { "score": 0.75, "notes": "Complex in organic depth." },
+      "electronic": { "score": 0.55, "notes": "Chromatic phrases challenge fast synths." },
+      "chillhop": { "score": 0.68, "notes": "Tense for sophisticated chill." },
+      "reggae_dub": { "score": 0.60, "notes": "Devotional weight fits dub." },
+      "trap": { "score": 0.50, "notes": "Complexity less hooky." },
+      "rock": { "score": 0.70, "notes": "Tension for progressive rock." }
+    },
+    "fusion_notes": "Komal Re + tivra Ma + komal Dha create chromatic complexity; best in mid-tempo fusion to retain character."
+  },
+  {
+    "raga_name": "bilawal",
+    "arc_profile": { "alap_ratio": 0.26, "peak_position_ratio": 0.62, "peak_ceiling": 0.80, "opening_energy": 0.34 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.85, "notes": "Plain major scale for straightforward major-key jazz." },
+      "cinematic": { "score": 0.78, "notes": "Bright stable for uplifting or heroic themes." },
+      "downtempo": { "score": 0.70, "notes": "Clear flow in organic." },
+      "electronic": { "score": 0.80, "notes": "Western major compatibility." },
+      "chillhop": { "score": 0.82, "notes": "Stable brightness with warmth." },
+      "reggae_dub": { "score": 0.70, "notes": "Bright uplift." },
+      "trap": { "score": 0.75, "notes": "Catchy major hooks." },
+      "rock": { "score": 0.82, "notes": "Stable energy for classic rock." }
+    },
+    "fusion_notes": "Essentially Ionian/major; easiest Western harmonic integration."
+  },
+  {
+    "raga_name": "asavari",
+    "arc_profile": { "alap_ratio": 0.33, "peak_position_ratio": 0.65, "peak_ceiling": 0.70, "opening_energy": 0.25 },
+    "genre_compatibility_additions": {
+      "jazz_fusion": { "score": 0.80, "notes": "Aeolian/natural minor for blues/minor jazz." },
+      "cinematic": { "score": 0.85, "notes": "Somber pathos for reflective drama." },
+      "downtempo": { "score": 0.80, "notes": "Reflective in spacious." },
+      "electronic": { "score": 0.65, "notes": "Minor phrases at moderate BPM." },
+      "chillhop": { "score": 0.78, "notes": "Pathos with jazzy warmth." },
+      "reggae_dub": { "score": 0.72, "notes": "Somber depth in dub." },
+      "trap": { "score": 0.68, "notes": "Minor hooks for dark trap." },
+      "rock": { "score": 0.75, "notes": "Pathos in minor rock." }
+    },
+    "fusion_notes": "Natural minor feel; strong for blues/rock minor-pentatonic extensions."
+  }
+]

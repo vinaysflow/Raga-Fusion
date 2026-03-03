@@ -1,26 +1,88 @@
 {
   "raga": {
     "name": "Desh",
-    "aliases": ["Des", "Desh Malhar"],
+    "aliases": [
+      "Des",
+      "Desh Malhar"
+    ],
     "thaat": "Khamaj",
     "family": "Khamaj",
     "jati": "Audav-Sampoorna",
     "description": "The raga of the monsoon and patriotic songs. Light, romantic, and playful — a favourite for film music and thumri. Uses komal Ni in descent and shuddh Ni in ascent in some interpretations, but the primary form uses komal Ni throughout. Associated with rain, longing, and homecoming."
   },
-
   "scale": {
-    "degrees": [0, 2, 4, 5, 7, 9, 10],
-    "svaras": ["S", "R", "G", "m", "P", "D", "n"],
-    "svaras_full": ["Sa", "Re (shuddh)", "Ga (shuddh)", "Ma (shuddh)", "Pa", "Dha (shuddh)", "Ni (komal)"],
-    "western_notes_sa_c": ["C", "D", "E", "F", "G", "A", "Bb"],
+    "degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "G",
+      "m",
+      "P",
+      "D",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (shuddh)",
+      "Ga (shuddh)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (shuddh)",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "A",
+      "Bb"
+    ],
     "note_types": {
-      "S": { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
-      "R": { "degree": 2,  "type": "shuddh",  "western": "2 (major 2nd)" },
-      "G": { "degree": 4,  "type": "shuddh",  "western": "3 (major 3rd)" },
-      "m": { "degree": 5,  "type": "shuddh",  "western": "4 (perfect 4th)" },
-      "P": { "degree": 7,  "type": "shuddh",  "western": "5 (perfect 5th)" },
-      "D": { "degree": 9,  "type": "shuddh",  "western": "6 (major 6th)" },
-      "n": { "degree": 10, "type": "komal",   "western": "b7 (minor 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "G": {
+        "degree": 4,
+        "type": "shuddh",
+        "western": "3 (major 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "D": {
+        "degree": 9,
+        "type": "shuddh",
+        "western": "6 (major 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
     },
     "forbidden": [
       {
@@ -37,12 +99,29 @@
       }
     ]
   },
-
   "movement": {
     "aroha": "S R G m P D n S'",
     "avaroha": "S' n D P m G R S",
-    "aroha_degrees": [0, 2, 4, 5, 7, 9, 10, 12],
-    "avaroha_degrees": [12, 10, 9, 7, 5, 4, 2, 0],
+    "aroha_degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "pakad": [
       "R G m P",
       "D n S'",
@@ -50,11 +129,26 @@
     ],
     "pakad_string": "R G m P, D n S', n D P m G",
     "characteristic_phrases": [
-      { "phrase": "S R G m P",   "context": "Opening — bright, optimistic ascent" },
-      { "phrase": "R G m P D",   "context": "Continuous ascending movement — building momentum" },
-      { "phrase": "D n S' n D",  "context": "Upper register — the komal Ni to Sa movement is signature Desh" },
-      { "phrase": "n D P m G",   "context": "Descending phrase — the komal Ni lends a wistful quality" },
-      { "phrase": "G m P D n S'","context": "Full ascending phrase — captures the joyful, expansive Desh spirit" }
+      {
+        "phrase": "S R G m P",
+        "context": "Opening — bright, optimistic ascent"
+      },
+      {
+        "phrase": "R G m P D",
+        "context": "Continuous ascending movement — building momentum"
+      },
+      {
+        "phrase": "D n S' n D",
+        "context": "Upper register — the komal Ni to Sa movement is signature Desh"
+      },
+      {
+        "phrase": "n D P m G",
+        "context": "Descending phrase — the komal Ni lends a wistful quality"
+      },
+      {
+        "phrase": "G m P D n S'",
+        "context": "Full ascending phrase — captures the joyful, expansive Desh spirit"
+      }
     ],
     "note_rules": {
       "Sa_approach": "Approached from Re above or komal Ni below — both are natural and characteristic",
@@ -63,7 +157,6 @@
       "D_role": "Important in the upper register — D n S' is a signature Desh cadence"
     }
   },
-
   "emphasis": {
     "vadi": {
       "degree": 2,
@@ -79,26 +172,61 @@
       "western": "G (perfect 5th, when Sa=C)",
       "role": "Queen note — Pa anchors the upper register. The Re-Pa axis (a perfect 4th apart) provides structural balance."
     },
-    "important_notes": ["R", "P", "D", "G"],
-    "resting_notes": ["S", "R", "P"]
+    "important_notes": [
+      "R",
+      "P",
+      "D",
+      "G"
+    ],
+    "resting_notes": [
+      "S",
+      "R",
+      "P"
+    ]
   },
-
   "context": {
     "time": {
       "prahar": "Second prahar of night",
       "window": "9:00 PM – 12:00 AM",
       "season": "Monsoon (Varsha Ritu) — July to September"
     },
-    "mood": ["Romantic", "Playful", "Nostalgic", "Patriotic", "Longing"],
+    "mood": [
+      "Romantic",
+      "Playful",
+      "Nostalgic",
+      "Patriotic",
+      "Longing"
+    ],
     "rasa": "Shringara (romance) and Hasya (joy) with undertones of Viraha (separation)",
     "aesthetic": "Evokes monsoon evenings — rain on rooftops, the smell of wet earth, romantic longing, the joy of homecoming. Light and accessible yet emotionally resonant."
   },
-
+  "arc_profile": {
+    "alap_ratio": 0.23,
+    "peak_position_ratio": 0.62,
+    "peak_ceiling": 0.83,
+    "opening_energy": 0.37
+  },
   "western_equivalent": {
     "mode": "Mixolydian",
     "key_example": "C Mixolydian",
-    "interval_pattern": ["W", "W", "H", "W", "W", "H", "W"],
-    "interval_semitones": [2, 2, 1, 2, 2, 1, 2],
+    "interval_pattern": [
+      "W",
+      "W",
+      "H",
+      "W",
+      "W",
+      "H",
+      "W"
+    ],
+    "interval_semitones": [
+      2,
+      2,
+      1,
+      2,
+      2,
+      1,
+      2
+    ],
     "relationship": "The Mixolydian mode (dominant scale) with its b7 matches Desh perfectly. Widely used in rock, blues, folk, and pop — giving Desh natural crossover potential.",
     "common_mixolydian_songs": [
       "Norwegian Wood (The Beatles)",
@@ -106,14 +234,13 @@
       "Royals (Lorde)"
     ]
   },
-
   "genre_compatibility": {
     "lofi": {
       "score": 0.93,
       "notes": "Mixolydian warmth + romantic mood = perfect lofi match. The komal Ni adds a blues tinge that pairs naturally with hip-hop influenced beats."
     },
     "ambient": {
-      "score": 0.80,
+      "score": 0.8,
       "notes": "Desh can work in ambient but its playful character prefers more rhythmic settings. Best for brighter, more uplifting ambient."
     },
     "calm": {
@@ -123,12 +250,50 @@
     "upbeat": {
       "score": 0.88,
       "notes": "Desh is the most naturally upbeat of the common ragas. Its bright major-ish scale and playful phrasing suit higher-energy production well."
+    },
+    "jazz_fusion": {
+      "score": 0.92,
+      "notes": "Mixolydian warmth with komal Ni ideal for funky modal jazz."
+    },
+    "cinematic": {
+      "score": 0.78,
+      "notes": "Playful romantic for lighter narrative scoring."
+    },
+    "downtempo": {
+      "score": 0.88,
+      "notes": "Excellent: phrases feel natural at 80–100 BPM and retain sweetness even with modern drum kits."
+    },
+    "electronic": {
+      "score": 0.9,
+      "notes": "Very strong: melodic hooks survive synth layers and sidechain pumping; keep the raga's characteristic turns so it doesn't become generic pop."
+    },
+    "chillhop": {
+      "score": 0.9,
+      "notes": "Excellent: sits right on top of swing drums and jazzy bass; the melodic contour feels inherently 'song-like'."
+    },
+    "reggae_dub": {
+      "score": 0.85,
+      "notes": "Strong: Mixolydian family fits reggae harmonic language; works well for offbeat skanks + melodic answering phrases."
+    },
+    "trap": {
+      "score": 0.82,
+      "notes": "Works well as a hook raga; keep motifs tight and let 808 slides complement the melodic bends."
+    },
+    "rock": {
+      "score": 0.85,
+      "notes": "Strong: blends with major/DOM rock harmony; riffs can carry the raga if you keep the specific melodic grammar."
     }
   },
-
   "metadata": {
     "version": "1.0",
     "created_by": "manual",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Komal Ni as color note",
+    "naturally upbeat—easiest for high-energy fusions",
+    "Be explicit about your Ni choice: treat one Ni as the 'main' color and the other as a controlled accent so it doesn't sound like generic Mixolydian.",
+    "Because Desh is used across many semi-classical contexts, feel free to hybridize with folk phrasing, but keep a recognizable core motif.",
+    "If you want it to feel upbeat, raise energy via rhythm and articulation, not by forcing heavy harmonic modulation."
+  ]
 }

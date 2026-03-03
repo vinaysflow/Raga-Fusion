@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   type TrackMeta, type QualityReport, type PlanData,
-  type VariationSuggestion,
+  type VariationSuggestion, type QualityCheck,
   audioUrl, getQuality, getPlan, getVariationSuggestions,
 } from "../api";
+import FeedbackPrompt from "./FeedbackPrompt";
 
 interface Props {
   track: TrackMeta;
@@ -30,13 +31,6 @@ export default function NowPlaying({ track }: Props) {
   const [variations, setVariations] = useState<VariationSuggestion[]>([]);
   const [varLoading, setVarLoading] = useState(false);
   const url = audioUrl(track.track_id);
-
-  useEffect(() => {
-    setQuality(null);
-    setPlan(null);
-    setVariations([]);
-    setTab("about");
-  }, [track.track_id]);
 
   function loadQuality() {
     if (quality || qualityLoading) return;
@@ -79,13 +73,27 @@ export default function NowPlaying({ track }: Props) {
     { id: "variations", label: "Variations" },
   ];
 
+  const tierColors: Record<string, string> = {
+    gold: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
+    standard: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+    generated: "bg-neutral-500/20 text-neutral-300 border-neutral-500/30",
+    blended: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+  };
+  const tier = track.library_tier ?? track.actual_source ?? track.source;
+  const tierLabel = tier === "gold" ? "Gold Library" : tier === "standard" ? "Standard Library" : tier === "generated" ? "Synthesized" : tier === "blended" ? "Blended" : cap(tier);
+
   return (
     <div className="w-full rounded-xl bg-neutral-800/60 border border-neutral-700 overflow-hidden">
       {/* Header */}
       <div className="p-5 pb-4">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-white">{track.display_name}</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-white">{track.display_name}</h3>
+              <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${tierColors[tier] ?? tierColors.generated}`}>
+                {tierLabel}
+              </span>
+            </div>
             <p className="text-sm text-neutral-400 mt-1">
               {cap(track.raga)} &middot; {cap(track.genre)} &middot; {formatDuration(track.duration)}
             </p>
@@ -99,12 +107,35 @@ export default function NowPlaying({ track }: Props) {
           </a>
         </div>
 
+        {/* Inline quality summary */}
+        {quality && (
+          <div className="mt-3 flex items-center gap-3 rounded-lg bg-neutral-900/50 px-3 py-2">
+            <span className={`text-sm font-bold ${quality.commercial_ready ? "text-green-400" : "text-amber-400"}`}>
+              {Math.round(quality.overall_score * 100)}%
+            </span>
+            <span className="text-xs text-neutral-500">
+              Polish {quality.polish.passed}/{quality.polish.total} &middot; Authenticity {quality.authenticity.passed}/{quality.authenticity.total}
+            </span>
+            {quality.commercial_ready
+              ? <span className="ml-auto text-[10px] text-green-400">Commercial Ready</span>
+              : <span className="ml-auto text-[10px] text-amber-400">Needs Polish</span>}
+          </div>
+        )}
+        {qualityLoading && !quality && (
+          <div className="mt-3 flex items-center gap-2 rounded-lg bg-neutral-900/50 px-3 py-2">
+            <span className="text-xs text-neutral-500 animate-pulse">Evaluating quality...</span>
+          </div>
+        )}
+
         <audio controls src={url} className="w-full mt-4" />
 
         {track.prompt && (
           <p className="text-xs text-neutral-500 italic mt-2">Prompt: "{track.prompt}"</p>
         )}
       </div>
+
+      {/* Feedback prompt */}
+      <FeedbackPrompt trackId={track.track_id} />
 
       {/* Tab bar */}
       <div className="flex border-t border-neutral-700">
@@ -153,11 +184,29 @@ function AboutTab({ raga }: { raga: string }) {
 }
 
 
+function hintForCheck(check: QualityCheck): string | null {
+  if (check.pass) return null;
+  const m = check.metric.toLowerCase();
+  if (m.includes("lufs")) return "Try a different style or increase duration for better loudness balance.";
+  if (m.includes("noise") || m.includes("floor")) return "Switch to the Real Recording source for cleaner audio.";
+  if (m.includes("peak")) return "Reduce duration or try a calmer style to avoid clipping.";
+  if (m.includes("dynamic")) return "A longer duration allows better dynamic expression.";
+  if (m.includes("pakad")) return "Switch to Real Recording (Gold) for stronger pakad presence.";
+  if (m.includes("forbidden")) return "Use a Gold library or switch ragas — some phrase sources have off-scale notes.";
+  if (m.includes("vadi")) return "Enable AI Recommendation for better vadi emphasis.";
+  if (m.includes("scale")) return "Switch to Real Recording source for purer scale compliance.";
+  return "Try adjusting source, duration, or style for better results.";
+}
+
 function QualityTab({ report, loading }: { report: QualityReport | null; loading: boolean }) {
   if (loading) return <p className="text-sm text-neutral-500 animate-pulse">Evaluating quality...</p>;
-  if (!report) return <p className="text-sm text-neutral-600">Click to load quality metrics</p>;
+  if (!report) return <p className="text-sm text-neutral-600">Quality data not yet available</p>;
 
   const overallPct = Math.round(report.overall_score * 100);
+  const failedChecks = [
+    ...report.polish.checks.filter((c) => !c.pass),
+    ...report.authenticity.checks.filter((c) => !c.pass),
+  ];
 
   return (
     <div className="space-y-4">
@@ -175,6 +224,20 @@ function QualityTab({ report, loading }: { report: QualityReport | null; loading
           </p>
         </div>
       </div>
+
+      {failedChecks.length > 0 && (
+        <div className="rounded-lg border border-amber-800/30 bg-amber-900/10 p-3 space-y-1.5">
+          <p className="text-[11px] font-medium text-amber-400 uppercase tracking-wider">Suggestions</p>
+          {failedChecks.slice(0, 3).map((c, i) => {
+            const hint = hintForCheck(c);
+            return hint ? (
+              <p key={i} className="text-xs text-amber-200/70 pl-2 border-l-2 border-amber-600/30">
+                <span className="text-amber-400">{c.metric}:</span> {hint}
+              </p>
+            ) : null;
+          })}
+        </div>
+      )}
 
       <div className="space-y-1">
         <p className="text-xs font-medium text-neutral-400 mb-2">Production Polish</p>
@@ -210,27 +273,45 @@ function QualityTab({ report, loading }: { report: QualityReport | null; loading
 }
 
 
+function violationHint(violation: string): string {
+  const v = violation.toLowerCase();
+  if (v.includes("pakad")) return "Consider switching to Gold library or a different raga with richer recordings.";
+  if (v.includes("vadi")) return "Try enabling AI Recommendation or use a library source with more authentic phrases.";
+  if (v.includes("forbidden")) return "The phrase library may contain off-scale notes. Try Gold library or re-extract with stricter filters.";
+  if (v.includes("diversity") || v.includes("unique")) return "Increase duration or use a raga with a larger phrase library.";
+  return "";
+}
+
 function PlanTab({ plan, loading }: { plan: PlanData | null; loading: boolean }) {
   if (loading) return <p className="text-sm text-neutral-500 animate-pulse">Loading plan...</p>;
   if (!plan) return <p className="text-sm text-neutral-600">No plan available for this track</p>;
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-3 text-sm">
+      <div className="flex items-center gap-3 text-sm flex-wrap">
         <span className="text-neutral-400">{plan.total_phrases} phrases</span>
         <span className="text-neutral-600">&middot;</span>
         <span className="text-neutral-400">Auth: {Math.round(plan.avg_authenticity * 100)}%</span>
         <span className="text-neutral-600">&middot;</span>
+        <span className="text-neutral-400">Score: {Math.round(plan.avg_recommendation_score * 100)}%</span>
+        <span className="text-neutral-600">&middot;</span>
         <span className={plan.constraints.passes ? "text-green-500" : "text-amber-400"}>
-          {plan.constraints.passes ? "Constraints met" : `${plan.constraints.violations.length} issue(s)`}
+          {plan.constraints.passes ? "All constraints met" : `${plan.constraints.violations.length} issue(s)`}
         </span>
       </div>
 
       {plan.constraints.violations.length > 0 && (
-        <div className="space-y-1">
-          {plan.constraints.violations.map((v, i) => (
-            <p key={i} className="text-xs text-amber-400/80 pl-3 border-l-2 border-amber-600/30">{v}</p>
-          ))}
+        <div className="rounded-lg border border-amber-800/30 bg-amber-900/10 p-3 space-y-2">
+          <p className="text-[11px] font-medium text-amber-400 uppercase tracking-wider">Constraint Issues</p>
+          {plan.constraints.violations.map((v, i) => {
+            const hint = violationHint(v);
+            return (
+              <div key={i} className="pl-2 border-l-2 border-amber-600/30">
+                <p className="text-xs text-amber-400/80">{v}</p>
+                {hint && <p className="text-[11px] text-neutral-500 mt-0.5">{hint}</p>}
+              </div>
+            );
+          })}
         </div>
       )}
 

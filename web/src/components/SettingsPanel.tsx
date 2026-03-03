@@ -47,16 +47,15 @@ interface Props {
 }
 
 export default function SettingsPanel({ open, onClose, onChange }: Props) {
-  const [prefs, setPrefs] = useState<UserPreferences>(defaultPrefs);
-
-  useEffect(() => {
+  const [prefs, setPrefs] = useState<UserPreferences>(() => {
     try {
       const raw = localStorage.getItem(KEY);
-      if (raw) setPrefs(JSON.parse(raw));
+      if (raw) return JSON.parse(raw);
     } catch {
       // no-op
     }
-  }, []);
+    return defaultPrefs;
+  });
 
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(prefs));

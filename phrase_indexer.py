@@ -25,6 +25,12 @@ from pathlib import Path
 
 from raga_scorer import RagaScorer
 
+try:
+    from backfill_intent_tags import derive_intent_tags
+except ImportError:
+    def derive_intent_tags(_: dict) -> list:
+        return []
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 PHRASES_DIR = PROJECT_ROOT / "data" / "phrases"
 RULES_DIR = PROJECT_ROOT / "data" / "raga_rules"
@@ -113,13 +119,27 @@ def build_index(ragas: list[str] | None = None, force: bool = False) -> dict:
 
         for p in phrases_raw:
             enriched = scorer.score_phrase(p)
-            enriched["source_type"] = source_type
+
+            raw_source = p.get("source_type", "")
+            if raw_source == "rod_dataset":
+                enriched["source_type"] = "rod_dataset"
+            else:
+                enriched["source_type"] = source_type
+
             enriched["library_dir"] = str(lib_dir.relative_to(PROJECT_ROOT))
+
+            if raw_source == "rod_dataset" and p.get("ground_truth_ornaments"):
+                enriched["ornaments_source"] = "ground_truth"
+            else:
+                enriched["ornaments_source"] = "heuristic"
 
             style_affinities = {}
             for sname in style_names:
                 style_affinities[sname] = round(scorer.style_affinity(sname), 3)
             enriched["style_affinities"] = style_affinities
+
+            if "intent_tags" not in enriched or not enriched["intent_tags"]:
+                enriched["intent_tags"] = derive_intent_tags(enriched)
 
             index["ragas"][raga]["phrases"].append(enriched)
             total_phrases += 1

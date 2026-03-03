@@ -1,0 +1,34 @@
+{
+  "source": "research_enhancement_grok.json",
+  "arc_rules": {
+    "note": "Requires position_ratio from original recording; used when available",
+    "alap_threshold": "position_ratio < 0.45 AND density < 6",
+    "peak_threshold": "0.55 < position_ratio < 0.75 AND note_density >= 6 AND contour_direction > 0.2",
+    "resolution_threshold": "position_ratio > 0.80",
+    "seed_datasets": ["Saraga_structural_75", "Napier_proportions"]
+  },
+  "intent_tag_schema": ["meditative", "exploratory", "energetic", "dense", "sparse", "climax"],
+  "intent_derivation_rules": {
+    "meditative": {"phrase_density_max": 3.0, "contour_range": [-0.3, 0.3]},
+    "exploratory": {"phrase_density_range": [2.0, 5.0], "contour_range": [-0.5, 0.5]},
+    "energetic": {"phrase_density_min": 6.0, "contour_direction_min": 0.2},
+    "dense": {"phrase_density_min": 6.0},
+    "sparse": {"phrase_density_max": 3.0},
+    "climax": {"phrase_density_min": 6.0, "contour_direction_min": 0.1}
+  },
+  "thin_raga": {
+    "target_min_phrases": 100,
+    "priority_ragas": ["asavari", "kafi", "bhairavi", "darbari"],
+    "source_datasets": ["Saraga", "ROD"]
+  },
+  "ornament": {
+    "per_type_thresholds": {"gamak": 0.6, "meend": 0.45},
+    "model_note": "ED-TCN or fine-tuned CRNN recommended; ROD 2025 F1 90%",
+    "datasets": ["ROD_full_212"]
+  },
+  "cross_raga": {
+    "same_thaat": 0.9,
+    "shared_vadi": 0.7,
+    "min_shared_swaras": 4
+  }
+}

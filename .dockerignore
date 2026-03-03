@@ -1,0 +1,17 @@
+.git
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+web/node_modules/
+output/
+uploads/
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+.DS_Store

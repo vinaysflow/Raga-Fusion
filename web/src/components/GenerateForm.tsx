@@ -93,8 +93,8 @@ export default function GenerateForm({
             disabled={disabled}
             className="w-full rounded-lg bg-neutral-800 border border-neutral-700 px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors"
           >
-            <option value="library">Real Recording</option>
-            <option value="generated">Synthesized</option>
+            <option value="library">Real Recording (higher authenticity)</option>
+            <option value="generated">Synthesized (broader variety)</option>
           </select>
         </div>
         <div>

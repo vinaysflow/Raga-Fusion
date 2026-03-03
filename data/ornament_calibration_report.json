@@ -1,0 +1,104 @@
+{
+  "by_type": {
+    "gamak": {
+      "tp": 20,
+      "fp": 459,
+      "fn": 85,
+      "precision": 0.04175365344467641,
+      "recall": 0.19047619047619047,
+      "f1": 0.0684931506849315
+    },
+    "kan": {
+      "tp": 1,
+      "fp": 199,
+      "fn": 990,
+      "precision": 0.005,
+      "recall": 0.0010090817356205853,
+      "f1": 0.0016792611251049538
+    },
+    "meend": {
+      "tp": 6,
+      "fp": 86,
+      "fn": 1073,
+      "precision": 0.06521739130434782,
+      "recall": 0.005560704355885079,
+      "f1": 0.010247651579846286
+    },
+    "murki": {
+      "tp": 0,
+      "fp": 164,
+      "fn": 66,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "nyas_svar": {
+      "tp": 0,
+      "fp": 113,
+      "fn": 1604,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "andolan": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 47,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "M": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "K1": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "overall": {
+    "tp": 27,
+    "fp": 1021,
+    "fn": 3870,
+    "precision": 0.025763358778625955,
+    "recall": 0.006928406466512702,
+    "f1": 0.010920121334681497
+  },
+  "iou_threshold": 0.3,
+  "review_recommendations": {
+    "low_f1_types": [
+      "gamak",
+      "kan",
+      "meend",
+      "murki",
+      "nyas_svar",
+      "andolan",
+      "M",
+      "K1"
+    ],
+    "note": "Review ornament detector thresholds for low-F1 types."
+  },
+  "pb_integration": {
+    "label_files": 42,
+    "label_counts": {
+      "nyas_svar": 100,
+      "meend": 74,
+      "gamak": 78,
+      "murki": 27,
+      "kan": 114,
+      "andolan": 17
+    },
+    "spectrograms": 168,
+    "scored": false,
+    "note": "PB provides labels + spectrograms only; no audio to score ornaments yet."
+  }
+}

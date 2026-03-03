@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface OnboardingState {
   currentStep: number;
@@ -24,25 +24,21 @@ const defaultState: OnboardingState = {
 };
 
 export function useOnboarding() {
-  const [state, setState] = useState<OnboardingState>(defaultState);
-
-  useEffect(() => {
+  const [state, setState] = useState<OnboardingState>(() => {
     try {
       const raw = localStorage.getItem(KEY);
-      if (raw) setState(JSON.parse(raw));
+      if (raw) return JSON.parse(raw);
     } catch {
       // no-op
     }
-  }, []);
+    return defaultState;
+  });
 
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(state));
   }, [state]);
 
-  const completed = useMemo(
-    () => localStorage.getItem(COMPLETE_KEY) === "true",
-    [state.currentStep],
-  );
+  const completed = localStorage.getItem(COMPLETE_KEY) === "true";
 
   return {
     state,

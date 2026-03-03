@@ -11,10 +11,12 @@ export interface GeneratorInterfaceProps {
   selectedRaga: string;
   selectedGenres: string[];
   duration: number;
+  source: string;
   onPromptChange: (value: string) => void;
   onPickRaga: (value: string) => void;
   onToggleGenre: (value: string) => void;
   onDurationChange: (value: number) => void;
+  onSourceChange: (value: string) => void;
   onGenerate: () => void;
 }
 
@@ -30,6 +32,23 @@ const PROMPT_SUGGESTIONS = [
   "Minimalist raga texture with soft beats",
 ];
 
+const SOURCE_OPTIONS = [
+  {
+    id: "library",
+    label: "Real Recording",
+    icon: "🎵",
+    description: "Phrases extracted from authentic raga performances",
+    detail: "Higher authenticity, curated gold-tier phrases from classical recordings. Best for traditional and purist results.",
+  },
+  {
+    id: "generated",
+    label: "Synthesized",
+    icon: "🔧",
+    description: "Algorithmically generated raga-compliant phrases",
+    detail: "Broader variety, always available for every raga. Good for experimentation and modern fusion styles.",
+  },
+];
+
 export default function GeneratorInterface({
   prompt,
   promptLimit = 200,
@@ -40,10 +59,12 @@ export default function GeneratorInterface({
   selectedRaga,
   selectedGenres,
   duration,
+  source,
   onPromptChange,
   onPickRaga,
   onToggleGenre,
   onDurationChange,
+  onSourceChange,
   onGenerate,
 }: GeneratorInterfaceProps) {
   const remaining = useMemo(() => `${prompt.length}/${promptLimit}`, [prompt.length, promptLimit]);
@@ -58,12 +79,6 @@ export default function GeneratorInterface({
     textareaRef.current.style.height = "auto";
     textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
   }, [prompt]);
-
-  useEffect(() => {
-    if (selectedRaga === "auto") {
-      setAdvancedMode(false);
-    }
-  }, [selectedRaga]);
 
   const durationPct = useMemo(() => {
     const clamped = Math.min(Math.max(duration, MIN_DURATION), MAX_DURATION);
@@ -250,11 +265,11 @@ export default function GeneratorInterface({
             step={15}
             value={duration}
             onChange={(e) => onDurationChange(Number(e.target.value))}
-            className="w-full accent-indigo-500"
+            className="relative z-10 w-full accent-indigo-500"
             aria-label="Duration slider"
           />
           <div
-            className="pointer-events-none absolute -top-6 -translate-x-1/2 rounded-md bg-neutral-900 px-2 py-0.5 text-[10px] text-neutral-200"
+            className="pointer-events-none absolute -top-6 z-0 -translate-x-1/2 rounded-md bg-neutral-900 px-2 py-0.5 text-[10px] text-neutral-200"
             style={{ left: `${durationPct}%` }}
           >
             {formatDuration(duration)}
@@ -266,6 +281,34 @@ export default function GeneratorInterface({
           <span>2:00</span>
           <span>3:00</span>
           <span>5:00</span>
+        </div>
+      </div>
+
+      {/* Source selection */}
+      <div className="space-y-2">
+        <p className="text-sm text-neutral-300">Phrase Source</p>
+        <div className="grid grid-cols-2 gap-3">
+          {SOURCE_OPTIONS.map((opt) => (
+            <button
+              key={opt.id}
+              type="button"
+              onClick={() => onSourceChange(opt.id)}
+              className={[
+                "relative rounded-xl border p-3 text-left transition-all",
+                source === opt.id
+                  ? "border-indigo-400 bg-indigo-500/10"
+                  : "border-white/10 bg-neutral-900/60 hover:border-white/20",
+              ].join(" ")}
+            >
+              {source === opt.id && (
+                <span className="absolute right-2 top-2 text-xs text-indigo-400">Active</span>
+              )}
+              <span className="text-lg">{opt.icon}</span>
+              <p className="mt-1 text-sm font-medium text-white">{opt.label}</p>
+              <p className="mt-0.5 text-[11px] text-neutral-400 leading-snug">{opt.description}</p>
+              <p className="mt-1 text-[10px] text-neutral-500 leading-snug">{opt.detail}</p>
+            </button>
+          ))}
         </div>
       </div>
 

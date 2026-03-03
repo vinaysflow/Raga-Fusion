@@ -1,6 +1,6 @@
 # Seeding QA Report
 
-- Generated: 2026-03-01T07:01:19.319125+00:00
+- Generated: 2026-03-01T23:55:55.730861+00:00
 - Total sources: 197
 - Ingestible missing download_url: 177
 

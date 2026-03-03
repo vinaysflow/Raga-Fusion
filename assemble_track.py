@@ -132,8 +132,23 @@ def categorize_phrases(phrases: list[dict]) -> dict[str, list[dict]]:
     phases: dict[str, list[dict]] = {name: [] for name in PHASE_NAMES}
     assigned: set[str] = set()
 
+    arc_phase_map = {
+        "alap_opening": "opening",
+        "alap_upper": "opening",
+        "jod": "ascending",
+        "vilambit_gat": "development",
+        "gat_development": "development",
+        "peak_taan": "peak",
+        "resolution": "resolution",
+    }
+
     for p in phrases:
         pid = p["phrase_id"]
+        arc_section = p.get("arc_section")
+        if arc_section in arc_phase_map and pid not in assigned:
+            phases[arc_phase_map[arc_section]].append(p)
+            assigned.add(pid)
+            continue
         dom = p["dominant_note"]
         starts = p["starts_with"]
         ends = p["ends_with"]

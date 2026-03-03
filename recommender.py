@@ -81,6 +81,14 @@ PHASE_CRITERIA = {
     "resolution": {"contour_target": (-0.5, 0.0), "density_pref": "sparse", "vadi_bonus": False},
 }
 
+PHASE_ARC_MAP = {
+    "opening": {"alap_opening", "alap_upper"},
+    "ascending": {"jod", "vilambit_gat"},
+    "development": {"gat_development", "vilambit_gat"},
+    "peak": {"peak_taan"},
+    "resolution": {"resolution"},
+}
+
 
 class Recommender:
     """Weighted ranking engine for phrase selection and arrangement."""
@@ -168,15 +176,23 @@ class Recommender:
                 desired_density = INTENT_DENSITY[tag]
                 break
 
+        base = 0.6
         if desired_density == "sparse" and density < 4.0:
-            return 1.0
+            base = 1.0
         elif desired_density == "sparse" and density > 8.0:
-            return 0.2
+            base = 0.2
         elif desired_density == "dense" and density > 6.0:
-            return 1.0
+            base = 1.0
         elif desired_density == "dense" and density < 3.0:
-            return 0.2
-        return 0.6
+            base = 0.2
+
+        # Bonus when phrase intent_tags overlap with request
+        phrase_tags = set(candidate.get("intent_tags") or [])
+        req_tags = set(intent_tags)
+        overlap = len(phrase_tags & req_tags) / max(len(req_tags), 1)
+        if overlap > 0:
+            base = min(1.0, base + 0.15 * overlap)
+        return base
 
     def _score_candidate(self, candidate: dict, style: str,
                          prev_phrase: dict | None, selected_ids: set[str],
@@ -210,6 +226,25 @@ class Recommender:
                 score += 0.05
             if criteria.get("vadi_bonus") and candidate.get("vadi_emphasis", 0) > 0.15:
                 score += 0.03
+
+            arc_section = candidate.get("arc_section")
+            if arc_section and arc_section in PHASE_ARC_MAP.get(phase, set()):
+                score += 0.08
+            elif arc_section:
+                score -= 0.03
+
+            if candidate.get("ornaments_source") == "ground_truth":
+                ornaments = candidate.get("ground_truth_ornaments") or []
+            else:
+                ornaments = candidate.get("ornaments_detected") or []
+            duration = max(candidate.get("duration", 1.0), 0.5)
+            ornament_density = len(ornaments) / duration if duration else 0.0
+            if criteria.get("density_pref") == "dense" and ornament_density >= 1.5:
+                score += 0.05
+            elif criteria.get("density_pref") == "sparse" and ornament_density <= 0.5:
+                score += 0.03
+            elif criteria.get("density_pref") == "sparse" and ornament_density >= 2.0:
+                score -= 0.04
 
         return score
 
@@ -390,6 +425,11 @@ class Recommender:
             )
 
         sources = set(p.get("source_type", "unknown") for p in phrases)
+        if "rod_dataset" in sources:
+            rod_count = sum(1 for p in phrases if p.get("source_type") == "rod_dataset")
+            explanations.append(
+                f"Includes {rod_count} ROD-sourced phrases with expert-annotated ornaments"
+            )
         if "library" in sources:
             explanations.append("Uses real recorded phrases for authentic timbre")
         if "generated" in sources:

@@ -1,26 +1,88 @@
 {
   "raga": {
     "name": "Bhairavi",
-    "aliases": ["Sindhu Bhairavi", "Bhairavi Thaat"],
+    "aliases": [
+      "Sindhu Bhairavi",
+      "Bhairavi Thaat"
+    ],
     "thaat": "Bhairavi",
     "family": "Bhairavi",
     "jati": "Sampoorna-Sampoorna",
     "description": "Called the 'Queen of Ragas'. Uses all komal (flat) svaras except Sa and Pa. Extremely versatile — traditionally the concluding raga of any concert. Evokes deep devotion, compassion, and a bittersweet tenderness."
   },
-
   "scale": {
-    "degrees": [0, 1, 3, 5, 7, 8, 10],
-    "svaras": ["S", "r", "g", "m", "P", "d", "n"],
-    "svaras_full": ["Sa", "Re (komal)", "Ga (komal)", "Ma (shuddh)", "Pa", "Dha (komal)", "Ni (komal)"],
-    "western_notes_sa_c": ["C", "Db", "Eb", "F", "G", "Ab", "Bb"],
+    "degrees": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10
+    ],
+    "svaras": [
+      "S",
+      "r",
+      "g",
+      "m",
+      "P",
+      "d",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (komal)",
+      "Ga (komal)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (komal)",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "Db",
+      "Eb",
+      "F",
+      "G",
+      "Ab",
+      "Bb"
+    ],
     "note_types": {
-      "S":  { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
-      "r":  { "degree": 1,  "type": "komal",   "western": "b2 (minor 2nd)" },
-      "g":  { "degree": 3,  "type": "komal",   "western": "b3 (minor 3rd)" },
-      "m":  { "degree": 5,  "type": "shuddh",  "western": "4 (perfect 4th)" },
-      "P":  { "degree": 7,  "type": "shuddh",  "western": "5 (perfect 5th)" },
-      "d":  { "degree": 8,  "type": "komal",   "western": "b6 (minor 6th)" },
-      "n":  { "degree": 10, "type": "komal",   "western": "b7 (minor 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "r": {
+        "degree": 1,
+        "type": "komal",
+        "western": "b2 (minor 2nd)"
+      },
+      "g": {
+        "degree": 3,
+        "type": "komal",
+        "western": "b3 (minor 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "d": {
+        "degree": 8,
+        "type": "komal",
+        "western": "b6 (minor 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
     },
     "forbidden": [
       {
@@ -37,12 +99,29 @@
       }
     ]
   },
-
   "movement": {
     "aroha": "S r g m P d n S'",
     "avaroha": "S' n d P m g r S",
-    "aroha_degrees": [0, 1, 3, 5, 7, 8, 10, 12],
-    "avaroha_degrees": [12, 10, 8, 7, 5, 3, 1, 0],
+    "aroha_degrees": [
+      0,
+      1,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      8,
+      7,
+      5,
+      3,
+      1,
+      0
+    ],
     "pakad": [
       "g m d P",
       "m g r S",
@@ -50,11 +129,26 @@
     ],
     "pakad_string": "g m d P, m g r S, d n S' n d P",
     "characteristic_phrases": [
-      { "phrase": "S r g r S",    "context": "Opening — gentle oscillation around Sa establishing komal territory" },
-      { "phrase": "g m P",        "context": "Ascending through the heart of the raga" },
-      { "phrase": "g m d P",      "context": "Signature Bhairavi movement — skip from Ma to komal Dha" },
-      { "phrase": "d n S' n d P", "context": "Upper register exploration with characteristic descent" },
-      { "phrase": "m g r S",      "context": "Resolution — classic Bhairavi cadence to Sa" }
+      {
+        "phrase": "S r g r S",
+        "context": "Opening — gentle oscillation around Sa establishing komal territory"
+      },
+      {
+        "phrase": "g m P",
+        "context": "Ascending through the heart of the raga"
+      },
+      {
+        "phrase": "g m d P",
+        "context": "Signature Bhairavi movement — skip from Ma to komal Dha"
+      },
+      {
+        "phrase": "d n S' n d P",
+        "context": "Upper register exploration with characteristic descent"
+      },
+      {
+        "phrase": "m g r S",
+        "context": "Resolution — classic Bhairavi cadence to Sa"
+      }
     ],
     "note_rules": {
       "Sa_approach": "Approached gently from komal Re (r S) — the komal Re gives Bhairavi its distinctive plaintive quality",
@@ -63,7 +157,6 @@
       "komal_character": "The four komal notes (r, g, d, n) together create the deeply emotional Bhairavi atmosphere"
     }
   },
-
   "emphasis": {
     "vadi": {
       "degree": 5,
@@ -79,26 +172,61 @@
       "western": "C (root, when Sa=C)",
       "role": "Queen note — Sa itself serves as samvadi, giving Bhairavi its grounded, devotional quality."
     },
-    "important_notes": ["m", "g", "d", "P"],
-    "resting_notes": ["S", "m", "P"]
+    "important_notes": [
+      "m",
+      "g",
+      "d",
+      "P"
+    ],
+    "resting_notes": [
+      "S",
+      "m",
+      "P"
+    ]
   },
-
   "context": {
     "time": {
       "prahar": "Fourth prahar of night / early morning",
       "window": "6:00 AM – 9:00 AM",
       "season": "All seasons"
     },
-    "mood": ["Devotional", "Compassionate", "Melancholic", "Tender", "Bittersweet"],
+    "mood": [
+      "Devotional",
+      "Compassionate",
+      "Melancholic",
+      "Tender",
+      "Bittersweet"
+    ],
     "rasa": "Karuna (compassion) and Bhakti (devotion)",
     "aesthetic": "Evokes the tenderness of early morning — dew on leaves, temple bells, the ache of separation. The all-komal palette creates an emotional depth unmatched by brighter ragas."
   },
-
+  "arc_profile": {
+    "alap_ratio": 0.29,
+    "peak_position_ratio": 0.56,
+    "peak_ceiling": 0.8,
+    "opening_energy": 0.26
+  },
   "western_equivalent": {
     "mode": "Phrygian",
     "key_example": "C Phrygian",
-    "interval_pattern": ["H", "W", "W", "W", "H", "W", "W"],
-    "interval_semitones": [1, 2, 2, 2, 1, 2, 2],
+    "interval_pattern": [
+      "H",
+      "W",
+      "W",
+      "W",
+      "H",
+      "W",
+      "W"
+    ],
+    "interval_semitones": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2
+    ],
     "relationship": "The Phrygian mode matches the Bhairavi thaat. The b2 (komal Re) is the defining colour — also found in Flamenco and Middle Eastern music.",
     "common_phrygian_songs": [
       "White Rabbit (Jefferson Airplane)",
@@ -106,10 +234,9 @@
       "Wherever I May Roam (Metallica)"
     ]
   },
-
   "genre_compatibility": {
     "lofi": {
-      "score": 0.90,
+      "score": 0.9,
       "notes": "The minor/Phrygian tonality creates a naturally melancholic, introspective mood perfect for lofi. Komal Ga and komal Ni add emotional depth over mellow beats."
     },
     "ambient": {
@@ -121,14 +248,53 @@
       "notes": "The gentle, komal-heavy scale naturally produces calm textures. Works beautifully at slow tempos with sustained notes."
     },
     "upbeat": {
-      "score": 0.60,
+      "score": 0.6,
       "notes": "Less natural fit for upbeat styles due to the minor tonality, but Bhairavi thumris can be lively. Requires careful arrangement."
+    },
+    "jazz_fusion": {
+      "score": 0.85,
+      "notes": "Phrygian-inflected scale offers exotic tension for modal solos; melancholic compassion fits bluesy feels."
+    },
+    "cinematic": {
+      "score": 0.9,
+      "notes": "Deep emotional pathos ideal for dramatic scoring and closers."
+    },
+    "downtempo": {
+      "score": 0.85,
+      "notes": "Versatile komal palette creates intimate organic grooves."
+    },
+    "electronic": {
+      "score": 0.8,
+      "notes": "Proven in electronic disco; all-komal phrases adapt to synth arps."
+    },
+    "chillhop": {
+      "score": 0.82,
+      "notes": "Melancholic lines pair with walking bass warmth."
+    },
+    "reggae_dub": {
+      "score": 0.75,
+      "notes": "Compassionate mood suits dub delay and deep bass."
+    },
+    "trap": {
+      "score": 0.74,
+      "notes": "Can translate into dark hooks; best as short, memorable motifs with 808 glides echoing raga bends."
+    },
+    "rock": {
+      "score": 0.78,
+      "notes": "Phrygian/minor-rock language is familiar; use bends and slides to preserve the raga character."
     }
   },
-
   "metadata": {
     "version": "1.0",
     "created_by": "manual",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Often used as closer",
+    "all-komal palette allows flexible reharmonization",
+    "survives acceleration better than heavier ragas",
+    "Treat Bhairavi as 'high flexibility': you can allow tasteful chromatic approach tones, but keep the core melodic gravity intact.",
+    "Because Bhairavi is often a winding-down/closing raga, an earlier climax + long outro/fade feels stylistically natural.",
+    "If the production is busy, preserve identity by anchoring repeated cadences on stable resting tones (especially around Sa/Ma)."
+  ]
 }

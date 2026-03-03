@@ -1,26 +1,88 @@
 {
   "raga": {
     "name": "Bhairav",
-    "aliases": ["Bhairava", "Bhairav Thaat"],
+    "aliases": [
+      "Bhairava",
+      "Bhairav Thaat"
+    ],
     "thaat": "Bhairav",
     "family": "Bhairav",
     "jati": "Sampoorna-Sampoorna",
     "description": "Named after Lord Shiva in his fierce aspect. The juxtaposition of komal Re and shuddh Ga, and komal Dha with shuddh Ni, creates a unique tension — majestic and awe-inspiring. One of the six principal ragas of the classical system."
   },
-
   "scale": {
-    "degrees": [0, 1, 4, 5, 7, 8, 11],
-    "svaras": ["S", "r", "G", "m", "P", "d", "N"],
-    "svaras_full": ["Sa", "Re (komal)", "Ga (shuddh)", "Ma (shuddh)", "Pa", "Dha (komal)", "Ni (shuddh)"],
-    "western_notes_sa_c": ["C", "Db", "E", "F", "G", "Ab", "B"],
+    "degrees": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      8,
+      11
+    ],
+    "svaras": [
+      "S",
+      "r",
+      "G",
+      "m",
+      "P",
+      "d",
+      "N"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (komal)",
+      "Ga (shuddh)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (komal)",
+      "Ni (shuddh)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "Db",
+      "E",
+      "F",
+      "G",
+      "Ab",
+      "B"
+    ],
     "note_types": {
-      "S":  { "degree": 0,  "type": "shuddh",  "western": "1 (root)" },
-      "r":  { "degree": 1,  "type": "komal",   "western": "b2 (minor 2nd)" },
-      "G":  { "degree": 4,  "type": "shuddh",  "western": "3 (major 3rd)" },
-      "m":  { "degree": 5,  "type": "shuddh",  "western": "4 (perfect 4th)" },
-      "P":  { "degree": 7,  "type": "shuddh",  "western": "5 (perfect 5th)" },
-      "d":  { "degree": 8,  "type": "komal",   "western": "b6 (minor 6th)" },
-      "N":  { "degree": 11, "type": "shuddh",  "western": "7 (major 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "r": {
+        "degree": 1,
+        "type": "komal",
+        "western": "b2 (minor 2nd)"
+      },
+      "G": {
+        "degree": 4,
+        "type": "shuddh",
+        "western": "3 (major 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "d": {
+        "degree": 8,
+        "type": "komal",
+        "western": "b6 (minor 6th)"
+      },
+      "N": {
+        "degree": 11,
+        "type": "shuddh",
+        "western": "7 (major 7th)"
+      }
     },
     "forbidden": [
       {
@@ -37,12 +99,29 @@
       }
     ]
   },
-
   "movement": {
     "aroha": "S r G m P d N S'",
     "avaroha": "S' N d P m G r S",
-    "aroha_degrees": [0, 1, 4, 5, 7, 8, 11, 12],
-    "avaroha_degrees": [12, 11, 8, 7, 5, 4, 1, 0],
+    "aroha_degrees": [
+      0,
+      1,
+      4,
+      5,
+      7,
+      8,
+      11,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      11,
+      8,
+      7,
+      5,
+      4,
+      1,
+      0
+    ],
     "pakad": [
       "r G m P",
       "G m d P",
@@ -50,11 +129,26 @@
     ],
     "pakad_string": "r G m P, G m d P, d N S' N d P",
     "characteristic_phrases": [
-      { "phrase": "S r G r S",     "context": "Opening — the komal Re to shuddh Ga tension defines Bhairav instantly" },
-      { "phrase": "r G m P",       "context": "Ascending through lower tetrachord" },
-      { "phrase": "G m d P",       "context": "The leap from Ma to komal Dha — dramatic Bhairav movement" },
-      { "phrase": "d N S' N d P",  "context": "Upper register — the d-N semitone mirrors the r-G tension" },
-      { "phrase": "P m G r S",     "context": "Resolution — majestic descent to Sa" }
+      {
+        "phrase": "S r G r S",
+        "context": "Opening — the komal Re to shuddh Ga tension defines Bhairav instantly"
+      },
+      {
+        "phrase": "r G m P",
+        "context": "Ascending through lower tetrachord"
+      },
+      {
+        "phrase": "G m d P",
+        "context": "The leap from Ma to komal Dha — dramatic Bhairav movement"
+      },
+      {
+        "phrase": "d N S' N d P",
+        "context": "Upper register — the d-N semitone mirrors the r-G tension"
+      },
+      {
+        "phrase": "P m G r S",
+        "context": "Resolution — majestic descent to Sa"
+      }
     ],
     "note_rules": {
       "Sa_approach": "Approached from komal Re below — the semitone r→S gives Bhairav its gravity",
@@ -63,7 +157,6 @@
       "Pa_role": "Central anchor — phrases pivot around Pa between lower and upper tetrachords"
     }
   },
-
   "emphasis": {
     "vadi": {
       "degree": 8,
@@ -79,26 +172,62 @@
       "western": "Db (minor 2nd, when Sa=C)",
       "role": "Queen note — the komal Re is the soul of Bhairav. Its relationship to Sa and Ga defines the raga's emotional landscape."
     },
-    "important_notes": ["d", "r", "G", "N"],
-    "resting_notes": ["S", "G", "P", "d"]
+    "important_notes": [
+      "d",
+      "r",
+      "G",
+      "N"
+    ],
+    "resting_notes": [
+      "S",
+      "G",
+      "P",
+      "d"
+    ]
   },
-
   "context": {
     "time": {
       "prahar": "First prahar of day",
       "window": "6:00 AM – 9:00 AM",
       "season": "All seasons, especially winter"
     },
-    "mood": ["Majestic", "Serious", "Awe-inspiring", "Devotional", "Solemn"],
+    "mood": [
+      "Majestic",
+      "Serious",
+      "Awe-inspiring",
+      "Devotional",
+      "Solemn"
+    ],
     "rasa": "Vibhatsa (awe) and Bhakti (devotion) — specifically Shiva bhakti",
     "aesthetic": "Evokes the austere beauty of dawn — the first light breaking through darkness. The augmented seconds (r-G, d-N) create a sense of gravity and ancient power."
   },
-
+  "arc_profile": {
+    "alap_ratio": 0.35,
+    "peak_position_ratio": 0.65,
+    "peak_ceiling": 0.77,
+    "opening_energy": 0.23
+  },
   "western_equivalent": {
     "mode": "Double Harmonic Major",
     "key_example": "C Double Harmonic (Byzantine)",
-    "interval_pattern": ["H", "A", "H", "W", "H", "A", "H"],
-    "interval_semitones": [1, 3, 1, 2, 1, 3, 1],
+    "interval_pattern": [
+      "H",
+      "A",
+      "H",
+      "W",
+      "H",
+      "A",
+      "H"
+    ],
+    "interval_semitones": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      3,
+      1
+    ],
     "relationship": "Also called the Byzantine or Arabic scale. The two augmented seconds (b2→3 and b6→7) give it a distinctly Middle Eastern/Indian sound. Used in Flamenco as the Phrygian Dominant parent scale.",
     "common_usage": [
       "Miserlou (Dick Dale / Pulp Fiction)",
@@ -106,14 +235,13 @@
       "Flamenco traditions"
     ]
   },
-
   "genre_compatibility": {
     "lofi": {
       "score": 0.75,
       "notes": "The augmented seconds add exotic colour to lofi. Works best with slower, more contemplative beats. The gravity may clash with overly bright lofi textures."
     },
     "ambient": {
-      "score": 0.90,
+      "score": 0.9,
       "notes": "Bhairav's solemn mood translates powerfully to ambient. The komal Re and komal Dha sustained over drones create deeply evocative atmospheres."
     },
     "calm": {
@@ -123,12 +251,55 @@
     "upbeat": {
       "score": 0.55,
       "notes": "The serious, majestic character doesn't naturally lend itself to upbeat production, though Bhairav-based trance or psytrance can be powerful."
+    },
+    "jazz_fusion": {
+      "score": 0.8,
+      "notes": "Double-harmonic exotic tension for adventurous modal jazz."
+    },
+    "cinematic": {
+      "score": 0.9,
+      "notes": "Excellent for solemn, devotional, and mythic grandeur; augmented-second flavor is immediately dramatic."
+    },
+    "downtempo": {
+      "score": 0.78,
+      "notes": "Weighty phrases suit spacious mixes."
+    },
+    "electronic": {
+      "score": 0.65,
+      "notes": "Augmented seconds add edge to synths at moderate BPM."
+    },
+    "chillhop": {
+      "score": 0.7,
+      "notes": "Solemn lines add depth to chill grooves."
+    },
+    "reggae_dub": {
+      "score": 0.68,
+      "notes": "Powerful mood anchors deep bass."
+    },
+    "trap": {
+      "score": 0.6,
+      "notes": "Exotic tension for dark trap hooks."
+    },
+    "rock": {
+      "score": 0.75,
+      "notes": "Exotic intervals drive guitar riffs."
     }
   },
-
+  "tempo_limits": {
+    "electronic": {"ceiling_bpm": 90, "note": "oscillations need time; atmospheric lead over minimalist beats"},
+    "downtempo": {"best_range_bpm": [70, 95]},
+    "chillhop": {"ceiling_bpm": 85}
+  },
   "metadata": {
     "version": "1.0",
     "created_by": "manual",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Komal Re and Dha create augmented seconds",
+    "highlight for exotic rock/electronic flavor",
+    "Make long, confident note-bends part of the sound design (slow pitch envelopes/pitch wheel), not decorative afterthoughts.",
+    "Favor drones and open intervals; too many chord changes will turn Bhairav's tension into generic 'exotic scale' clichés.",
+    "If you go rhythmic, keep perceived tempo slow so the characteristic oscillations have time to speak."
+  ]
 }

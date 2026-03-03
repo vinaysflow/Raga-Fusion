@@ -1,39 +1,143 @@
 {
   "raga": {
     "name": "Asavari",
-    "aliases": ["Asaavari"],
+    "aliases": [
+      "Asaavari"
+    ],
     "thaat": "Asavari",
     "family": "Asavari",
     "jati": "Sampoorna-Sampoorna",
     "description": "A introspective raga with komal Ga, komal Dha, and komal Ni. Evokes seriousness, longing, and depth."
   },
   "scale": {
-    "degrees": [0, 2, 3, 5, 7, 8, 10],
-    "svaras": ["S", "R", "g", "m", "P", "d", "n"],
-    "svaras_full": ["Sa", "Re", "Ga (komal)", "Ma (shuddh)", "Pa", "Dha (komal)", "Ni (komal)"],
-    "western_notes_sa_c": ["C", "D", "Eb", "F", "G", "Ab", "Bb"],
+    "degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "g",
+      "m",
+      "P",
+      "d",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re",
+      "Ga (komal)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (komal)",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "Eb",
+      "F",
+      "G",
+      "Ab",
+      "Bb"
+    ],
     "note_types": {
-      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
-      "R": { "degree": 2, "type": "shuddh", "western": "2 (major 2nd)" },
-      "g": { "degree": 3, "type": "komal", "western": "b3 (minor 3rd)" },
-      "m": { "degree": 5, "type": "shuddh", "western": "4 (perfect 4th)" },
-      "P": { "degree": 7, "type": "shuddh", "western": "5 (perfect 5th)" },
-      "d": { "degree": 8, "type": "komal", "western": "b6 (minor 6th)" },
-      "n": { "degree": 10, "type": "komal", "western": "b7 (minor 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "g": {
+        "degree": 3,
+        "type": "komal",
+        "western": "b3 (minor 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "d": {
+        "degree": 8,
+        "type": "komal",
+        "western": "b6 (minor 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
     },
     "forbidden": [
-      { "degree": 4, "svara": "G", "name": "Shuddh Ga", "reason": "Asavari uses komal Ga." },
-      { "degree": 9, "svara": "D", "name": "Shuddh Dha", "reason": "Asavari uses komal Dha." },
-      { "degree": 11, "svara": "N", "name": "Shuddh Ni", "reason": "Asavari uses komal Ni." },
-      { "degree": 6, "svara": "M'", "name": "Tivra Ma", "reason": "Asavari uses shuddh Ma." }
+      {
+        "degree": 4,
+        "svara": "G",
+        "name": "Shuddh Ga",
+        "reason": "Asavari uses komal Ga."
+      },
+      {
+        "degree": 9,
+        "svara": "D",
+        "name": "Shuddh Dha",
+        "reason": "Asavari uses komal Dha."
+      },
+      {
+        "degree": 11,
+        "svara": "N",
+        "name": "Shuddh Ni",
+        "reason": "Asavari uses komal Ni."
+      },
+      {
+        "degree": 6,
+        "svara": "M'",
+        "name": "Tivra Ma",
+        "reason": "Asavari uses shuddh Ma."
+      }
     ]
   },
   "movement": {
     "aroha": "S R g m P d n S'",
     "avaroha": "S' n d P m g R S",
-    "aroha_degrees": [0, 2, 3, 5, 7, 8, 10, 12],
-    "avaroha_degrees": [12, 10, 8, 7, 5, 3, 2, 0],
-    "pakad": ["g m d n S'", "n d P m g", "g R S"],
+    "aroha_degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      8,
+      7,
+      5,
+      3,
+      2,
+      0
+    ],
+    "pakad": [
+      "g m d n S'",
+      "n d P m g",
+      "g R S"
+    ],
     "pakad_string": "g m d n S', n d P m g, g R S"
   },
   "emphasis": {
@@ -51,30 +155,103 @@
       "western": "Eb (minor 3rd, when Sa=C)",
       "role": "Queen note — supports the raga's introspective mood."
     },
-    "important_notes": ["d", "g", "n"],
-    "resting_notes": ["S", "P", "g"]
+    "important_notes": [
+      "d",
+      "g",
+      "n"
+    ],
+    "resting_notes": [
+      "S",
+      "P",
+      "g"
+    ]
   },
   "context": {
-    "time": { "prahar": "Second prahar of day", "window": "12:00 PM – 3:00 PM", "season": "Monsoon" },
-    "mood": ["Serious", "Longing", "Introspective"],
+    "time": {
+      "prahar": "Second prahar of day",
+      "window": "12:00 PM – 3:00 PM",
+      "season": "Monsoon"
+    },
+    "mood": [
+      "Serious",
+      "Longing",
+      "Introspective"
+    ],
     "rasa": "Karuna (compassion)",
     "aesthetic": "Soft, shaded, and contemplative."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.34,
+    "peak_position_ratio": 0.66,
+    "peak_ceiling": 0.72,
+    "opening_energy": 0.24
   },
   "western_equivalent": {
     "mode": "Aeolian (Natural Minor)",
     "key_example": "C Aeolian",
-    "interval_semitones": [2, 1, 2, 2, 1, 2, 2],
+    "interval_semitones": [
+      2,
+      1,
+      2,
+      2,
+      1,
+      2,
+      2
+    ],
     "relationship": "Asavari aligns with the natural minor scale."
   },
   "genre_compatibility": {
-    "ambient": { "score": 0.82, "notes": "Somber tone suits spacious textures." },
-    "lofi": { "score": 0.78, "notes": "Minor color blends with mellow beats." },
-    "cinematic": { "score": 0.8, "notes": "Depth supports reflective cues." },
-    "downtempo": { "score": 0.84, "notes": "Works well for slow, moody grooves." }
+    "ambient": {
+      "score": 0.82,
+      "notes": "Somber tone suits spacious textures."
+    },
+    "lofi": {
+      "score": 0.78,
+      "notes": "Minor color blends with mellow beats."
+    },
+    "cinematic": {
+      "score": 0.85,
+      "notes": "Somber pathos for reflective drama."
+    },
+    "downtempo": {
+      "score": 0.82,
+      "notes": "Strong: mellow melodic lines sit well over laid-back organic drums (especially half-time feels)."
+    },
+    "jazz_fusion": {
+      "score": 0.8,
+      "notes": "Aeolian/natural minor for blues/minor jazz."
+    },
+    "electronic": {
+      "score": 0.7,
+      "notes": "Fairly workable because the mode is familiar; keep phrasing raga-like to avoid generic minor EDM."
+    },
+    "chillhop": {
+      "score": 0.78,
+      "notes": "Pathos with jazzy warmth."
+    },
+    "reggae_dub": {
+      "score": 0.82,
+      "notes": "Strong: minor dub fits well, but keep phrase endings and rests consistent so it doesn't drift into other minor ragas."
+    },
+    "trap": {
+      "score": 0.78,
+      "notes": "Strong: minor hooks translate well; keep motifs rooted in the raga's characteristic contour rather than generic minor scales."
+    },
+    "rock": {
+      "score": 0.75,
+      "notes": "Pathos in minor rock."
+    }
   },
   "metadata": {
     "version": "1.0",
     "created_by": "manual_seed",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Natural minor feel",
+    "strong for blues/rock minor-pentatonic extensions",
+    "Asavari lives near several close relatives: keep the characteristic descent clear and don't overdo heavy oscillations (which can push it toward Darbari-like gravity).",
+    "Because ascent omits some tones, hook-writing works best when you base motifs on the ascent contour and use the full descent as 'answer' phrases.",
+    "If you add harmony, prefer drones or modal vamps so the raga remains the organizing principle."
+  ]
 }

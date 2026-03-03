@@ -1,0 +1,753 @@
+[
+  {
+    "raga_name": "asavari",
+    "arc_profile": {
+      "alap_ratio": 0.34,
+      "peak_position_ratio": 0.66,
+      "peak_ceiling": 0.72,
+      "opening_energy": 0.24
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.78,
+        "notes": "Pathos with jazzy warmth."
+      },
+      "cinematic": {
+        "score": 0.85,
+        "notes": "Somber pathos for reflective drama."
+      },
+      "downtempo": {
+        "score": 0.82,
+        "notes": "Strong: mellow melodic lines sit well over laid-back organic drums (especially half-time feels)."
+      },
+      "electronic": {
+        "score": 0.7,
+        "notes": "Fairly workable because the mode is familiar; keep phrasing raga-like to avoid generic minor EDM."
+      },
+      "jazz_fusion": {
+        "score": 0.8,
+        "notes": "Aeolian/natural minor for blues/minor jazz."
+      },
+      "reggae_dub": {
+        "score": 0.82,
+        "notes": "Strong: minor dub fits well, but keep phrase endings and rests consistent so it doesn't drift into other minor ragas."
+      },
+      "rock": {
+        "score": 0.75,
+        "notes": "Pathos in minor rock."
+      },
+      "trap": {
+        "score": 0.78,
+        "notes": "Strong: minor hooks translate well; keep motifs rooted in the raga's characteristic contour rather than generic minor scales."
+      }
+    },
+    "fusion_notes": [
+      "Natural minor feel",
+      "strong for blues/rock minor-pentatonic extensions",
+      "Asavari lives near several close relatives: keep the characteristic descent clear and don't overdo heavy oscillations (which can push it toward Darbari-like gravity).",
+      "Because ascent omits some tones, hook-writing works best when you base motifs on the ascent contour and use the full descent as 'answer' phrases.",
+      "If you add harmony, prefer drones or modal vamps so the raga remains the organizing principle."
+    ]
+  },
+  {
+    "raga_name": "bageshree",
+    "arc_profile": {
+      "alap_ratio": 0.35,
+      "peak_position_ratio": 0.66,
+      "peak_ceiling": 0.73,
+      "opening_energy": 0.26
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.87,
+        "notes": "Sweet melancholy ideal for warm jazzy beats."
+      },
+      "cinematic": {
+        "score": 0.85,
+        "notes": "Excellent for intimate melancholy and 'night-romance' cues; works beautifully with soft strings and woodwinds."
+      },
+      "downtempo": {
+        "score": 0.85,
+        "notes": "Intimate romantic flow in organic drums."
+      },
+      "electronic": {
+        "score": 0.7,
+        "notes": "Melodic phrases adapt but keep mid-tempo."
+      },
+      "jazz_fusion": {
+        "score": 0.85,
+        "notes": "Dorian-like with sweet komal Ga/Ma for intimate modal play."
+      },
+      "reggae_dub": {
+        "score": 0.72,
+        "notes": "Romantic softness fits relaxed skanks."
+      },
+      "rock": {
+        "score": 0.6,
+        "notes": "Soft character better in ballad rock."
+      },
+      "trap": {
+        "score": 0.65,
+        "notes": "Intimate lines can serve subtle hooks."
+      }
+    },
+    "fusion_notes": [
+      "Komal Ga and Ma provide sweet melancholy",
+      "preserve in slower fusion sections",
+      "Prioritize slow, expressive glides: the raga's 'sweetness' depends on meend/gamak, not fast scalar runs.",
+      "Keep Pancham psychologically 'light' in your bass/harmony so the melodic contour stays Bageshree-like rather than generic minor.",
+      "If you need intensity, raise density via texture (pads, percussion layers) rather than pushing taans too fast."
+    ]
+  },
+  {
+    "raga_name": "bhairav",
+    "arc_profile": {
+      "alap_ratio": 0.35,
+      "peak_position_ratio": 0.65,
+      "peak_ceiling": 0.77,
+      "opening_energy": 0.23
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.7,
+        "notes": "Solemn lines add depth to chill grooves."
+      },
+      "cinematic": {
+        "score": 0.9,
+        "notes": "Excellent for solemn, devotional, and mythic grandeur; augmented-second flavor is immediately dramatic."
+      },
+      "downtempo": {
+        "score": 0.78,
+        "notes": "Weighty phrases suit spacious mixes."
+      },
+      "electronic": {
+        "score": 0.65,
+        "notes": "Augmented seconds add edge to synths at moderate BPM."
+      },
+      "jazz_fusion": {
+        "score": 0.8,
+        "notes": "Double-harmonic exotic tension for adventurous modal jazz."
+      },
+      "reggae_dub": {
+        "score": 0.68,
+        "notes": "Powerful mood anchors deep bass."
+      },
+      "rock": {
+        "score": 0.75,
+        "notes": "Exotic intervals drive guitar riffs."
+      },
+      "trap": {
+        "score": 0.6,
+        "notes": "Exotic tension for dark trap hooks."
+      }
+    },
+    "fusion_notes": [
+      "Komal Re and Dha create augmented seconds",
+      "highlight for exotic rock/electronic flavor",
+      "Make long, confident note-bends part of the sound design (slow pitch envelopes/pitch wheel), not decorative afterthoughts.",
+      "Favor drones and open intervals; too many chord changes will turn Bhairav's tension into generic 'exotic scale' clichés.",
+      "If you go rhythmic, keep perceived tempo slow so the characteristic oscillations have time to speak."
+    ]
+  },
+  {
+    "raga_name": "bhairavi",
+    "arc_profile": {
+      "alap_ratio": 0.29,
+      "peak_position_ratio": 0.56,
+      "peak_ceiling": 0.8,
+      "opening_energy": 0.26
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.82,
+        "notes": "Melancholic lines pair with walking bass warmth."
+      },
+      "cinematic": {
+        "score": 0.9,
+        "notes": "Deep emotional pathos ideal for dramatic scoring and closers."
+      },
+      "downtempo": {
+        "score": 0.85,
+        "notes": "Versatile komal palette creates intimate organic grooves."
+      },
+      "electronic": {
+        "score": 0.8,
+        "notes": "Proven in electronic disco; all-komal phrases adapt to synth arps."
+      },
+      "jazz_fusion": {
+        "score": 0.85,
+        "notes": "Phrygian-inflected scale offers exotic tension for modal solos; melancholic compassion fits bluesy feels."
+      },
+      "reggae_dub": {
+        "score": 0.75,
+        "notes": "Compassionate mood suits dub delay and deep bass."
+      },
+      "rock": {
+        "score": 0.78,
+        "notes": "Phrygian/minor-rock language is familiar; use bends and slides to preserve the raga character."
+      },
+      "trap": {
+        "score": 0.74,
+        "notes": "Can translate into dark hooks; best as short, memorable motifs with 808 glides echoing raga bends."
+      }
+    },
+    "fusion_notes": [
+      "Often used as closer",
+      "all-komal palette allows flexible reharmonization",
+      "survives acceleration better than heavier ragas",
+      "Treat Bhairavi as 'high flexibility': you can allow tasteful chromatic approach tones, but keep the core melodic gravity intact.",
+      "Because Bhairavi is often a winding-down/closing raga, an earlier climax + long outro/fade feels stylistically natural.",
+      "If the production is busy, preserve identity by anchoring repeated cadences on stable resting tones (especially around Sa/Ma)."
+    ]
+  },
+  {
+    "raga_name": "bhoopali",
+    "arc_profile": {
+      "alap_ratio": 0.24,
+      "peak_position_ratio": 0.62,
+      "peak_ceiling": 0.8,
+      "opening_energy": 0.36
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.9,
+        "notes": "Bright clean melodies perfect with vinyl warmth."
+      },
+      "cinematic": {
+        "score": 0.75,
+        "notes": "Bright serenity for hopeful or pastoral scenes."
+      },
+      "downtempo": {
+        "score": 0.85,
+        "notes": "Excellent: pentatonic motifs loop cleanly and stay singable over organic drums."
+      },
+      "electronic": {
+        "score": 0.88,
+        "notes": "Very strong: pentatonic hooks survive synth treatment and quantization, making it ideal for arps and toplines."
+      },
+      "jazz_fusion": {
+        "score": 0.88,
+        "notes": "Major pentatonic simplicity allows open jazz improvisation."
+      },
+      "reggae_dub": {
+        "score": 0.75,
+        "notes": "Good fit: offbeat skanks + pentatonic lead feels natural; keep the bass on stable tones."
+      },
+      "rock": {
+        "score": 0.84,
+        "notes": "Excellent: maps well to guitar and riff logic; easy to keep melodic identity even at higher tempos."
+      },
+      "trap": {
+        "score": 0.86,
+        "notes": "Excellent for catchy hooks; pentatonic contour reads instantly even over dense drums."
+      }
+    },
+    "fusion_notes": [
+      "Clean pentatonic (no Ma, no Ni) offers open intervals",
+      "highly adaptable to Western harmony",
+      "Avoid turning the melody into a generic major pentatonic riff: keep raga-like cadence shapes and ornamented turns.",
+      "Be cautious with resting emphasis: if you over-stress Dha as a landing tone, it can drift toward close neighbors.",
+      "Avoid 'extra' grace notes (especially the missing Ma/Ni) unless you intentionally want the sound of a related raga."
+    ]
+  },
+  {
+    "raga_name": "bilawal",
+    "arc_profile": {
+      "alap_ratio": 0.26,
+      "peak_position_ratio": 0.63,
+      "peak_ceiling": 0.81,
+      "opening_energy": 0.34
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.82,
+        "notes": "Stable brightness with warmth."
+      },
+      "cinematic": {
+        "score": 0.78,
+        "notes": "Bright stable for uplifting or heroic themes."
+      },
+      "downtempo": {
+        "score": 0.78,
+        "notes": "Good: major-mode warmth works well at 80–100 BPM, especially with acoustic instrumentation."
+      },
+      "electronic": {
+        "score": 0.85,
+        "notes": "Strong: major hooks/arps work immediately; keep melodic grammar raga-like so it doesn't become plain EDM-pop."
+      },
+      "jazz_fusion": {
+        "score": 0.85,
+        "notes": "Plain major scale for straightforward major-key jazz."
+      },
+      "reggae_dub": {
+        "score": 0.75,
+        "notes": "Good: major reggae is common; anchor bass on stable tones and keep the lead lightly ornamented."
+      },
+      "rock": {
+        "score": 0.85,
+        "notes": "Strong: major-scale riffs and melodies map well to guitars; can support energetic rock without losing coherence."
+      },
+      "trap": {
+        "score": 0.75,
+        "notes": "Catchy major hooks."
+      }
+    },
+    "fusion_notes": [
+      "Essentially Ionian/major",
+      "easiest Western harmonic integration",
+      "Bilawal is close to 'plain major'; the identity lives in pakad-like turns and where you choose to rest (nyas), not the note-set alone.",
+      "Use ornamentation (slides, light shakes) to keep it from becoming a generic major topline.",
+      "If you introduce borrowed/altered notes for color, do it sparingly so the core remains 'all-shuddh' in feel."
+    ]
+  },
+  {
+    "raga_name": "darbari_kanada",
+    "arc_profile": {
+      "alap_ratio": 0.42,
+      "peak_position_ratio": 0.7,
+      "peak_ceiling": 0.68,
+      "opening_energy": 0.2
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.78,
+        "notes": "Somber lines add vinyl-depth melancholy."
+      },
+      "cinematic": {
+        "score": 0.92,
+        "notes": "Majestic somber depth perfect for epic orchestral tension."
+      },
+      "downtempo": {
+        "score": 0.88,
+        "notes": "Patient exploration thrives in spacious organic mixes."
+      },
+      "electronic": {
+        "score": 0.45,
+        "notes": "Heavy andolan loses character above 100 BPM; better at slower house."
+      },
+      "jazz_fusion": {
+        "score": 0.75,
+        "notes": "Natural-minor feel with andolan suits slow blues/jazz, but gravity limits fast improv."
+      },
+      "reggae_dub": {
+        "score": 0.8,
+        "notes": "Low-register gravity anchors deep dub bass perfectly."
+      },
+      "rock": {
+        "score": 0.55,
+        "notes": "Majestic power works in slow heavy riffs, not fast punk."
+      },
+      "trap": {
+        "score": 0.4,
+        "notes": "Grave mood clashes with aggressive hi-hats; too patient for rolls."
+      }
+    },
+    "fusion_notes": [
+      "Heavy andolan (oscillation) on komal Ga and komal Dha does not survive tempo acceleration above ~90 BPM",
+      "substitute with slow meend or gamak in faster genres",
+      "Treat tempo as an 'illusion': even in rhythmic sections, keep melodic delivery slow and roomy (half-time or spacious syncopation).",
+      "Preserve heavy komal Ga/Dha oscillations with pitch-bend automation (or expressive sampling), not strict MIDI quantization.",
+      "Favor low/middle-register phrasing and avoid bright, fast arpeggios that make it feel like generic natural minor."
+    ]
+  },
+  {
+    "raga_name": "desh",
+    "arc_profile": {
+      "alap_ratio": 0.23,
+      "peak_position_ratio": 0.62,
+      "peak_ceiling": 0.83,
+      "opening_energy": 0.37
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.9,
+        "notes": "Excellent: sits right on top of swing drums and jazzy bass; the melodic contour feels inherently 'song-like'."
+      },
+      "cinematic": {
+        "score": 0.78,
+        "notes": "Playful romantic for lighter narrative scoring."
+      },
+      "downtempo": {
+        "score": 0.88,
+        "notes": "Excellent: phrases feel natural at 80–100 BPM and retain sweetness even with modern drum kits."
+      },
+      "electronic": {
+        "score": 0.9,
+        "notes": "Very strong: melodic hooks survive synth layers and sidechain pumping; keep the raga's characteristic turns so it doesn't become generic pop."
+      },
+      "jazz_fusion": {
+        "score": 0.92,
+        "notes": "Mixolydian warmth with komal Ni ideal for funky modal jazz."
+      },
+      "reggae_dub": {
+        "score": 0.85,
+        "notes": "Strong: Mixolydian family fits reggae harmonic language; works well for offbeat skanks + melodic answering phrases."
+      },
+      "rock": {
+        "score": 0.85,
+        "notes": "Strong: blends with major/DOM rock harmony; riffs can carry the raga if you keep the specific melodic grammar."
+      },
+      "trap": {
+        "score": 0.82,
+        "notes": "Works well as a hook raga; keep motifs tight and let 808 slides complement the melodic bends."
+      }
+    },
+    "fusion_notes": [
+      "Komal Ni as color note",
+      "naturally upbeat—easiest for high-energy fusions",
+      "Be explicit about your Ni choice: treat one Ni as the 'main' color and the other as a controlled accent so it doesn't sound like generic Mixolydian.",
+      "Because Desh is used across many semi-classical contexts, feel free to hybridize with folk phrasing, but keep a recognizable core motif.",
+      "If you want it to feel upbeat, raise energy via rhythm and articulation, not by forcing heavy harmonic modulation."
+    ]
+  },
+  {
+    "raga_name": "kafi",
+    "arc_profile": {
+      "alap_ratio": 0.3,
+      "peak_position_ratio": 0.65,
+      "peak_ceiling": 0.77,
+      "opening_energy": 0.32
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.93,
+        "notes": "Top-tier: chillhop already lives in Dorian/ii-minor territory; walking bass + swing drums pair extremely well."
+      },
+      "cinematic": {
+        "score": 0.8,
+        "notes": "Folk-inflected romance for storytelling."
+      },
+      "downtempo": {
+        "score": 0.85,
+        "notes": "Excellent: sits naturally on earthy grooves and can handle long, meditative repetition."
+      },
+      "electronic": {
+        "score": 0.78,
+        "notes": "Good: Dorian hooks survive synth treatment; keep melodic ornaments audible so it doesn't become generic minor."
+      },
+      "jazz_fusion": {
+        "score": 0.92,
+        "notes": "Dorian-like core makes it one of the easiest ragas to blend with jazz harmony; great for modal vamps and extended chords."
+      },
+      "reggae_dub": {
+        "score": 0.8,
+        "notes": "Strong: minor/Dorian bass motion is common in dub; keep melodic phrases simple and let delay do the motion."
+      },
+      "rock": {
+        "score": 0.78,
+        "notes": "Good for jam-band/prog rock; Dorian is familiar on guitar and can sustain long solos."
+      },
+      "trap": {
+        "score": 0.75,
+        "notes": "Good for darker hooks; keep motifs short and use subtle micro-bends rather than long taans."
+      }
+    },
+    "fusion_notes": [
+      "Folk-inflected",
+      "komal Ga/Ni give bluesy quality—enhances jazz/rock",
+      "Kafi is naturally 'mishra-friendly': you can tastefully borrow a few extra chromatic colors without breaking the vibe.",
+      "If you want a more classical feel, reduce functional chord movement and keep a drone under the changes.",
+      "Lean into folk inflections (simple turns, lyrical motifs) rather than virtuosic speed to keep it 'Kafi' instead of generic Dorian."
+    ]
+  },
+  {
+    "raga_name": "khamaj",
+    "arc_profile": {
+      "alap_ratio": 0.24,
+      "peak_position_ratio": 0.62,
+      "peak_ceiling": 0.8,
+      "opening_energy": 0.35
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.92,
+        "notes": "Excellent: fits swing and walking bass; use jazzy chords but keep them slow-moving."
+      },
+      "cinematic": {
+        "score": 0.75,
+        "notes": "Light playful for upbeat scenes."
+      },
+      "downtempo": {
+        "score": 0.9,
+        "notes": "Excellent: naturally grooves at mid-tempo, and semi-classical ornamentation reads clearly over sparse drums."
+      },
+      "electronic": {
+        "score": 0.87,
+        "notes": "Very strong: makes catchy toplines; keep the characteristic descending color so it doesn't collapse into plain pop."
+      },
+      "jazz_fusion": {
+        "score": 0.9,
+        "notes": "Mixolydian lightness for swinging improv."
+      },
+      "reggae_dub": {
+        "score": 0.83,
+        "notes": "Strong: dominant-mode language fits reggae; skanks + melodic answers feel natural."
+      },
+      "rock": {
+        "score": 0.8,
+        "notes": "Good: easy to map onto guitar and common rock harmony, especially in jam/prog contexts."
+      },
+      "trap": {
+        "score": 0.8,
+        "notes": "Good: makes memorable hooks; keep the motif compact so it survives busy hats and 808 movement."
+      }
+    },
+    "fusion_notes": [
+      "Similar to Desh",
+      "thumri lightness favors lighter genres",
+      "Treat the 'two Ni' color as a key identity marker: make the descending color audible rather than hiding it under chords.",
+      "Khamaj tolerates quick decorations: use short grace-note flourishes (murki-like) to signal raga-ness even in modern production.",
+      "If you add functional harmony, keep it secondary; too many cadences will make it feel like generic Mixolydian."
+    ]
+  },
+  {
+    "raga_name": "malkauns",
+    "arc_profile": {
+      "alap_ratio": 0.4,
+      "peak_position_ratio": 0.7,
+      "peak_ceiling": 0.68,
+      "opening_energy": 0.2
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.85,
+        "notes": "Meditative lines pair beautifully with jazzy swing."
+      },
+      "cinematic": {
+        "score": 0.9,
+        "notes": "Haunting meditative quality for profound scenes."
+      },
+      "downtempo": {
+        "score": 0.9,
+        "notes": "Wide note gaps create natural spaciousness."
+      },
+      "electronic": {
+        "score": 0.85,
+        "notes": "Proven in disco; pentatonic phrases loop cleanly on synths."
+      },
+      "jazz_fusion": {
+        "score": 0.8,
+        "notes": "Pentatonic minor variant offers spacious modal freedom."
+      },
+      "reggae_dub": {
+        "score": 0.82,
+        "notes": "Strong fit: minor pentatonic lines sit naturally over heavy sub-bass; dub delay complements the spacious phrasing."
+      },
+      "rock": {
+        "score": 0.78,
+        "notes": "Works well for riff-based rock/psych; pentatonic shapes map naturally onto guitar."
+      },
+      "trap": {
+        "score": 0.8,
+        "notes": "Great for catchy minor hooks; pentatonic contour makes motifs easy to remember and replay."
+      }
+    },
+    "fusion_notes": [
+      "Pentatonic (no Re, no Pa) creates wide gaps ideal for ambient pads and electronic layering",
+      "emphasize madhyam as vadi",
+      "Because Re and Pa are absent, avoid dominant-function basslines (V–I gestures). Use drones/pedals and modal bass motion.",
+      "Spacing is part of the aesthetic: leave silence between phrases so the pentatonic 'voids' feel intentional.",
+      "If you add harmony, keep it minimal (drones, power-chords, or slow-moving clusters) so the raga does not collapse into generic minor pentatonic."
+    ]
+  },
+  {
+    "raga_name": "marwa",
+    "arc_profile": {
+      "alap_ratio": 0.36,
+      "peak_position_ratio": 0.69,
+      "peak_ceiling": 0.72,
+      "opening_energy": 0.23
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.65,
+        "notes": "Tense for moody chill."
+      },
+      "cinematic": {
+        "score": 0.92,
+        "notes": "Outstanding for dusk-time suspense and existential tension; the lack of easy resolution is a scoring superpower."
+      },
+      "downtempo": {
+        "score": 0.7,
+        "notes": "Tension in spacious settings."
+      },
+      "electronic": {
+        "score": 0.6,
+        "notes": "Dissonance adds edge but needs careful pacing."
+      },
+      "jazz_fusion": {
+        "score": 0.75,
+        "notes": "Lydian b2 dissonance for tense modal jazz."
+      },
+      "reggae_dub": {
+        "score": 0.55,
+        "notes": "Restless mood less relaxed."
+      },
+      "rock": {
+        "score": 0.8,
+        "notes": "Unsettled energy drives rock riffs."
+      },
+      "trap": {
+        "score": 0.7,
+        "notes": "Tension for dark trap."
+      }
+    },
+    "fusion_notes": [
+      "Avoids Pa entirely—bass lines must avoid standard V chord",
+      "komal Re + tivra Ma dissonance needs special harmonic treatment",
+      "Avoid building basslines/harmony around Pa-like dominant motion; treat the mode as 'suspended' and cadence sparingly.",
+      "Use silence as a compositional tool: gaps and held tones are part of the raga's identity.",
+      "If your production needs a 'drop', consider resolving only at key structural moments (late peak), not repeatedly throughout."
+    ]
+  },
+  {
+    "raga_name": "purvi",
+    "arc_profile": {
+      "alap_ratio": 0.36,
+      "peak_position_ratio": 0.67,
+      "peak_ceiling": 0.75,
+      "opening_energy": 0.23
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.68,
+        "notes": "Tense for sophisticated chill."
+      },
+      "cinematic": {
+        "score": 0.94,
+        "notes": "Top-tier for mystery + devotional tension; handles orchestral pads, ominous swells, and poignant solo statements very well."
+      },
+      "downtempo": {
+        "score": 0.75,
+        "notes": "Complex in organic depth."
+      },
+      "electronic": {
+        "score": 0.55,
+        "notes": "Chromatic phrases challenge fast synths."
+      },
+      "jazz_fusion": {
+        "score": 0.65,
+        "notes": "Complex Lydian b2 b6 chromaticism for advanced modal work."
+      },
+      "reggae_dub": {
+        "score": 0.6,
+        "notes": "Devotional weight fits dub."
+      },
+      "rock": {
+        "score": 0.7,
+        "notes": "Tension for progressive rock."
+      },
+      "trap": {
+        "score": 0.5,
+        "notes": "Complexity less hooky."
+      }
+    },
+    "fusion_notes": [
+      "Komal Re + tivra Ma + komal Dha create chromatic complexity",
+      "best in mid-tempo fusion to retain character",
+      "Keep both Ma flavors clearly separated in sound design (e.g., distinct timbres/registrations) so the 'two Madhyams' color stays readable.",
+      "Avoid busy harmonic modulation; Purvi is strongest when tension is sustained, not constantly re-resolved.",
+      "If you must go rhythmic, keep melodic phrasing slow enough that the altered tones register as intention, not 'wrong notes'."
+    ]
+  },
+  {
+    "raga_name": "todi",
+    "arc_profile": {
+      "alap_ratio": 0.4,
+      "peak_position_ratio": 0.67,
+      "peak_ceiling": 0.75,
+      "opening_energy": 0.21
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.75,
+        "notes": "Serious lines add sophisticated melancholy."
+      },
+      "cinematic": {
+        "score": 0.95,
+        "notes": "One of the strongest for devotional intensity, sorrow, and high drama; the scale profile creates built-in tension."
+      },
+      "downtempo": {
+        "score": 0.85,
+        "notes": "Meditative weight in spacious mixes."
+      },
+      "electronic": {
+        "score": 0.75,
+        "notes": "Proven in electronic; tivra Ma adds color."
+      },
+      "jazz_fusion": {
+        "score": 0.7,
+        "notes": "Exotic Phrygian#4 for adventurous modal work."
+      },
+      "reggae_dub": {
+        "score": 0.65,
+        "notes": "Weighty mood fits deep dub."
+      },
+      "rock": {
+        "score": 0.65,
+        "notes": "Pathos suits atmospheric rock."
+      },
+      "trap": {
+        "score": 0.6,
+        "notes": "Exotic phrases for dark hooks."
+      }
+    },
+    "fusion_notes": [
+      "Komal Re/Ga/Dha + tivra Ma create unique tension",
+      "preserve in slower sections",
+      "Preserve the distinctive 'compressed' tension by using slow bends and expressive timing, not straight scalar sequences.",
+      "Keep harmony mostly static (drones, or one/two-chord vamps) so the raga's altered tones stay foregrounded.",
+      "If you need higher tempo, use short sampled motifs and time-stretch them rather than trying to perform long fast lines."
+    ]
+  },
+  {
+    "raga_name": "yaman",
+    "arc_profile": {
+      "alap_ratio": 0.29,
+      "peak_position_ratio": 0.65,
+      "peak_ceiling": 0.78,
+      "opening_energy": 0.33
+    },
+    "genre_compatibility_additions": {
+      "chillhop": {
+        "score": 0.88,
+        "notes": "Melodic warmth pairs naturally with jazzy drums and vinyl crackle."
+      },
+      "cinematic": {
+        "score": 0.85,
+        "notes": "Naturally uplifting and devotional, with a clear 'arrival' note feel that supports wide pads, strings, and gentle climaxes."
+      },
+      "downtempo": {
+        "score": 0.82,
+        "notes": "Sits comfortably over organic 80–100 BPM grooves; phrases can loop without losing identity if you keep a drone / pedal tone."
+      },
+      "electronic": {
+        "score": 0.86,
+        "notes": "Strong for arps and toplines; the bright #4 color stays distinctive even with synth sound design if you avoid busy chord-changes."
+      },
+      "jazz_fusion": {
+        "score": 0.9,
+        "notes": "Lydian mode with sharp Ma aligns perfectly with modal jazz; serene romantic mood supports cool improvisation and extended harmonies."
+      },
+      "reggae_dub": {
+        "score": 0.7,
+        "notes": "Romantic lift works with offbeat skanks, though higher register needs deep bass anchoring."
+      },
+      "rock": {
+        "score": 0.75,
+        "notes": "Bright energy translates to guitar leads with drive."
+      },
+      "trap": {
+        "score": 0.75,
+        "notes": "Uplifting phrases make strong melodic hooks over 808s."
+      }
+    },
+    "fusion_notes": [
+      "Teevra Ma shines in fusion but avoid over-flattening",
+      "phrases survive tempo acceleration well",
+      "Keep teevra Ma consistently emphasized so it reads as Yaman (not plain major).",
+      "In fast sections, prefer short motifs and controlled glides rather than dense taan-like runs, to avoid sounding like generic Lydian over chords.",
+      "If you add harmony, treat the tonic as a pedal and let color tones (especially #4) come from the melody, not from frequent chord swaps."
+    ]
+  }
+]

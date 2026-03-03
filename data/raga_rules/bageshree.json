@@ -1,0 +1,288 @@
+{
+  "raga": {
+    "name": "Bageshree",
+    "aliases": [
+      "Bageshri",
+      "Rageshri (variant usage)"
+    ],
+    "thaat": "Kafi",
+    "family": "Kafi",
+    "jati": "Sampoorna-Sampoorna",
+    "description": "A late-night raga known for its romantic and introspective mood. The use of komal Ga and komal Ni gives it a soft, tender quality, while Ma carries the emotional weight."
+  },
+  "scale": {
+    "degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "g",
+      "m",
+      "P",
+      "D",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (shuddh)",
+      "Ga (komal)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (shuddh)",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "Eb",
+      "F",
+      "G",
+      "A",
+      "Bb"
+    ],
+    "note_types": {
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "g": {
+        "degree": 3,
+        "type": "komal",
+        "western": "b3 (minor 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "D": {
+        "degree": 9,
+        "type": "shuddh",
+        "western": "6 (major 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
+    },
+    "forbidden": [
+      {
+        "degree": 4,
+        "svara": "G",
+        "name": "Shuddh Gandhar",
+        "reason": "Bageshree requires komal Ga; shuddh Ga shifts the mood toward Khamaj/Bilawal."
+      },
+      {
+        "degree": 11,
+        "svara": "N",
+        "name": "Shuddh Nishad",
+        "reason": "Bageshree uses komal Ni. Shuddh Ni removes the raga's soft late-night color."
+      }
+    ]
+  },
+  "movement": {
+    "aroha": "S R g m P D n S'",
+    "avaroha": "S' n D m g R S",
+    "aroha_degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      9,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      9,
+      5,
+      3,
+      2,
+      0
+    ],
+    "pakad": [
+      "m g R S",
+      "D n S",
+      "m D n S"
+    ],
+    "pakad_string": "m g R S, D n S, m D n S",
+    "characteristic_phrases": [
+      {
+        "phrase": "m g R S",
+        "context": "Signature descent highlighting komal Ga"
+      },
+      {
+        "phrase": "R g m",
+        "context": "Soft ascending movement into Ma"
+      },
+      {
+        "phrase": "D n S",
+        "context": "Upper resolution with komal Ni"
+      },
+      {
+        "phrase": "m D n S",
+        "context": "Upper tetrachord movement into Sa"
+      }
+    ],
+    "note_rules": {
+      "Ga_role": "Komal Ga is central and often approached gently from Re or Ma",
+      "Ni_role": "Komal Ni appears prominently in upper register resolutions",
+      "Ma_role": "Ma is often sustained and treated as an emotional anchor"
+    }
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 5,
+      "svara": "m",
+      "full_name": "Shuddh Madhyam",
+      "western": "F (perfect 4th, when Sa=C)",
+      "role": "King note — Ma carries the emotional weight and is often sustained in alaap."
+    },
+    "samvadi": {
+      "degree": 0,
+      "svara": "S",
+      "full_name": "Shuddh Shadja",
+      "western": "C (root, when Sa=C)",
+      "role": "Queen note — Sa supports Ma as the tonal anchor and resolution point."
+    },
+    "important_notes": [
+      "m",
+      "g",
+      "n",
+      "R"
+    ],
+    "resting_notes": [
+      "S",
+      "m",
+      "P",
+      "n"
+    ]
+  },
+  "context": {
+    "time": {
+      "prahar": "Second prahar of night",
+      "window": "9:00 PM – 12:00 AM",
+      "season": "All seasons"
+    },
+    "mood": [
+      "Romantic",
+      "Introspective",
+      "Tender",
+      "Longing"
+    ],
+    "rasa": "Shringara (romance) and Karuna (pathos)",
+    "aesthetic": "Evokes late-night softness and intimacy. The komal Ga and Ni create a gentle, yearning color."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.35,
+    "peak_position_ratio": 0.66,
+    "peak_ceiling": 0.73,
+    "opening_energy": 0.26
+  },
+  "western_equivalent": {
+    "mode": "Dorian (approximate)",
+    "key_example": "C Dorian",
+    "interval_pattern": [
+      "W",
+      "H",
+      "W",
+      "W",
+      "W",
+      "H",
+      "W"
+    ],
+    "interval_semitones": [
+      2,
+      1,
+      2,
+      2,
+      2,
+      1,
+      2
+    ],
+    "relationship": "Bageshree's komal Ga and komal Ni align broadly with the Dorian feel, though raga phrasing is essential to its identity."
+  },
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.88,
+      "notes": "Soft, intimate mood works well with mellow lofi textures and gentle beats."
+    },
+    "ambient": {
+      "score": 0.92,
+      "notes": "Sustained Ma and komal Ga lend themselves to meditative soundscapes."
+    },
+    "calm": {
+      "score": 0.9,
+      "notes": "Ideal for late-night calm, deep focus, and reflective content."
+    },
+    "upbeat": {
+      "score": 0.55,
+      "notes": "The raga's soft late-night character does not naturally push energy."
+    },
+    "jazz_fusion": {
+      "score": 0.85,
+      "notes": "Dorian-like with sweet komal Ga/Ma for intimate modal play."
+    },
+    "cinematic": {
+      "score": 0.85,
+      "notes": "Excellent for intimate melancholy and 'night-romance' cues; works beautifully with soft strings and woodwinds."
+    },
+    "downtempo": {
+      "score": 0.85,
+      "notes": "Intimate romantic flow in organic drums."
+    },
+    "electronic": {
+      "score": 0.7,
+      "notes": "Melodic phrases adapt but keep mid-tempo."
+    },
+    "chillhop": {
+      "score": 0.87,
+      "notes": "Sweet melancholy ideal for warm jazzy beats."
+    },
+    "reggae_dub": {
+      "score": 0.72,
+      "notes": "Romantic softness fits relaxed skanks."
+    },
+    "trap": {
+      "score": 0.65,
+      "notes": "Intimate lines can serve subtle hooks."
+    },
+    "rock": {
+      "score": 0.6,
+      "notes": "Soft character better in ballad rock."
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual",
+    "schema": "raga_rules_v1"
+  },
+  "fusion_notes": [
+    "Komal Ga and Ma provide sweet melancholy",
+    "preserve in slower fusion sections",
+    "Prioritize slow, expressive glides: the raga's 'sweetness' depends on meend/gamak, not fast scalar runs.",
+    "Keep Pancham psychologically 'light' in your bass/harmony so the melodic contour stays Bageshree-like rather than generic minor.",
+    "If you need intensity, raise density via texture (pads, percussion layers) rather than pushing taans too fast."
+  ]
+}

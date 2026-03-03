@@ -1,0 +1,899 @@
+{
+  "generated_at": "2026-03-02T17:34:16.989125",
+  "ragas": {
+    "asavari": {
+      "western_mode": "Aeolian (Natural Minor)",
+      "arc_profile": {
+        "alap_ratio": 0.34,
+        "peak_position_ratio": 0.66,
+        "peak_ceiling": 0.72,
+        "opening_energy": 0.24
+      },
+      "compatible_genres": {
+        "ambient": {
+          "score": 0.82,
+          "notes": "Somber tone suits spacious textures."
+        },
+        "lofi": {
+          "score": 0.78,
+          "notes": "Minor color blends with mellow beats."
+        },
+        "cinematic": {
+          "score": 0.85,
+          "notes": "Somber pathos for reflective drama."
+        },
+        "downtempo": {
+          "score": 0.82,
+          "notes": "Strong: mellow melodic lines sit well over laid-back organic drums (especially half-time feels)."
+        },
+        "jazz_fusion": {
+          "score": 0.8,
+          "notes": "Aeolian/natural minor for blues/minor jazz."
+        },
+        "electronic": {
+          "score": 0.7,
+          "notes": "Fairly workable because the mode is familiar; keep phrasing raga-like to avoid generic minor EDM."
+        },
+        "chillhop": {
+          "score": 0.78,
+          "notes": "Pathos with jazzy warmth."
+        },
+        "reggae_dub": {
+          "score": 0.82,
+          "notes": "Strong: minor dub fits well, but keep phrase endings and rests consistent so it doesn't drift into other minor ragas."
+        },
+        "trap": {
+          "score": 0.78,
+          "notes": "Strong: minor hooks translate well; keep motifs rooted in the raga's characteristic contour rather than generic minor scales."
+        },
+        "rock": {
+          "score": 0.75,
+          "notes": "Pathos in minor rock."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "bageshree": {
+      "western_mode": "Dorian (approximate)",
+      "arc_profile": {
+        "alap_ratio": 0.35,
+        "peak_position_ratio": 0.66,
+        "peak_ceiling": 0.73,
+        "opening_energy": 0.26
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.88,
+          "notes": "Soft, intimate mood works well with mellow lofi textures and gentle beats."
+        },
+        "ambient": {
+          "score": 0.92,
+          "notes": "Sustained Ma and komal Ga lend themselves to meditative soundscapes."
+        },
+        "calm": {
+          "score": 0.9,
+          "notes": "Ideal for late-night calm, deep focus, and reflective content."
+        },
+        "upbeat": {
+          "score": 0.55,
+          "notes": "The raga's soft late-night character does not naturally push energy."
+        },
+        "jazz_fusion": {
+          "score": 0.85,
+          "notes": "Dorian-like with sweet komal Ga/Ma for intimate modal play."
+        },
+        "cinematic": {
+          "score": 0.85,
+          "notes": "Excellent for intimate melancholy and 'night-romance' cues; works beautifully with soft strings and woodwinds."
+        },
+        "downtempo": {
+          "score": 0.85,
+          "notes": "Intimate romantic flow in organic drums."
+        },
+        "electronic": {
+          "score": 0.7,
+          "notes": "Melodic phrases adapt but keep mid-tempo."
+        },
+        "chillhop": {
+          "score": 0.87,
+          "notes": "Sweet melancholy ideal for warm jazzy beats."
+        },
+        "reggae_dub": {
+          "score": 0.72,
+          "notes": "Romantic softness fits relaxed skanks."
+        },
+        "trap": {
+          "score": 0.65,
+          "notes": "Intimate lines can serve subtle hooks."
+        },
+        "rock": {
+          "score": 0.6,
+          "notes": "Soft character better in ballad rock."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "bhairav": {
+      "western_mode": "Double Harmonic Major",
+      "arc_profile": {
+        "alap_ratio": 0.35,
+        "peak_position_ratio": 0.65,
+        "peak_ceiling": 0.77,
+        "opening_energy": 0.23
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.75,
+          "notes": "The augmented seconds add exotic colour to lofi. Works best with slower, more contemplative beats. The gravity may clash with overly bright lofi textures."
+        },
+        "ambient": {
+          "score": 0.9,
+          "notes": "Bhairav's solemn mood translates powerfully to ambient. The komal Re and komal Dha sustained over drones create deeply evocative atmospheres."
+        },
+        "calm": {
+          "score": 0.78,
+          "notes": "Bhairav is more intense than 'calm' \u2014 but at slow tempos with careful phrasing, it achieves a profound stillness."
+        },
+        "upbeat": {
+          "score": 0.55,
+          "notes": "The serious, majestic character doesn't naturally lend itself to upbeat production, though Bhairav-based trance or psytrance can be powerful."
+        },
+        "jazz_fusion": {
+          "score": 0.8,
+          "notes": "Double-harmonic exotic tension for adventurous modal jazz."
+        },
+        "cinematic": {
+          "score": 0.9,
+          "notes": "Excellent for solemn, devotional, and mythic grandeur; augmented-second flavor is immediately dramatic."
+        },
+        "downtempo": {
+          "score": 0.78,
+          "notes": "Weighty phrases suit spacious mixes."
+        },
+        "electronic": {
+          "score": 0.65,
+          "notes": "Augmented seconds add edge to synths at moderate BPM."
+        },
+        "chillhop": {
+          "score": 0.7,
+          "notes": "Solemn lines add depth to chill grooves."
+        },
+        "reggae_dub": {
+          "score": 0.68,
+          "notes": "Powerful mood anchors deep bass."
+        },
+        "trap": {
+          "score": 0.6,
+          "notes": "Exotic tension for dark trap hooks."
+        },
+        "rock": {
+          "score": 0.75,
+          "notes": "Exotic intervals drive guitar riffs."
+        }
+      },
+      "tempo_limits": {
+        "electronic": {
+          "ceiling_bpm": 90,
+          "note": "oscillations need time; atmospheric lead over minimalist beats"
+        },
+        "downtempo": {
+          "best_range_bpm": [
+            70,
+            95
+          ]
+        },
+        "chillhop": {
+          "ceiling_bpm": 85
+        }
+      }
+    },
+    "bhairavi": {
+      "western_mode": "Phrygian",
+      "arc_profile": {
+        "alap_ratio": 0.29,
+        "peak_position_ratio": 0.56,
+        "peak_ceiling": 0.8,
+        "opening_energy": 0.26
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.9,
+          "notes": "The minor/Phrygian tonality creates a naturally melancholic, introspective mood perfect for lofi. Komal Ga and komal Ni add emotional depth over mellow beats."
+        },
+        "ambient": {
+          "score": 0.95,
+          "notes": "Bhairavi is arguably the most ambient-compatible raga. Its devotional stillness and komal palette create deeply meditative soundscapes."
+        },
+        "calm": {
+          "score": 0.88,
+          "notes": "The gentle, komal-heavy scale naturally produces calm textures. Works beautifully at slow tempos with sustained notes."
+        },
+        "upbeat": {
+          "score": 0.6,
+          "notes": "Less natural fit for upbeat styles due to the minor tonality, but Bhairavi thumris can be lively. Requires careful arrangement."
+        },
+        "jazz_fusion": {
+          "score": 0.85,
+          "notes": "Phrygian-inflected scale offers exotic tension for modal solos; melancholic compassion fits bluesy feels."
+        },
+        "cinematic": {
+          "score": 0.9,
+          "notes": "Deep emotional pathos ideal for dramatic scoring and closers."
+        },
+        "downtempo": {
+          "score": 0.85,
+          "notes": "Versatile komal palette creates intimate organic grooves."
+        },
+        "electronic": {
+          "score": 0.8,
+          "notes": "Proven in electronic disco; all-komal phrases adapt to synth arps."
+        },
+        "chillhop": {
+          "score": 0.82,
+          "notes": "Melancholic lines pair with walking bass warmth."
+        },
+        "reggae_dub": {
+          "score": 0.75,
+          "notes": "Compassionate mood suits dub delay and deep bass."
+        },
+        "trap": {
+          "score": 0.74,
+          "notes": "Can translate into dark hooks; best as short, memorable motifs with 808 glides echoing raga bends."
+        },
+        "rock": {
+          "score": 0.78,
+          "notes": "Phrygian/minor-rock language is familiar; use bends and slides to preserve the raga character."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "bhoopali": {
+      "western_mode": "Major Pentatonic",
+      "arc_profile": {
+        "alap_ratio": 0.24,
+        "peak_position_ratio": 0.62,
+        "peak_ceiling": 0.8,
+        "opening_energy": 0.36
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.9,
+          "notes": "Pentatonic clarity blends well with mellow beats and simple harmonic beds."
+        },
+        "ambient": {
+          "score": 0.94,
+          "notes": "Open intervals and lack of half-steps make Bhoopali ideal for ambient textures."
+        },
+        "calm": {
+          "score": 0.92,
+          "notes": "Clean melodic lines suit meditation, yoga, and quiet focus."
+        },
+        "upbeat": {
+          "score": 0.7,
+          "notes": "Pentatonic structure can support upbeat rhythms if phrasing is kept crisp."
+        },
+        "jazz_fusion": {
+          "score": 0.88,
+          "notes": "Major pentatonic simplicity allows open jazz improvisation."
+        },
+        "cinematic": {
+          "score": 0.75,
+          "notes": "Bright serenity for hopeful or pastoral scenes."
+        },
+        "downtempo": {
+          "score": 0.85,
+          "notes": "Excellent: pentatonic motifs loop cleanly and stay singable over organic drums."
+        },
+        "electronic": {
+          "score": 0.88,
+          "notes": "Very strong: pentatonic hooks survive synth treatment and quantization, making it ideal for arps and toplines."
+        },
+        "chillhop": {
+          "score": 0.9,
+          "notes": "Bright clean melodies perfect with vinyl warmth."
+        },
+        "reggae_dub": {
+          "score": 0.75,
+          "notes": "Good fit: offbeat skanks + pentatonic lead feels natural; keep the bass on stable tones."
+        },
+        "trap": {
+          "score": 0.86,
+          "notes": "Excellent for catchy hooks; pentatonic contour reads instantly even over dense drums."
+        },
+        "rock": {
+          "score": 0.84,
+          "notes": "Excellent: maps well to guitar and riff logic; easy to keep melodic identity even at higher tempos."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "bilawal": {
+      "western_mode": "Ionian (Major)",
+      "arc_profile": {
+        "alap_ratio": 0.26,
+        "peak_position_ratio": 0.63,
+        "peak_ceiling": 0.81,
+        "opening_energy": 0.34
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.85,
+          "notes": "Warm major scale works well for mellow beats."
+        },
+        "ambient": {
+          "score": 0.88,
+          "notes": "Stable tonal center supports long pads."
+        },
+        "jazz_fusion": {
+          "score": 0.85,
+          "notes": "Plain major scale for straightforward major-key jazz."
+        },
+        "cinematic": {
+          "score": 0.78,
+          "notes": "Bright stable for uplifting or heroic themes."
+        },
+        "downtempo": {
+          "score": 0.78,
+          "notes": "Good: major-mode warmth works well at 80\u2013100 BPM, especially with acoustic instrumentation."
+        },
+        "electronic": {
+          "score": 0.85,
+          "notes": "Strong: major hooks/arps work immediately; keep melodic grammar raga-like so it doesn't become plain EDM-pop."
+        },
+        "chillhop": {
+          "score": 0.82,
+          "notes": "Stable brightness with warmth."
+        },
+        "reggae_dub": {
+          "score": 0.75,
+          "notes": "Good: major reggae is common; anchor bass on stable tones and keep the lead lightly ornamented."
+        },
+        "trap": {
+          "score": 0.75,
+          "notes": "Catchy major hooks."
+        },
+        "rock": {
+          "score": 0.85,
+          "notes": "Strong: major-scale riffs and melodies map well to guitars; can support energetic rock without losing coherence."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "darbari": {
+      "western_mode": "Natural minor (approximate)",
+      "arc_profile": {
+        "alap_ratio": 0.42,
+        "peak_position_ratio": 0.7,
+        "peak_ceiling": 0.68,
+        "opening_energy": 0.2
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.8,
+          "notes": "Slow, weighty phrases can add gravitas to late-night lofi."
+        },
+        "ambient": {
+          "score": 0.93,
+          "notes": "Sustained oscillations and deep mood align strongly with ambient textures."
+        },
+        "calm": {
+          "score": 0.75,
+          "notes": "More solemn than calm; works when calm is interpreted as deep stillness."
+        },
+        "upbeat": {
+          "score": 0.4,
+          "notes": "The raga's heavy gravity does not naturally support upbeat energy."
+        },
+        "jazz_fusion": {
+          "score": 0.75,
+          "notes": "Natural-minor feel with andolan suits slow blues/jazz, but gravity limits fast improv."
+        },
+        "cinematic": {
+          "score": 0.92,
+          "notes": "Majestic somber depth perfect for epic orchestral tension."
+        },
+        "downtempo": {
+          "score": 0.88,
+          "notes": "Patient exploration thrives in spacious organic mixes."
+        },
+        "electronic": {
+          "score": 0.45,
+          "notes": "Heavy andolan loses character above 100 BPM; better at slower house."
+        },
+        "chillhop": {
+          "score": 0.78,
+          "notes": "Somber lines add vinyl-depth melancholy."
+        },
+        "reggae_dub": {
+          "score": 0.8,
+          "notes": "Low-register gravity anchors deep dub bass perfectly."
+        },
+        "trap": {
+          "score": 0.4,
+          "notes": "Grave mood clashes with aggressive hi-hats; too patient for rolls."
+        },
+        "rock": {
+          "score": 0.55,
+          "notes": "Majestic power works in slow heavy riffs, not fast punk."
+        }
+      },
+      "tempo_limits": {
+        "electronic": {
+          "ceiling_bpm": 100,
+          "note": "andolan \u2192 meend above 90 BPM"
+        },
+        "reggae_dub": {
+          "best_range_bpm": [
+            70,
+            85
+          ]
+        },
+        "downtempo": {
+          "best_range_bpm": [
+            55,
+            75
+          ]
+        },
+        "chillhop": {
+          "ceiling_bpm": 90
+        }
+      }
+    },
+    "desh": {
+      "western_mode": "Mixolydian",
+      "arc_profile": {
+        "alap_ratio": 0.23,
+        "peak_position_ratio": 0.62,
+        "peak_ceiling": 0.83,
+        "opening_energy": 0.37
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.93,
+          "notes": "Mixolydian warmth + romantic mood = perfect lofi match. The komal Ni adds a blues tinge that pairs naturally with hip-hop influenced beats."
+        },
+        "ambient": {
+          "score": 0.8,
+          "notes": "Desh can work in ambient but its playful character prefers more rhythmic settings. Best for brighter, more uplifting ambient."
+        },
+        "calm": {
+          "score": 0.92,
+          "notes": "Naturally calm and warm. The Mixolydian brightness prevents heaviness while the komal Ni adds emotional depth. Perfect for relaxation."
+        },
+        "upbeat": {
+          "score": 0.88,
+          "notes": "Desh is the most naturally upbeat of the common ragas. Its bright major-ish scale and playful phrasing suit higher-energy production well."
+        },
+        "jazz_fusion": {
+          "score": 0.92,
+          "notes": "Mixolydian warmth with komal Ni ideal for funky modal jazz."
+        },
+        "cinematic": {
+          "score": 0.78,
+          "notes": "Playful romantic for lighter narrative scoring."
+        },
+        "downtempo": {
+          "score": 0.88,
+          "notes": "Excellent: phrases feel natural at 80\u2013100 BPM and retain sweetness even with modern drum kits."
+        },
+        "electronic": {
+          "score": 0.9,
+          "notes": "Very strong: melodic hooks survive synth layers and sidechain pumping; keep the raga's characteristic turns so it doesn't become generic pop."
+        },
+        "chillhop": {
+          "score": 0.9,
+          "notes": "Excellent: sits right on top of swing drums and jazzy bass; the melodic contour feels inherently 'song-like'."
+        },
+        "reggae_dub": {
+          "score": 0.85,
+          "notes": "Strong: Mixolydian family fits reggae harmonic language; works well for offbeat skanks + melodic answering phrases."
+        },
+        "trap": {
+          "score": 0.82,
+          "notes": "Works well as a hook raga; keep motifs tight and let 808 slides complement the melodic bends."
+        },
+        "rock": {
+          "score": 0.85,
+          "notes": "Strong: blends with major/DOM rock harmony; riffs can carry the raga if you keep the specific melodic grammar."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "kafi": {
+      "western_mode": "Dorian",
+      "arc_profile": {
+        "alap_ratio": 0.3,
+        "peak_position_ratio": 0.65,
+        "peak_ceiling": 0.77,
+        "opening_energy": 0.32
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.88,
+          "notes": "Soft minor color suits relaxed beats."
+        },
+        "ambient": {
+          "score": 0.86,
+          "notes": "Gentle phrasing works with long pads."
+        },
+        "jazz_fusion": {
+          "score": 0.92,
+          "notes": "Dorian-like core makes it one of the easiest ragas to blend with jazz harmony; great for modal vamps and extended chords."
+        },
+        "chillhop": {
+          "score": 0.93,
+          "notes": "Top-tier: chillhop already lives in Dorian/ii-minor territory; walking bass + swing drums pair extremely well."
+        },
+        "cinematic": {
+          "score": 0.8,
+          "notes": "Folk-inflected romance for storytelling."
+        },
+        "downtempo": {
+          "score": 0.85,
+          "notes": "Excellent: sits naturally on earthy grooves and can handle long, meditative repetition."
+        },
+        "electronic": {
+          "score": 0.78,
+          "notes": "Good: Dorian hooks survive synth treatment; keep melodic ornaments audible so it doesn't become generic minor."
+        },
+        "reggae_dub": {
+          "score": 0.8,
+          "notes": "Strong: minor/Dorian bass motion is common in dub; keep melodic phrases simple and let delay do the motion."
+        },
+        "trap": {
+          "score": 0.75,
+          "notes": "Good for darker hooks; keep motifs short and use subtle micro-bends rather than long taans."
+        },
+        "rock": {
+          "score": 0.78,
+          "notes": "Good for jam-band/prog rock; Dorian is familiar on guitar and can sustain long solos."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "khamaj": {
+      "western_mode": "Mixolydian",
+      "arc_profile": {
+        "alap_ratio": 0.24,
+        "peak_position_ratio": 0.62,
+        "peak_ceiling": 0.8,
+        "opening_energy": 0.35
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.9,
+          "notes": "Warm and romantic character suits mellow beats."
+        },
+        "jazz_fusion": {
+          "score": 0.9,
+          "notes": "Mixolydian lightness for swinging improv."
+        },
+        "ambient": {
+          "score": 0.84,
+          "notes": "Soft tension from komal Ni works well in spacious textures."
+        },
+        "chillhop": {
+          "score": 0.92,
+          "notes": "Excellent: fits swing and walking bass; use jazzy chords but keep them slow-moving."
+        },
+        "cinematic": {
+          "score": 0.75,
+          "notes": "Light playful for upbeat scenes."
+        },
+        "downtempo": {
+          "score": 0.9,
+          "notes": "Excellent: naturally grooves at mid-tempo, and semi-classical ornamentation reads clearly over sparse drums."
+        },
+        "electronic": {
+          "score": 0.87,
+          "notes": "Very strong: makes catchy toplines; keep the characteristic descending color so it doesn't collapse into plain pop."
+        },
+        "reggae_dub": {
+          "score": 0.83,
+          "notes": "Strong: dominant-mode language fits reggae; skanks + melodic answers feel natural."
+        },
+        "trap": {
+          "score": 0.8,
+          "notes": "Good: makes memorable hooks; keep the motif compact so it survives busy hats and 808 movement."
+        },
+        "rock": {
+          "score": 0.8,
+          "notes": "Good: easy to map onto guitar and common rock harmony, especially in jam/prog contexts."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "malkauns": {
+      "western_mode": "Minor Pentatonic (variant)",
+      "arc_profile": {
+        "alap_ratio": 0.4,
+        "peak_position_ratio": 0.7,
+        "peak_ceiling": 0.68,
+        "opening_energy": 0.2
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.92,
+          "notes": "Minor pentatonic is the backbone of hip-hop melody. Malkauns maps perfectly to lofi's introspective mood. The absence of Pa creates a haunting, unresolved quality ideal for late-night beats."
+        },
+        "ambient": {
+          "score": 0.97,
+          "notes": "Perhaps the single most ambient-compatible raga. The pentatonic spaciousness, the meditative mood, the deep-night association \u2014 all align perfectly with ambient aesthetics."
+        },
+        "calm": {
+          "score": 0.85,
+          "notes": "Deeply calm, but with an intensity that goes beyond mere relaxation. Works for meditation and deep focus tracks."
+        },
+        "upbeat": {
+          "score": 0.45,
+          "notes": "Malkauns is fundamentally a raga of stillness and depth. Upbeat treatment would fight against its nature."
+        },
+        "jazz_fusion": {
+          "score": 0.8,
+          "notes": "Pentatonic minor variant offers spacious modal freedom."
+        },
+        "cinematic": {
+          "score": 0.9,
+          "notes": "Haunting meditative quality for profound scenes."
+        },
+        "downtempo": {
+          "score": 0.9,
+          "notes": "Wide note gaps create natural spaciousness."
+        },
+        "electronic": {
+          "score": 0.85,
+          "notes": "Proven in disco; pentatonic phrases loop cleanly on synths."
+        },
+        "chillhop": {
+          "score": 0.85,
+          "notes": "Meditative lines pair beautifully with jazzy swing."
+        },
+        "reggae_dub": {
+          "score": 0.82,
+          "notes": "Strong fit: minor pentatonic lines sit naturally over heavy sub-bass; dub delay complements the spacious phrasing."
+        },
+        "trap": {
+          "score": 0.8,
+          "notes": "Great for catchy minor hooks; pentatonic contour makes motifs easy to remember and replay."
+        },
+        "rock": {
+          "score": 0.78,
+          "notes": "Works well for riff-based rock/psych; pentatonic shapes map naturally onto guitar."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "marwa": {
+      "western_mode": "Lydian b2 (approx)",
+      "arc_profile": {
+        "alap_ratio": 0.36,
+        "peak_position_ratio": 0.69,
+        "peak_ceiling": 0.72,
+        "opening_energy": 0.23
+      },
+      "compatible_genres": {
+        "cinematic": {
+          "score": 0.92,
+          "notes": "Outstanding for dusk-time suspense and existential tension; the lack of easy resolution is a scoring superpower."
+        },
+        "ambient": {
+          "score": 0.75,
+          "notes": "Works for introspective soundscapes."
+        },
+        "downtempo": {
+          "score": 0.7,
+          "notes": "Tension in spacious settings."
+        },
+        "electronic": {
+          "score": 0.6,
+          "notes": "Dissonance adds edge but needs careful pacing."
+        },
+        "jazz_fusion": {
+          "score": 0.75,
+          "notes": "Lydian b2 dissonance for tense modal jazz."
+        },
+        "chillhop": {
+          "score": 0.65,
+          "notes": "Tense for moody chill."
+        },
+        "reggae_dub": {
+          "score": 0.55,
+          "notes": "Restless mood less relaxed."
+        },
+        "trap": {
+          "score": 0.7,
+          "notes": "Tension for dark trap."
+        },
+        "rock": {
+          "score": 0.8,
+          "notes": "Unsettled energy drives rock riffs."
+        }
+      },
+      "tempo_limits": {
+        "electronic": {
+          "ceiling_bpm": 80,
+          "note": "needs silence and micro-tension; better as intro textures"
+        },
+        "chillhop": {
+          "ceiling_bpm": 85
+        },
+        "reggae_dub": {
+          "ceiling_bpm": 72,
+          "note": "resists stable cadences"
+        }
+      }
+    },
+    "purvi": {
+      "western_mode": "Lydian b2 b6 (approx)",
+      "arc_profile": {
+        "alap_ratio": 0.36,
+        "peak_position_ratio": 0.67,
+        "peak_ceiling": 0.75,
+        "opening_energy": 0.23
+      },
+      "compatible_genres": {
+        "cinematic": {
+          "score": 0.94,
+          "notes": "Top-tier for mystery + devotional tension; handles orchestral pads, ominous swells, and poignant solo statements very well."
+        },
+        "ambient": {
+          "score": 0.78,
+          "notes": "Devotional mood fits slow textures."
+        },
+        "downtempo": {
+          "score": 0.75,
+          "notes": "Complex in organic depth."
+        },
+        "electronic": {
+          "score": 0.55,
+          "notes": "Chromatic phrases challenge fast synths."
+        },
+        "jazz_fusion": {
+          "score": 0.65,
+          "notes": "Complex Lydian b2 b6 chromaticism for advanced modal work."
+        },
+        "chillhop": {
+          "score": 0.68,
+          "notes": "Tense for sophisticated chill."
+        },
+        "reggae_dub": {
+          "score": 0.6,
+          "notes": "Devotional weight fits dub."
+        },
+        "trap": {
+          "score": 0.5,
+          "notes": "Complexity less hooky."
+        },
+        "rock": {
+          "score": 0.7,
+          "notes": "Tension for progressive rock."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "todi": {
+      "western_mode": "Phrygian #4 (approx)",
+      "arc_profile": {
+        "alap_ratio": 0.4,
+        "peak_position_ratio": 0.67,
+        "peak_ceiling": 0.75,
+        "opening_energy": 0.21
+      },
+      "compatible_genres": {
+        "ambient": {
+          "score": 0.8,
+          "notes": "Slow phrases work well for meditative textures."
+        },
+        "cinematic": {
+          "score": 0.95,
+          "notes": "One of the strongest for devotional intensity, sorrow, and high drama; the scale profile creates built-in tension."
+        },
+        "downtempo": {
+          "score": 0.85,
+          "notes": "Meditative weight in spacious mixes."
+        },
+        "lofi": {
+          "score": 0.72,
+          "notes": "Works best with sparse, minimal beats."
+        },
+        "jazz_fusion": {
+          "score": 0.7,
+          "notes": "Exotic Phrygian#4 for adventurous modal work."
+        },
+        "electronic": {
+          "score": 0.75,
+          "notes": "Proven in electronic; tivra Ma adds color."
+        },
+        "chillhop": {
+          "score": 0.75,
+          "notes": "Serious lines add sophisticated melancholy."
+        },
+        "reggae_dub": {
+          "score": 0.65,
+          "notes": "Weighty mood fits deep dub."
+        },
+        "trap": {
+          "score": 0.6,
+          "notes": "Exotic phrases for dark hooks."
+        },
+        "rock": {
+          "score": 0.65,
+          "notes": "Pathos suits atmospheric rock."
+        }
+      },
+      "tempo_limits": {}
+    },
+    "yaman": {
+      "western_mode": "Lydian",
+      "arc_profile": {
+        "alap_ratio": 0.29,
+        "peak_position_ratio": 0.65,
+        "peak_ceiling": 0.78,
+        "opening_energy": 0.33
+      },
+      "compatible_genres": {
+        "lofi": {
+          "score": 0.95,
+          "notes": "Lydian brightness pairs beautifully with lofi warmth. The major 7th (Ni) and #4 (tivra Ma) create dreamy, nostalgic textures. Use slow Ga-centered melodies over mellow beats."
+        },
+        "jazz": {
+          "score": 0.9,
+          "notes": "Lydian is native to jazz harmony (Lydian Chromatic Concept). Maps directly to maj7#11 chords. Works over Cmaj7#11, Dmaj7, and related voicings."
+        },
+        "ambient": {
+          "score": 0.92,
+          "notes": "The serene, devotional mood translates perfectly to ambient textures. Sustained Ga and Ni over drone-like pads create meditative soundscapes."
+        },
+        "classical_fusion": {
+          "score": 0.88,
+          "notes": "Strong melodic structure adapts well to orchestral or chamber arrangements. The clear aroha/avaroha gives composers a framework to build on."
+        },
+        "electronic": {
+          "score": 0.86,
+          "notes": "Strong for arps and toplines; the bright #4 color stays distinctive even with synth sound design if you avoid busy chord-changes."
+        },
+        "r_and_b": {
+          "score": 0.8,
+          "notes": "The major 7th and romantic mood overlap with R&B harmonic sensibilities. The #4 adds an exotic colour to standard progressions."
+        },
+        "rock": {
+          "score": 0.75,
+          "notes": "Bright energy translates to guitar leads with drive."
+        },
+        "hip_hop": {
+          "score": 0.75,
+          "notes": "Yaman melodic fragments work as sample material or melodic hooks. The devotional mood adds depth to introspective tracks."
+        },
+        "jazz_fusion": {
+          "score": 0.9,
+          "notes": "Lydian mode with sharp Ma aligns perfectly with modal jazz; serene romantic mood supports cool improvisation and extended harmonies."
+        },
+        "cinematic": {
+          "score": 0.85,
+          "notes": "Naturally uplifting and devotional, with a clear 'arrival' note feel that supports wide pads, strings, and gentle climaxes."
+        },
+        "downtempo": {
+          "score": 0.82,
+          "notes": "Sits comfortably over organic 80\u2013100 BPM grooves; phrases can loop without losing identity if you keep a drone / pedal tone."
+        },
+        "chillhop": {
+          "score": 0.88,
+          "notes": "Melodic warmth pairs naturally with jazzy drums and vinyl crackle."
+        },
+        "reggae_dub": {
+          "score": 0.7,
+          "notes": "Romantic lift works with offbeat skanks, though higher register needs deep bass anchoring."
+        },
+        "trap": {
+          "score": 0.75,
+          "notes": "Uplifting phrases make strong melodic hooks over 808s."
+        }
+      },
+      "tempo_limits": {}
+    }
+  },
+  "cross_raga": {
+    "same_thaat": 0.9,
+    "shared_vadi": 0.7
+  }
+}

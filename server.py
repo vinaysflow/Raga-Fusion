@@ -21,6 +21,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -30,16 +31,17 @@ from datetime import datetime
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from prompt_parser import parse_prompt
 from recommender import Recommender
-from supabase_client import log_ai_event, log_arrangement_plan, log_feedback
+from supabase_client import insert_rows, log_ai_event, log_arrangement_plan, log_feedback
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+WEB_DIST_DIR = PROJECT_ROOT / "web" / "dist"
 OUTPUT_DIR = PROJECT_ROOT / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 TELEMETRY_DIR = OUTPUT_DIR / "telemetry"
@@ -48,6 +50,11 @@ UPLOADS_DIR = PROJECT_ROOT / "uploads"
 UPLOADS_DIR.mkdir(exist_ok=True)
 CREATOR_LIBS_DIR = PROJECT_ROOT / "data" / "phrases"
 CREATOR_LIBS_DIR.mkdir(parents=True, exist_ok=True)
+PROVIDER_STORE_PATH = OUTPUT_DIR / "providers.json"
+PROVIDER_UPLOADS_DIR = OUTPUT_DIR / "provider_uploads"
+PROVIDER_UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+PROVIDER_STAGING_DIR = CREATOR_LIBS_DIR / "_staging"
+PROVIDER_STAGING_DIR.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Raga-Fusion Music Generator", version="1.0.0")
 
@@ -202,6 +209,7 @@ class GenerateRequest(BaseModel):
     recommend: bool = False
     upload_id: str | None = None
     variation_profile: str | None = None
+    fusion_mode: str | None = None
 
 
 class RecommendRequest(BaseModel):
@@ -218,6 +226,31 @@ class TelemetryEvent(BaseModel):
     event_type: str
     timestamp: float | None = None
     payload: dict | None = None
+
+
+class ProviderRegisterRequest(BaseModel):
+    name: str
+    email: str | None = None
+    gharana: str | None = None
+    instruments: list[str] = []
+    training_lineage: str | None = None
+    bio: str | None = None
+
+
+class ProviderUpdateRequest(BaseModel):
+    name: str | None = None
+    email: str | None = None
+    gharana: str | None = None
+    instruments: list[str] | None = None
+    training_lineage: str | None = None
+    bio: str | None = None
+    status: str | None = None
+    verified: bool | None = None
+
+
+class ProviderUploadApproveRequest(BaseModel):
+    approved_phrase_ids: list[str]
+    reviewer_notes: str | None = None
 
 
 # ── Helpers ──────────────────────────────────────────────────────────
@@ -276,6 +309,71 @@ def _artifact_paths(track_id: str) -> dict[str, Path]:
 def _write_json(path: Path, payload: dict | list):
     with open(path, "w") as f:
         json.dump(payload, f, indent=2)
+
+
+def _load_provider_store() -> list[dict]:
+    if not PROVIDER_STORE_PATH.exists():
+        return []
+    try:
+        with open(PROVIDER_STORE_PATH) as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def _save_provider_store(providers: list[dict]) -> None:
+    _write_json(PROVIDER_STORE_PATH, providers)
+
+
+def _get_provider(provider_id: str) -> dict | None:
+    providers = _load_provider_store()
+    for p in providers:
+        if p.get("id") == provider_id:
+            return p
+    return None
+
+
+def _upsert_provider(provider: dict) -> dict:
+    providers = _load_provider_store()
+    for idx, existing in enumerate(providers):
+        if existing.get("id") == provider.get("id"):
+            providers[idx] = provider
+            _save_provider_store(providers)
+            return provider
+    providers.append(provider)
+    _save_provider_store(providers)
+    return provider
+
+
+def _store_provider_upload(upload_id: str, payload: dict) -> None:
+    path = PROVIDER_UPLOADS_DIR / f"{upload_id}.json"
+    _write_json(path, payload)
+
+
+def _load_provider_upload(upload_id: str) -> dict | None:
+    path = PROVIDER_UPLOADS_DIR / f"{upload_id}.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def _list_provider_uploads(provider_id: str) -> list[dict]:
+    uploads = []
+    for p in PROVIDER_UPLOADS_DIR.glob("*.json"):
+        try:
+            with open(p) as f:
+                item = json.load(f)
+            if item.get("provider_id") == provider_id:
+                uploads.append(item)
+        except Exception:
+            continue
+    uploads.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+    return uploads
 
 
 def _build_artifact_urls(track_id: str) -> dict[str, str]:
@@ -348,9 +446,14 @@ def _run_pipeline(track_id: str, raga: str, genre: str, duration: int,
     try:
         # ── Stage: generate_melody (with cache) ───────────────────────
         gen_lib = PROJECT_ROOT / "data" / "phrases" / f"{raga}_generated"
+        real_lib = PROJECT_ROOT / "data" / "phrases" / raga
+        gold_lib = PROJECT_ROOT / "data" / "phrases" / f"{raga}_gold"
         melody_cache_key = _cache_key(raga, "generated", "20", RULES_VERSION)
+        real_lib_ready = real_lib.exists() and (real_lib / "phrases_metadata.json").exists()
+        gold_lib_ready = gold_lib.exists() and (gold_lib / "phrases_metadata.json").exists()
+        needs_generated = source == "generated" or not real_lib_ready
 
-        if source == "generated":
+        if needs_generated:
             cached_lib = _cache_get("melody", melody_cache_key)
             if cached_lib is not None:
                 if gen_lib.exists():
@@ -379,15 +482,25 @@ def _run_pipeline(track_id: str, raga: str, genre: str, duration: int,
                     _cache_put("melody", melody_cache_key, gen_lib)
 
         # ── Resolve library path ──────────────────────────────────────
-        real_lib = PROJECT_ROOT / "data" / "phrases" / raga
         if source == "generated":
             lib_path = gen_lib
-        elif real_lib.exists() and (real_lib / "phrases_metadata.json").exists():
-            lib_path = real_lib
         else:
-            lib_path = gen_lib
+            allow_blend = os.getenv("ALLOW_LIBRARY_BLEND_RAGAS", "")
+            blend_ragas = {r.strip().lower() for r in allow_blend.split(",") if r.strip()}
+            prefer_gold = gold_lib_ready and (raga not in blend_ragas)
+            if prefer_gold:
+                lib_path = gold_lib
+            elif real_lib_ready:
+                lib_path = real_lib
+            else:
+                lib_path = gen_lib
 
-        actual_source = "library" if lib_path == real_lib else "generated"
+        if lib_path == gen_lib:
+            actual_source = "generated"
+        elif lib_path in (real_lib, gold_lib):
+            actual_source = "library"
+        else:
+            actual_source = "generated"
         trace["resolved"] = {"library_path": str(lib_path), "actual_source": actual_source}
         timing["resolved_source"] = actual_source
         timing["resolved_library"] = str(lib_path)
@@ -546,6 +659,16 @@ def _run_pipeline(track_id: str, raga: str, genre: str, duration: int,
         actual_duration = _read_wav_duration(wav_path) or duration
         display_name = f"{raga}_{genre}_{datetime.now().year}_{track_id[:8]}"
 
+        lib_name = lib_path.name if lib_path else ""
+        if "gold" in lib_name:
+            library_tier = "gold"
+        elif lib_name == raga:
+            library_tier = "standard"
+        elif "generated" in lib_name:
+            library_tier = "generated"
+        else:
+            library_tier = actual_source
+
         metadata = {
             "track_id": track_id,
             "filename": f"{track_id}.wav",
@@ -555,6 +678,8 @@ def _run_pipeline(track_id: str, raga: str, genre: str, duration: int,
             "duration": actual_duration,
             "requested_duration": duration,
             "source": source,
+            "actual_source": actual_source,
+            "library_tier": library_tier,
             "variation_profile": variation_profile,
             "prompt": prompt,
             "intent_tags": intent_tags,
@@ -589,6 +714,168 @@ def _run_pipeline(track_id: str, raga: str, genre: str, duration: int,
         logger.error("[%s] Pipeline FAILED: %s", track_id, e)
 
 
+def _run_fusion_pipeline(track_id: str, raga: str, genre: str, duration: int,
+                         source: str, fusion_mode: str | None,
+                         intent_tags: list[str],
+                         variation_profile: str | None,
+                         prompt: str):
+    """Run a fusion arc plan + assembly with production."""
+    pipeline_t0 = time.monotonic()
+    artifacts = _artifact_paths(track_id)
+    timing_path = OUTPUT_DIR / f"{track_id}_timing.json"
+
+    timing = {"track_id": track_id, "raga": raga, "genre": genre, "pipeline_path": "fusion",
+              "started_at": datetime.now().isoformat(), "stages": []}
+    trace = {"trace_version": "1.0", "created_at": datetime.now().isoformat(), "track_id": track_id,
+             "pipeline_path": "fusion", "request": {"raga": raga, "genre": genre, "duration": duration, "source": source},
+             "resolved": {}, "stages": []}
+
+    def _save_timing():
+        timing["total_ms"] = round((time.monotonic() - pipeline_t0) * 1000)
+        timing["finished_at"] = datetime.now().isoformat()
+        _write_json(timing_path, timing)
+
+    try:
+        real_lib = PROJECT_ROOT / "data" / "phrases" / raga
+        gold_lib = PROJECT_ROOT / "data" / "phrases" / f"{raga}_gold"
+        gen_lib = PROJECT_ROOT / "data" / "phrases" / f"{raga}_generated"
+        rules_path = PROJECT_ROOT / "data" / "raga_rules" / f"{raga}.json"
+
+        def _phrase_count(lib: Path) -> int:
+            meta = lib / "phrases_metadata.json"
+            if not meta.exists():
+                return 0
+            try:
+                with open(meta) as f:
+                    return len(json.load(f))
+            except Exception:
+                return 0
+
+        lib_path = gen_lib
+        if source == "library":
+            if gold_lib.exists() and _phrase_count(gold_lib) > 0:
+                lib_path = gold_lib
+            elif real_lib.exists() and _phrase_count(real_lib) > 0:
+                lib_path = real_lib
+            else:
+                lib_path = gen_lib
+        elif source == "generated":
+            lib_path = gen_lib
+
+        if _phrase_count(lib_path) == 0 and rules_path.exists() and os.environ.get("RF_FUSION_FALLBACK_TO_RECOMMENDER", "") != "1":
+            melody_cache_key = _cache_key(raga, "generated", "20", RULES_VERSION)
+            cached = _cache_get("melody", melody_cache_key)
+            if cached:
+                if gen_lib.exists():
+                    shutil.rmtree(gen_lib)
+                shutil.copytree(cached, gen_lib)
+                lib_path = gen_lib
+            else:
+                melody_args = [sys.executable, str(PROJECT_ROOT / "generate_melody.py"),
+                              "--rules", str(rules_path), "--output", str(gen_lib), "--count", "30"]
+                result = _run_subprocess_timed(melody_args, track_id, "generate_melody")
+                timing["stages"].append(result)
+                if result["returncode"] != 0:
+                    raise RuntimeError(result.get("stderr_tail") or "generate_melody failed")
+                if gen_lib.exists():
+                    _cache_put("melody", melody_cache_key, gen_lib)
+                lib_path = gen_lib
+        elif _phrase_count(lib_path) == 0:
+            logger.warning("[%s] Fusion fallback: no phrases, running recommender", track_id)
+            _run_pipeline(track_id, raga, genre, duration, source, prompt, intent_tags or [], True, variation_profile)
+            return
+
+        actual_source = "generated" if lib_path == gen_lib else "library"
+        library_tier = "gold" if lib_path == gold_lib else ("standard" if lib_path == real_lib else "generated")
+        trace["resolved"] = {"library_path": str(lib_path), "actual_source": actual_source}
+
+        if variation_profile:
+            try:
+                from variation_engine import create_variation_library, PRESET_FALLBACK
+                variation_root = OUTPUT_DIR / ".variation"
+                variation_root.mkdir(parents=True, exist_ok=True)
+                profile = variation_profile
+                while profile:
+                    try:
+                        var_dir = variation_root / f"{track_id}_{profile}"
+                        create_variation_library(source_dir=lib_path, output_dir=var_dir, variation_type="tempo", amount=0.2, preset=profile)
+                        lib_path = var_dir
+                        actual_source = "variation"
+                        trace["resolved"]["variation_profile"] = profile
+                        break
+                    except Exception as err:
+                        profile = PRESET_FALLBACK.get(profile)
+                        if not profile:
+                            logger.warning("[%s] variation_profile failed: %s", track_id, err)
+                            break
+            except Exception as err:
+                logger.warning("[%s] variation_profile setup failed: %s", track_id, err)
+
+        from fusion_assembler import align_arcs, assemble_fusion_track
+
+        duration_bucket = str((duration // 15) * 15)
+        plan_cache_key = _cache_key(raga, genre, duration_bucket, "fusion", fusion_mode or "balanced", RULES_VERSION)
+        plan_cache_path = CACHE_DIR / "fusion_plans" / f"{plan_cache_key}.json"
+        if plan_cache_path.exists():
+            with open(plan_cache_path) as f:
+                plan = json.load(f)
+            logger.info("[%s] align_arcs CACHE HIT (%s)", track_id, plan_cache_key)
+        else:
+            plan = align_arcs(raga, genre, duration, fusion_style=fusion_mode or "balanced")
+            plan_cache_path.parent.mkdir(parents=True, exist_ok=True)
+            _write_json(plan_cache_path, plan)
+        plan["intent_tags"] = intent_tags or []
+        plan_path = OUTPUT_DIR / f"{track_id}_plan.json"
+        _write_json(plan_path, plan)
+        try:
+            log_arrangement_plan(track_id, plan, actual_source, intent_tags or [])
+        except Exception as err:
+            logger.warning("[%s] Supabase plan log failed: %s", track_id, err)
+
+        base_path = OUTPUT_DIR / f"{track_id}_fusion.wav"
+        assemble_fusion_track(plan, lib_path, base_path)
+
+        final_path = OUTPUT_DIR / f"{track_id}.wav"
+        add_prod_cmd = [
+            sys.executable, str(PROJECT_ROOT / "add_production.py"),
+            str(base_path), "--style", genre, "--rules", str(rules_path), "--output", str(final_path),
+        ]
+        result = _run_subprocess_timed(add_prod_cmd, track_id, "add_production")
+        timing["stages"].append(result)
+        if result["returncode"] != 0:
+            raise RuntimeError(result.get("stderr_tail") or result.get("stdout_tail") or "add_production failed")
+
+        metadata = {
+            "track_id": track_id,
+            "filename": final_path.name,
+            "display_name": f"{raga.capitalize()} {genre} Fusion",
+            "raga": raga,
+            "genre": genre,
+            "duration": duration,
+            "requested_duration": duration,
+            "source": source,
+            "actual_source": actual_source,
+            "library_tier": library_tier,
+            "created_at": datetime.now().isoformat(),
+            "fusion_mode": fusion_mode or "balanced",
+            "intent_tags": intent_tags or [],
+            "artifact_urls": _build_artifact_urls(track_id),
+        }
+
+        _write_json(artifacts["meta"], metadata)
+        trace["artifacts"] = {"metadata": artifacts["meta"].name, "audio": final_path.name}
+        _write_json(artifacts["trace"], trace)
+        _save_timing()
+        jobs[track_id]["status"] = "complete"
+        jobs[track_id]["metadata"] = metadata
+
+    except Exception as e:
+        jobs[track_id]["status"] = "error"
+        jobs[track_id]["error"] = str(e)
+        _save_timing()
+        logger.error("[%s] Fusion pipeline FAILED: %s", track_id, e)
+
+
 # ── Endpoints ────────────────────────────────────────────────────────
 
 @app.post("/api/parse-prompt")
@@ -619,6 +906,17 @@ def api_generate(req: GenerateRequest):
                 recommend = True
             except Exception:
                 pass
+
+    use_fusion = os.environ.get("RF_USE_FUSION", "1") != "0"
+    fusion_mode = req.fusion_mode or ("balanced" if recommend and use_fusion else None)
+
+    if fusion_mode:
+        executor.submit(
+            _run_fusion_pipeline,
+            track_id, raga, req.genre, req.duration, req.source, fusion_mode,
+            intent_tags, req.variation_profile, req.prompt,
+        )
+        return {"track_id": track_id, "status": "processing"}
 
     executor.submit(
         _run_pipeline,
@@ -1008,6 +1306,46 @@ def api_feedback(req: FeedbackRequest):
     return {"status": "ok"}
 
 
+# ── Dataset Health ────────────────────────────────────────────────────
+
+@app.get("/api/dataset-health")
+def api_dataset_health():
+    """Return seed QA report and recommender evaluation for the UI."""
+    seed_qa_path = PROJECT_ROOT / "data" / "seed_qa_report.json"
+    rec_eval_path = PROJECT_ROOT / "data" / "recommender_eval.json"
+    result: dict = {}
+    if seed_qa_path.exists():
+        with open(seed_qa_path) as f:
+            result["seed_qa"] = json.load(f)
+    if rec_eval_path.exists():
+        with open(rec_eval_path) as f:
+            result["recommender_eval"] = json.load(f)
+    phrases_dir = PROJECT_ROOT / "data" / "phrases"
+    raga_libraries: list[dict] = []
+    if phrases_dir.exists():
+        for lib_dir in sorted(phrases_dir.iterdir()):
+            if not lib_dir.is_dir():
+                continue
+            meta_file = lib_dir / "phrases_metadata.json"
+            if meta_file.exists():
+                try:
+                    with open(meta_file) as f:
+                        phrases = json.load(f)
+                    name = lib_dir.name
+                    tier = "gold" if "_gold" in name else ("generated" if "_generated" in name else "standard")
+                    raga_key = name.replace("_gold", "").replace("_generated", "")
+                    raga_libraries.append({
+                        "raga": raga_key,
+                        "library": name,
+                        "tier": tier,
+                        "phrase_count": len(phrases),
+                    })
+                except Exception:
+                    pass
+    result["libraries"] = raga_libraries
+    return result
+
+
 # ── Creator Upload ────────────────────────────────────────────────────
 
 @app.post("/api/creator/upload")
@@ -1050,6 +1388,227 @@ def api_creator_status(job_id: str):
     if job["status"] == "complete" and job["metadata"]:
         resp["metadata"] = job["metadata"]
     return resp
+
+
+# ── Provider Portal ────────────────────────────────────────────────────
+
+def _slugify(value: str) -> str:
+    value = value.strip().lower()
+    value = re.sub(r"[^a-z0-9]+", "_", value)
+    return value.strip("_")
+
+
+@app.post("/api/provider/register")
+def api_provider_register(req: ProviderRegisterRequest):
+    provider = {
+        "id": uuid.uuid4().hex,
+        "name": req.name,
+        "email": req.email,
+        "gharana": req.gharana,
+        "instruments": req.instruments,
+        "training_lineage": req.training_lineage,
+        "bio": req.bio,
+        "verified": False,
+        "status": "pending",
+        "created_at": datetime.now().isoformat(),
+    }
+    _upsert_provider(provider)
+    try:
+        insert_rows("providers", [provider])
+    except Exception:
+        pass
+    return provider
+
+
+@app.get("/api/provider/{provider_id}")
+def api_provider_get(provider_id: str):
+    provider = _get_provider(provider_id)
+    if not provider:
+        raise HTTPException(404, "Provider not found")
+    return provider
+
+
+@app.put("/api/provider/{provider_id}")
+def api_provider_update(provider_id: str, req: ProviderUpdateRequest):
+    provider = _get_provider(provider_id)
+    if not provider:
+        raise HTTPException(404, "Provider not found")
+    for field in ("name", "email", "gharana", "training_lineage", "bio", "status", "verified"):
+        value = getattr(req, field)
+        if value is not None:
+            provider[field] = value
+    if req.instruments is not None:
+        provider["instruments"] = req.instruments
+    _upsert_provider(provider)
+    return provider
+
+
+@app.post("/api/provider/upload")
+async def api_provider_upload(
+    request: Request,
+    file: UploadFile = File(...),
+    provider_id: str | None = Form(None),
+    raga: str | None = Form(None),
+    declared_sa: str | None = Form(None),
+    count: int | None = Form(None),
+):
+    if provider_id is None:
+        provider_id = request.query_params.get("provider_id", "")
+    if raga is None:
+        raga = request.query_params.get("raga", "auto")
+    if declared_sa is None:
+        declared_sa = request.query_params.get("declared_sa")
+    if count is None:
+        count_str = request.query_params.get("count")
+        count = int(count_str) if count_str and count_str.isdigit() else 20
+    provider = _get_provider(provider_id)
+    if not provider:
+        raise HTTPException(404, "Provider not found")
+    ext = Path(file.filename or "upload.wav").suffix.lower()
+    if ext not in (".mp3", ".wav", ".flac", ".ogg", ".m4a"):
+        raise HTTPException(400, f"Unsupported format: {ext}")
+
+    upload_id = uuid.uuid4().hex[:12]
+    upload_path = UPLOADS_DIR / f"provider_{upload_id}{ext}"
+    with open(upload_path, "wb") as f:
+        content = await file.read()
+        f.write(content)
+
+    job_id = f"provider_{upload_id}"
+    jobs[job_id] = {"status": "processing", "error": None, "metadata": None}
+
+    payload = {
+        "upload_id": upload_id,
+        "job_id": job_id,
+        "provider_id": provider_id,
+        "raga": raga,
+        "declared_sa": declared_sa,
+        "file_path": str(upload_path),
+        "original_filename": file.filename,
+        "file_format": ext.lstrip("."),
+        "status": "processing",
+        "created_at": datetime.now().isoformat(),
+    }
+    _store_provider_upload(upload_id, payload)
+
+    executor.submit(
+        _run_provider_pipeline, job_id, upload_id, str(upload_path),
+        provider_id, raga, declared_sa, count
+    )
+
+    return {"job_id": job_id, "upload_id": upload_id, "status": "processing"}
+
+
+@app.get("/api/provider/upload/{upload_id}/status")
+def api_provider_upload_status(upload_id: str):
+    job_id = f"provider_{upload_id}"
+    if job_id in jobs:
+        job = jobs[job_id]
+        resp = {"job_id": job_id, "status": job["status"]}
+        if job["status"] == "error":
+            resp["error"] = job["error"]
+        if job["status"] == "complete" and job["metadata"]:
+            resp["metadata"] = job["metadata"]
+        return resp
+
+    stored = _load_provider_upload(upload_id)
+    if not stored:
+        raise HTTPException(404, "Provider upload not found")
+    return {"upload_id": upload_id, "status": stored.get("status", "unknown"), "metadata": stored}
+
+
+@app.get("/api/provider/upload/{upload_id}/review")
+def api_provider_upload_review(upload_id: str):
+    stored = _load_provider_upload(upload_id)
+    if not stored:
+        raise HTTPException(404, "Provider upload not found")
+    review = stored.get("ai_review")
+    if not review:
+        raise HTTPException(400, "Review not ready")
+    return review
+
+
+@app.post("/api/provider/upload/{upload_id}/approve")
+def api_provider_upload_approve(upload_id: str, req: ProviderUploadApproveRequest):
+    stored = _load_provider_upload(upload_id)
+    if not stored:
+        raise HTTPException(404, "Provider upload not found")
+    lib_dir = Path(stored.get("library_dir", ""))
+    if not lib_dir.exists():
+        raise HTTPException(400, "Library not found for upload")
+
+    meta_path = lib_dir / "phrases_metadata.json"
+    if not meta_path.exists():
+        raise HTTPException(400, "Metadata not found for upload")
+
+    with open(meta_path) as f:
+        phrases = json.load(f)
+
+    approved_set = set(req.approved_phrase_ids or [])
+    approved = [p for p in phrases if p.get("phrase_id") in approved_set]
+
+    target_dir = CREATOR_LIBS_DIR / stored.get("library_name", lib_dir.name)
+    if approved:
+        if target_dir.exists():
+            shutil.rmtree(target_dir)
+        target_dir.mkdir(parents=True, exist_ok=True)
+        for p in approved:
+            src = lib_dir / p.get("file", "")
+            if src.exists():
+                shutil.copy2(src, target_dir / src.name)
+        with open(target_dir / "phrases_metadata.json", "w") as f:
+            json.dump(approved, f, indent=2)
+
+        from phrase_indexer import build_index
+        build_index(force=True)
+
+        stored["status"] = "approved"
+        stored["library_dir"] = str(target_dir)
+    else:
+        stored["status"] = "rejected"
+
+    stored["phrases_approved"] = len(approved)
+    if req.reviewer_notes is not None:
+        stored["reviewer_notes"] = req.reviewer_notes
+    _store_provider_upload(upload_id, stored)
+
+    return {"upload_id": upload_id, "status": stored["status"], "phrases_approved": len(approved)}
+
+
+@app.post("/api/provider/upload/{upload_id}/recalibrate")
+def api_provider_upload_recalibrate(upload_id: str):
+    stored = _load_provider_upload(upload_id)
+    if not stored:
+        raise HTTPException(404, "Provider upload not found")
+    lib_dir = Path(stored.get("library_dir", ""))
+    if not lib_dir.exists():
+        raise HTTPException(400, "Library not found for upload")
+
+    from quality_gate import trigger_recalibration
+    result = trigger_recalibration(stored.get("raga", "yaman"), upload_id, lib_dir)
+
+    from phrase_indexer import build_index
+    build_index(force=True)
+    return result
+
+
+@app.get("/api/provider/{provider_id}/dashboard")
+def api_provider_dashboard(provider_id: str):
+    provider = _get_provider(provider_id)
+    if not provider:
+        raise HTTPException(404, "Provider not found")
+    uploads = _list_provider_uploads(provider_id)
+    total_phrases = sum(u.get("phrases_approved", 0) or 0 for u in uploads)
+    ragas = sorted({u.get("raga") for u in uploads if u.get("raga")})
+    return {
+        "provider": provider,
+        "uploads": uploads,
+        "stats": {
+            "total_uploads": len(uploads),
+            "phrases_approved": total_phrases,
+            "ragas_covered": ragas,
+        },
+    }
 
 
 def _run_creator_pipeline(job_id: str, upload_id: str, upload_path: str,
@@ -1106,6 +1665,161 @@ def _run_creator_pipeline(job_id: str, upload_id: str, upload_path: str,
     except Exception as e:
         jobs[job_id]["status"] = "error"
         jobs[job_id]["error"] = str(e)
+
+
+def _run_provider_pipeline(job_id: str, upload_id: str, upload_path: str,
+                           provider_id: str, raga: str, declared_sa: str | None,
+                           count: int):
+    """Run phrase extraction + quality gate for a provider upload."""
+    stored = _load_provider_upload(upload_id) or {}
+    try:
+        provider = _get_provider(provider_id) or {}
+        provider_name = provider.get("name", "provider")
+        provider_slug = _slugify(provider_name) or provider_id[:6]
+        detected_raga = None
+        analysis = None
+
+        if raga == "auto":
+            from audio_analyzer import analyze_upload
+            analysis = analyze_upload(upload_path, sa_override=declared_sa, max_analysis_seconds=60)
+            detected_raga = analysis.get("raga", {}).get("best_match", "yaman")
+            raga = detected_raga.lower() if isinstance(detected_raga, str) else "yaman"
+
+        lib_name = f"{raga}_{provider_slug}_{upload_id}"
+        lib_dir = PROVIDER_STAGING_DIR / lib_name
+
+        cmd = [
+            sys.executable, str(PROJECT_ROOT / "extract_phrases.py"),
+            upload_path,
+            "--count", str(count),
+            "--output", str(lib_dir),
+            "--min-dur", "1.0",
+            "--max-dur", "8.0",
+        ]
+        if declared_sa:
+            cmd.extend(["--sa", declared_sa])
+
+        proc = subprocess.run(cmd, cwd=PROJECT_ROOT, capture_output=True, text=True)
+        if proc.returncode != 0:
+            err = proc.stderr or proc.stdout or "Phrase extraction failed"
+            jobs[job_id]["status"] = "error"
+            jobs[job_id]["error"] = err
+            stored["status"] = "error"
+            stored["error"] = err
+            _store_provider_upload(upload_id, stored)
+            return
+
+        meta_path = lib_dir / "phrases_metadata.json"
+        phrases = []
+        if meta_path.exists():
+            with open(meta_path) as f:
+                phrases = json.load(f)
+        if not phrases:
+            err = "No phrases extracted"
+            jobs[job_id]["status"] = "error"
+            jobs[job_id]["error"] = err
+            stored["status"] = "error"
+            stored["error"] = err
+            _store_provider_upload(upload_id, stored)
+            return
+
+        rules_path = PROJECT_ROOT / "data" / "raga_rules" / f"{raga}.json"
+        scorer = None
+        if rules_path.exists():
+            from raga_scorer import RagaScorer
+            scorer = RagaScorer.from_rules_file(rules_path)
+
+        for idx, p in enumerate(phrases):
+            if scorer and "authenticity_score" not in p:
+                p = scorer.score_phrase(p)
+            p["provider_id"] = provider_id
+            p["provider_name"] = provider_name
+            p["gharana"] = provider.get("gharana")
+            p["upload_id"] = upload_id
+            p["declared_sa"] = declared_sa
+            p["library_tier"] = "standard"
+            p["source_type"] = "library"
+            phrases[idx] = p
+
+        with open(meta_path, "w") as f:
+            json.dump(phrases, f, indent=2)
+
+        from quality_gate import compare_to_gold, compute_library_avg
+
+        phrase_count = len(phrases)
+        avg_auth = compute_library_avg(meta_path)
+        gold_comp = compare_to_gold(raga, avg_auth)
+
+        file_size_mb = None
+        try:
+            file_size_mb = round(Path(upload_path).stat().st_size / (1024 * 1024), 2)
+        except Exception:
+            pass
+
+        ai_review = {
+            "upload_id": upload_id,
+            "provider_id": provider_id,
+            "provider_name": provider_name,
+            "gharana": provider.get("gharana"),
+            "raga": raga,
+            "detected_raga": detected_raga,
+            "declared_sa": declared_sa,
+            "library_name": lib_name,
+            "library_dir": str(lib_dir),
+            "phrase_count": phrase_count,
+            "avg_authenticity": avg_auth,
+            "gold_comparison": gold_comp,
+            "analysis": analysis,
+            "phrases": phrases,
+        }
+
+        stored.update({
+            "provider_id": provider_id,
+            "raga": raga,
+            "declared_sa": declared_sa,
+            "library_name": lib_name,
+            "library_dir": str(lib_dir),
+            "phrase_count": phrase_count,
+            "avg_authenticity": avg_auth,
+            "current_gold_avg": gold_comp.get("current_gold_avg"),
+            "exceeded_gold_standard": gold_comp.get("status") == "exceeds_gold",
+            "gold_delta": gold_comp.get("delta"),
+            "file_size_mb": file_size_mb,
+            "status": "review_ready",
+            "ai_review": ai_review,
+        })
+        _store_provider_upload(upload_id, stored)
+
+        jobs[job_id]["status"] = "complete"
+        jobs[job_id]["metadata"] = stored
+
+        try:
+            insert_rows("provider_uploads", [{
+                "provider_id": provider_id,
+                "raga": raga,
+                "declared_sa": declared_sa,
+                "file_path": str(upload_path),
+                "original_filename": stored.get("original_filename"),
+                "file_format": stored.get("file_format"),
+                "duration_sec": analysis.get("duration") if analysis else None,
+                "file_size_mb": file_size_mb,
+                "status": "review_ready",
+                "ai_review": ai_review,
+                "phrase_count": phrase_count,
+                "avg_authenticity": avg_auth,
+                "current_gold_avg": gold_comp.get("current_gold_avg"),
+                "exceeded_gold_standard": gold_comp.get("status") == "exceeds_gold",
+                "gold_delta": gold_comp.get("delta"),
+            }])
+        except Exception:
+            pass
+
+    except Exception as e:
+        jobs[job_id]["status"] = "error"
+        jobs[job_id]["error"] = str(e)
+        stored["status"] = "error"
+        stored["error"] = str(e)
+        _store_provider_upload(upload_id, stored)
 
 
 # ── Variation Engine ──────────────────────────────────────────────────
@@ -1303,6 +2017,40 @@ def _run_variation_pipeline(track_id: str, raga: str, source_library: str | None
     except Exception as e:
         jobs[track_id]["status"] = "error"
         jobs[track_id]["error"] = str(e)
+
+
+@app.get("/", include_in_schema=False)
+def serve_frontend_root():
+    """Serve the production frontend root when it exists."""
+    index_file = WEB_DIST_DIR / "index.html"
+    if index_file.exists():
+        return FileResponse(index_file)
+    raise HTTPException(
+        status_code=404,
+        detail="Frontend build not found. Build web app with `npm run build` in /web.",
+    )
+
+
+@app.get("/{full_path:path}", include_in_schema=False)
+def serve_frontend_path(full_path: str):
+    """SPA fallback for production frontend routes, excluding API paths."""
+    if full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="Not Found")
+    if not WEB_DIST_DIR.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Frontend build not found. Build web app with `npm run build` in /web.",
+        )
+
+    requested = (WEB_DIST_DIR / full_path).resolve()
+    try:
+        requested.relative_to(WEB_DIST_DIR.resolve())
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail="Not Found") from exc
+
+    if requested.is_file():
+        return FileResponse(requested)
+    return FileResponse(WEB_DIST_DIR / "index.html")
 
 
 if __name__ == "__main__":

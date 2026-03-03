@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import {
   audioUrl,
   generate,
@@ -17,11 +18,18 @@ import GeneratorInterface from "./components/GeneratorInterface";
 import AudioPlayer from "./components/AudioPlayer";
 import SettingsPanel, { type UserPreferences } from "./components/SettingsPanel";
 import OnboardingFlow from "./components/Onboarding/OnboardingFlow";
+import DatasetHealth from "./components/DatasetHealth";
+import RoleSelect from "./components/RoleSelect";
+import ProviderLayout from "./provider/ProviderLayout";
+import ProviderOnboarding from "./provider/ProviderOnboarding";
+import ProviderUpload from "./provider/ProviderUpload";
+import ProviderReview from "./provider/ProviderReview";
+import ProviderDashboard from "./provider/ProviderDashboard";
 
 export default function App() {
   const [raga, setRaga] = useState("auto");
   const [duration, setDuration] = useState(120);
-  const [source] = useState("library");
+  const [source, setSource] = useState("library");
   const [prompt, setPrompt] = useState("");
   const [recommend] = useState(true);
   const [intentTags] = useState<string[]>([]);
@@ -91,6 +99,7 @@ export default function App() {
         prompt: promptText,
         intent_tags: intentTags,
         recommend,
+        fusion_mode: recommend ? "balanced" : undefined,
       });
       setGenerationStep("Mixing...");
       sendTelemetry({
@@ -141,7 +150,7 @@ export default function App() {
     setSelectedGenres(prefs.generation.defaultGenres.slice(0, 2));
   }
 
-  return (
+  const consumerView = (
     <div className="min-h-screen bg-gradient-to-b from-[#0A0A0F] to-[#1A1A2E] text-white">
       <div className="max-w-2xl mx-auto px-4 py-10 space-y-8">
         {/* Header */}
@@ -158,13 +167,21 @@ export default function App() {
               </span>
             )}
           </p>
-          <button
-            type="button"
-            onClick={() => setSettingsOpen(true)}
-            className="mt-2 text-xs text-neutral-400 hover:text-neutral-200"
-          >
-            ⚙️ Settings
-          </button>
+          <div className="mt-2 flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setSettingsOpen(true)}
+              className="text-xs text-neutral-400 hover:text-neutral-200"
+            >
+              ⚙️ Settings
+            </button>
+            <a
+              href="/"
+              className="cursor-pointer text-xs text-neutral-400 hover:text-neutral-200"
+            >
+              ← Home (Creator / Provider)
+            </a>
+          </div>
         </header>
 
         {showOnboarding && (
@@ -181,10 +198,12 @@ export default function App() {
             selectedRaga={raga}
             selectedGenres={selectedGenres}
             duration={duration}
+            source={source}
             onPromptChange={setPrompt}
             onPickRaga={setRaga}
             onToggleGenre={handleToggleGenre}
             onDurationChange={setDuration}
+            onSourceChange={setSource}
             onGenerate={handleGenerate}
           />
         )}
@@ -214,7 +233,7 @@ export default function App() {
               onDownload={() => window.open(audioUrl(currentTrack.track_id), "_blank")}
               onShare={() => navigator.clipboard?.writeText(window.location.href)}
             />
-            <NowPlaying track={currentTrack} />
+            <NowPlaying key={currentTrack.track_id} track={currentTrack} />
           </div>
         )}
 
@@ -231,8 +250,24 @@ export default function App() {
             />
           </section>
         )}
+
+        {/* Dataset Health */}
+        <DatasetHealth />
       </div>
       <SettingsPanel open={settingsOpen} onClose={() => setSettingsOpen(false)} onChange={handleSettingsChange} />
     </div>
+  );
+
+  return (
+    <Routes>
+      <Route path="/create" element={consumerView} />
+      <Route path="/provider" element={<ProviderLayout />}>
+        <Route index element={<ProviderOnboarding />} />
+        <Route path="upload" element={<ProviderUpload />} />
+        <Route path="review/:uploadId" element={<ProviderReview />} />
+        <Route path="dashboard" element={<ProviderDashboard />} />
+      </Route>
+      <Route path="/" element={<RoleSelect />} />
+    </Routes>
   );
 }

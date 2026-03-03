@@ -35,7 +35,11 @@ def _request_json(method: str, url: str, key: str, payload=None, headers=None):
 def _get_env() -> tuple[str | None, str | None, bool]:
     url = os.getenv("SUPABASE_URL")
     key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-    enabled = os.getenv("SUPABASE_LOGGING", "0") == "1"
+    enabled_raw = os.getenv("SUPABASE_LOGGING")
+    if enabled_raw is None:
+        enabled = bool(url and key)
+    else:
+        enabled = enabled_raw == "1"
     return url, key, enabled
 
 

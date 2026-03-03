@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-03-02T01:38:00.950827+00:00",
+  "phrase_counts": {
+    "bageshree": 45,
+    "bhairav": 319,
+    "bhairavi": 20,
+    "bhoopali": 128,
+    "bilawal": 27,
+    "darbari": 10,
+    "desh": 246,
+    "kafi": 6,
+    "khamaj": 36,
+    "malkauns": 17,
+    "marwa": 44,
+    "purvi": 171,
+    "todi": 92,
+    "yaman": 93
+  },
+  "gold_counts": {
+    "bageshree": 45,
+    "bhairav": 100,
+    "bhairavi": 20,
+    "bhoopali": 100,
+    "bilawal": 27,
+    "darbari": 10,
+    "desh": 100,
+    "kafi": 6,
+    "khamaj": 36,
+    "malkauns": 17,
+    "marwa": 44,
+    "purvi": 100,
+    "todi": 92,
+    "yaman": 93
+  },
+  "rod_phrase_counts": {
+    "bageshree": 45,
+    "bhairav": 60,
+    "bhoopali": 128,
+    "darbari": 10
+  },
+  "ragas": [
+    "bageshree",
+    "bhairav",
+    "bhairavi",
+    "bhoopali",
+    "bilawal",
+    "darbari",
+    "desh",
+    "kafi",
+    "khamaj",
+    "malkauns",
+    "marwa",
+    "purvi",
+    "todi",
+    "yaman"
+  ],
+  "ornament_calibration_summary": {
+    "overall": {
+      "tp": 87,
+      "fp": 3135,
+      "fn": 3810,
+      "precision": 0.027001862197392923,
+      "recall": 0.022324865280985373,
+      "f1": 0.02444163506110409
+    },
+    "low_f1_types": [
+      "gamak",
+      "kan",
+      "meend",
+      "murki",
+      "nyas_svar",
+      "andolan",
+      "M",
+      "K1"
+    ],
+    "pb_integration": {
+      "label_files": 42,
+      "label_counts": {
+        "nyas_svar": 100,
+        "meend": 74,
+        "gamak": 78,
+        "murki": 27,
+        "kan": 114,
+        "andolan": 17
+      },
+      "spectrograms": 168,
+      "scored": false,
+      "note": "PB provides labels + spectrograms only; no audio to score ornaments yet."
+    }
+  }
+}

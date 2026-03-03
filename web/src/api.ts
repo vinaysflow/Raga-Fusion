@@ -21,6 +21,8 @@ export interface GenerateParams {
   intent_tags?: string[];
   recommend?: boolean;
   upload_id?: string;
+  variation_profile?: string;
+  fusion_mode?: string;
 }
 
 export interface TrackMeta {
@@ -32,11 +34,14 @@ export interface TrackMeta {
   duration: number;
   requested_duration: number;
   source: string;
+  actual_source?: string;
+  library_tier?: "gold" | "standard" | "generated" | "blended";
   prompt: string;
   created_at: string;
   intent_tags?: string[];
   recommend?: boolean;
   quality_score?: number;
+  quality_status?: "pending" | "complete";
   commercial_ready?: boolean;
   versions?: {
     recommender_version?: string;
@@ -156,6 +161,84 @@ export interface VariationSuggestion {
   description: string;
 }
 
+// ── Provider Portal ───────────────────────────────────────────────────
+
+export interface Provider {
+  id: string;
+  name: string;
+  email?: string | null;
+  gharana?: string | null;
+  instruments?: string[];
+  training_lineage?: string | null;
+  bio?: string | null;
+  status?: string | null;
+  verified?: boolean;
+  created_at?: string;
+}
+
+export interface ProviderUpload {
+  upload_id: string;
+  provider_id: string;
+  raga: string;
+  declared_sa?: string | null;
+  status?: string;
+  phrase_count?: number;
+  phrases_approved?: number;
+  avg_authenticity?: number;
+  current_gold_avg?: number;
+  exceeded_gold_standard?: boolean;
+  gold_delta?: number;
+  library_name?: string;
+  library_dir?: string;
+  created_at?: string;
+}
+
+export interface ReviewPhrase {
+  phrase_id: string;
+  file?: string;
+  duration?: number;
+  notes_detected?: string[];
+  authenticity_score?: number;
+  arc_section?: string;
+  ornaments_detected?: Array<Record<string, unknown>>;
+}
+
+export interface AiReview {
+  upload_id: string;
+  provider_id: string;
+  provider_name?: string;
+  gharana?: string;
+  raga: string;
+  detected_raga?: string;
+  declared_sa?: string | null;
+  library_name?: string;
+  library_dir?: string;
+  phrase_count: number;
+  avg_authenticity: number;
+  gold_comparison?: Record<string, unknown>;
+  analysis?: Record<string, unknown> | null;
+  phrases: ReviewPhrase[];
+}
+
+export interface ProviderDashboard {
+  provider: Provider;
+  uploads: ProviderUpload[];
+  stats: {
+    total_uploads: number;
+    phrases_approved: number;
+    ragas_covered: string[];
+  };
+}
+
+export interface ProviderRegisterPayload {
+  name: string;
+  email?: string | null;
+  gharana?: string | null;
+  instruments?: string[];
+  training_lineage?: string | null;
+  bio?: string | null;
+}
+
 // ── Existing endpoints ──────────────────────────────────────────────
 
 export async function parsePrompt(prompt: string): Promise<ParsedPrompt> {
@@ -257,5 +340,127 @@ export async function getVariationSuggestions(raga: string, style: string): Prom
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ raga, style }),
   });
+  return res.json();
+}
+
+// ── Feedback ────────────────────────────────────────────────────────
+
+export interface FeedbackPayload {
+  plan_id?: string | null;
+  track_id?: string | null;
+  rating?: number | null;
+  feedback?: string;
+  tags?: string[];
+  metadata?: Record<string, unknown>;
+}
+
+export async function submitFeedback(payload: FeedbackPayload): Promise<{ status: string }> {
+  const res = await fetch(`${BASE}/feedback`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return res.json();
+}
+
+// ── Dataset Health ──────────────────────────────────────────────────
+
+export interface LibraryInfo {
+  raga: string;
+  library: string;
+  tier: "gold" | "standard" | "generated";
+  phrase_count: number;
+}
+
+export interface DatasetHealth {
+  seed_qa?: {
+    total_sources: number;
+    raga_coverage: Record<string, number>;
+    rights_breakdown: Record<string, number>;
+    missing_fields: Record<string, number>;
+    duplicates: number;
+    generated_at?: string;
+    [key: string]: unknown;
+  };
+  recommender_eval?: {
+    overall_pass_rate?: number;
+    per_raga?: Record<string, { passes: boolean; metrics?: Record<string, unknown> }>;
+    [key: string]: unknown;
+  };
+  libraries: LibraryInfo[];
+}
+
+export async function getDatasetHealth(): Promise<DatasetHealth> {
+  const res = await fetch(`${BASE}/dataset-health`);
+  return res.json();
+}
+
+// ── Provider API ──────────────────────────────────────────────────────
+
+export async function registerProvider(payload: ProviderRegisterPayload): Promise<Provider> {
+  const res = await fetch(`${BASE}/provider/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return res.json();
+}
+
+export async function getProvider(providerId: string): Promise<Provider> {
+  const res = await fetch(`${BASE}/provider/${providerId}`);
+  return res.json();
+}
+
+export async function updateProvider(providerId: string, payload: ProviderRegisterPayload): Promise<Provider> {
+  const res = await fetch(`${BASE}/provider/${providerId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return res.json();
+}
+
+export async function uploadProviderRecording(
+  providerId: string,
+  file: File,
+  raga: string,
+  declaredSa?: string | null,
+  count: number = 20,
+): Promise<{ upload_id: string; job_id: string; status: string }> {
+  const form = new FormData();
+  form.append("file", file);
+  form.append("provider_id", providerId);
+  form.append("raga", raga);
+  form.append("count", String(count));
+  if (declaredSa) form.append("declared_sa", declaredSa);
+  const res = await fetch(`${BASE}/provider/upload`, { method: "POST", body: form });
+  return res.json();
+}
+
+export async function getProviderUploadStatus(uploadId: string): Promise<{ status: string; metadata?: ProviderUpload }> {
+  const res = await fetch(`${BASE}/provider/upload/${uploadId}/status`);
+  return res.json();
+}
+
+export async function getProviderUploadReview(uploadId: string): Promise<AiReview> {
+  const res = await fetch(`${BASE}/provider/upload/${uploadId}/review`);
+  return res.json();
+}
+
+export async function approveProviderUpload(
+  uploadId: string,
+  approvedPhraseIds: string[],
+  reviewerNotes?: string,
+): Promise<{ upload_id: string; status: string; phrases_approved: number }> {
+  const res = await fetch(`${BASE}/provider/upload/${uploadId}/approve`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ approved_phrase_ids: approvedPhraseIds, reviewer_notes: reviewerNotes }),
+  });
+  return res.json();
+}
+
+export async function getProviderDashboard(providerId: string): Promise<ProviderDashboard> {
+  const res = await fetch(`${BASE}/provider/${providerId}/dashboard`);
   return res.json();
 }

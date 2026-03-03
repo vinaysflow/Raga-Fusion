@@ -1,37 +1,131 @@
 {
   "raga": {
     "name": "Khamaj",
-    "aliases": ["Khammaj"],
+    "aliases": [
+      "Khammaj"
+    ],
     "thaat": "Khamaj",
     "family": "Khamaj",
     "jati": "Sampoorna-Sampoorna",
     "description": "A light, romantic raga with a distinctive komal Ni. Often used for semi-classical forms (thumri, dadra) and expressive, playful melodies."
   },
   "scale": {
-    "degrees": [0, 2, 4, 5, 7, 9, 10],
-    "svaras": ["S", "R", "G", "m", "P", "D", "n"],
-    "svaras_full": ["Sa", "Re", "Ga", "Ma (shuddh)", "Pa", "Dha", "Ni (komal)"],
-    "western_notes_sa_c": ["C", "D", "E", "F", "G", "A", "Bb"],
+    "degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "G",
+      "m",
+      "P",
+      "D",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re",
+      "Ga",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "A",
+      "Bb"
+    ],
     "note_types": {
-      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
-      "R": { "degree": 2, "type": "shuddh", "western": "2 (major 2nd)" },
-      "G": { "degree": 4, "type": "shuddh", "western": "3 (major 3rd)" },
-      "m": { "degree": 5, "type": "shuddh", "western": "4 (perfect 4th)" },
-      "P": { "degree": 7, "type": "shuddh", "western": "5 (perfect 5th)" },
-      "D": { "degree": 9, "type": "shuddh", "western": "6 (major 6th)" },
-      "n": { "degree": 10, "type": "komal", "western": "b7 (minor 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "G": {
+        "degree": 4,
+        "type": "shuddh",
+        "western": "3 (major 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "D": {
+        "degree": 9,
+        "type": "shuddh",
+        "western": "6 (major 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
     },
     "forbidden": [
-      { "degree": 11, "svara": "N", "name": "Shuddh Ni", "reason": "Khamaj uses komal Ni for its characteristic flavor." },
-      { "degree": 6, "svara": "M'", "name": "Tivra Ma", "reason": "Khamaj uses shuddh Ma." }
+      {
+        "degree": 11,
+        "svara": "N",
+        "name": "Shuddh Ni",
+        "reason": "Khamaj uses komal Ni for its characteristic flavor."
+      },
+      {
+        "degree": 6,
+        "svara": "M'",
+        "name": "Tivra Ma",
+        "reason": "Khamaj uses shuddh Ma."
+      }
     ]
   },
   "movement": {
     "aroha": "S R G m P D n S'",
     "avaroha": "S' n D P m G R S",
-    "aroha_degrees": [0, 2, 4, 5, 7, 9, 10, 12],
-    "avaroha_degrees": [12, 10, 9, 7, 5, 4, 2, 0],
-    "pakad": ["G m P D n", "D n S' n D", "P m G R S"],
+    "aroha_degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
+    "pakad": [
+      "G m P D n",
+      "D n S' n D",
+      "P m G R S"
+    ],
     "pakad_string": "G m P D n, D n S' n D, P m G R S"
   },
   "emphasis": {
@@ -49,30 +143,103 @@
       "western": "Bb (minor 7th, when Sa=C)",
       "role": "Queen note — the komal Ni gives Khamaj its signature softness."
     },
-    "important_notes": ["G", "n", "D"],
-    "resting_notes": ["S", "P", "G"]
+    "important_notes": [
+      "G",
+      "n",
+      "D"
+    ],
+    "resting_notes": [
+      "S",
+      "P",
+      "G"
+    ]
   },
   "context": {
-    "time": { "prahar": "Second prahar of night", "window": "9:00 PM – 12:00 AM", "season": "All seasons" },
-    "mood": ["Romantic", "Playful", "Tender"],
+    "time": {
+      "prahar": "Second prahar of night",
+      "window": "9:00 PM – 12:00 AM",
+      "season": "All seasons"
+    },
+    "mood": [
+      "Romantic",
+      "Playful",
+      "Tender"
+    ],
     "rasa": "Shringara (romance)",
     "aesthetic": "Gentle and expressive with a soft, folk-like charm."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.24,
+    "peak_position_ratio": 0.62,
+    "peak_ceiling": 0.8,
+    "opening_energy": 0.35
   },
   "western_equivalent": {
     "mode": "Mixolydian",
     "key_example": "C Mixolydian",
-    "interval_semitones": [2, 2, 1, 2, 2, 1, 2],
+    "interval_semitones": [
+      2,
+      2,
+      1,
+      2,
+      2,
+      1,
+      2
+    ],
     "relationship": "Khamaj's komal Ni mirrors the Mixolydian flat 7."
   },
   "genre_compatibility": {
-    "lofi": { "score": 0.9, "notes": "Warm and romantic character suits mellow beats." },
-    "jazz_fusion": { "score": 0.82, "notes": "Mixolydian color fits dominant harmony." },
-    "ambient": { "score": 0.84, "notes": "Soft tension from komal Ni works well in spacious textures." },
-    "chillhop": { "score": 0.86, "notes": "Playful phrasing pairs well with jazzy grooves." }
+    "lofi": {
+      "score": 0.9,
+      "notes": "Warm and romantic character suits mellow beats."
+    },
+    "jazz_fusion": {
+      "score": 0.9,
+      "notes": "Mixolydian lightness for swinging improv."
+    },
+    "ambient": {
+      "score": 0.84,
+      "notes": "Soft tension from komal Ni works well in spacious textures."
+    },
+    "chillhop": {
+      "score": 0.92,
+      "notes": "Excellent: fits swing and walking bass; use jazzy chords but keep them slow-moving."
+    },
+    "cinematic": {
+      "score": 0.75,
+      "notes": "Light playful for upbeat scenes."
+    },
+    "downtempo": {
+      "score": 0.9,
+      "notes": "Excellent: naturally grooves at mid-tempo, and semi-classical ornamentation reads clearly over sparse drums."
+    },
+    "electronic": {
+      "score": 0.87,
+      "notes": "Very strong: makes catchy toplines; keep the characteristic descending color so it doesn't collapse into plain pop."
+    },
+    "reggae_dub": {
+      "score": 0.83,
+      "notes": "Strong: dominant-mode language fits reggae; skanks + melodic answers feel natural."
+    },
+    "trap": {
+      "score": 0.8,
+      "notes": "Good: makes memorable hooks; keep the motif compact so it survives busy hats and 808 movement."
+    },
+    "rock": {
+      "score": 0.8,
+      "notes": "Good: easy to map onto guitar and common rock harmony, especially in jam/prog contexts."
+    }
   },
   "metadata": {
     "version": "1.0",
     "created_by": "manual_seed",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Similar to Desh",
+    "thumri lightness favors lighter genres",
+    "Treat the 'two Ni' color as a key identity marker: make the descending color audible rather than hiding it under chords.",
+    "Khamaj tolerates quick decorations: use short grace-note flourishes (murki-like) to signal raga-ness even in modern production.",
+    "If you add functional harmony, keep it secondary; too many cadences will make it feel like generic Mixolydian."
+  ]
 }

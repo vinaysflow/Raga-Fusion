@@ -1,0 +1,269 @@
+{
+  "raga": {
+    "name": "Bhoopali",
+    "aliases": [
+      "Bhupali",
+      "Bhopali"
+    ],
+    "thaat": "Kalyan",
+    "family": "Kalyan",
+    "jati": "Audav-Audav",
+    "description": "A bright pentatonic raga with a serene devotional character. It omits Ma and Ni entirely, producing a clean, open sound."
+  },
+  "scale": {
+    "degrees": [
+      0,
+      2,
+      4,
+      7,
+      9
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "G",
+      "P",
+      "D"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (shuddh)",
+      "Ga (shuddh)",
+      "Pa",
+      "Dha (shuddh)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "E",
+      "G",
+      "A"
+    ],
+    "note_types": {
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "G": {
+        "degree": 4,
+        "type": "shuddh",
+        "western": "3 (major 3rd)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "D": {
+        "degree": 9,
+        "type": "shuddh",
+        "western": "6 (major 6th)"
+      }
+    },
+    "forbidden": [
+      {
+        "degree": 5,
+        "svara": "m",
+        "name": "Shuddh Madhyam",
+        "reason": "Bhoopali is pentatonic and omits Ma entirely."
+      },
+      {
+        "degree": 6,
+        "svara": "M'",
+        "name": "Tivra Madhyam",
+        "reason": "Bhoopali omits Ma in all forms."
+      },
+      {
+        "degree": 10,
+        "svara": "n",
+        "name": "Komal Nishad",
+        "reason": "Bhoopali omits Ni entirely."
+      },
+      {
+        "degree": 11,
+        "svara": "N",
+        "name": "Shuddh Nishad",
+        "reason": "Bhoopali omits Ni entirely."
+      }
+    ]
+  },
+  "movement": {
+    "aroha": "S R G P D S'",
+    "avaroha": "S' D P G R S",
+    "aroha_degrees": [
+      0,
+      2,
+      4,
+      7,
+      9,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      9,
+      7,
+      4,
+      2,
+      0
+    ],
+    "pakad": [
+      "G R G P D",
+      "D P G R S"
+    ],
+    "pakad_string": "G R G P D, D P G R S",
+    "characteristic_phrases": [
+      {
+        "phrase": "G R G",
+        "context": "Defines the pentatonic flavor immediately"
+      },
+      {
+        "phrase": "G P D",
+        "context": "Clean ascent without Ma or Ni"
+      },
+      {
+        "phrase": "D P G R S",
+        "context": "Resolution through the open pentatonic descent"
+      }
+    ],
+    "note_rules": {
+      "Pentatonic_purity": "Avoid any Ma or Ni inflections; the raga depends on pentatonic clarity",
+      "Ga_role": "Ga is often emphasized and used to pivot between lower and upper tetrachords"
+    }
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 4,
+      "svara": "G",
+      "full_name": "Shuddh Gandhar",
+      "western": "E (major 3rd, when Sa=C)",
+      "role": "King note — the bright center of Bhoopali. Often sustained in alaap."
+    },
+    "samvadi": {
+      "degree": 9,
+      "svara": "D",
+      "full_name": "Shuddh Dhaivat",
+      "western": "A (major 6th, when Sa=C)",
+      "role": "Queen note — supports Ga and anchors the upper tetrachord."
+    },
+    "important_notes": [
+      "G",
+      "D",
+      "R",
+      "P"
+    ],
+    "resting_notes": [
+      "S",
+      "G",
+      "P",
+      "D"
+    ]
+  },
+  "context": {
+    "time": {
+      "prahar": "First prahar of night",
+      "window": "6:00 PM – 9:00 PM",
+      "season": "All seasons"
+    },
+    "mood": [
+      "Serene",
+      "Devotional",
+      "Bright",
+      "Peaceful"
+    ],
+    "rasa": "Shanta (peace) and Bhakti (devotion)",
+    "aesthetic": "Clear, open pentatonic sound with a glowing evening character."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.24,
+    "peak_position_ratio": 0.62,
+    "peak_ceiling": 0.8,
+    "opening_energy": 0.36
+  },
+  "western_equivalent": {
+    "mode": "Major Pentatonic",
+    "key_example": "C Major Pentatonic",
+    "interval_pattern": [
+      "W",
+      "W",
+      "m3",
+      "W",
+      "m3"
+    ],
+    "interval_semitones": [
+      2,
+      2,
+      3,
+      2,
+      3
+    ],
+    "relationship": "Directly maps to the major pentatonic scale; Bhoopali's phrasing makes it unmistakably Indian."
+  },
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.9,
+      "notes": "Pentatonic clarity blends well with mellow beats and simple harmonic beds."
+    },
+    "ambient": {
+      "score": 0.94,
+      "notes": "Open intervals and lack of half-steps make Bhoopali ideal for ambient textures."
+    },
+    "calm": {
+      "score": 0.92,
+      "notes": "Clean melodic lines suit meditation, yoga, and quiet focus."
+    },
+    "upbeat": {
+      "score": 0.7,
+      "notes": "Pentatonic structure can support upbeat rhythms if phrasing is kept crisp."
+    },
+    "jazz_fusion": {
+      "score": 0.88,
+      "notes": "Major pentatonic simplicity allows open jazz improvisation."
+    },
+    "cinematic": {
+      "score": 0.75,
+      "notes": "Bright serenity for hopeful or pastoral scenes."
+    },
+    "downtempo": {
+      "score": 0.85,
+      "notes": "Excellent: pentatonic motifs loop cleanly and stay singable over organic drums."
+    },
+    "electronic": {
+      "score": 0.88,
+      "notes": "Very strong: pentatonic hooks survive synth treatment and quantization, making it ideal for arps and toplines."
+    },
+    "chillhop": {
+      "score": 0.9,
+      "notes": "Bright clean melodies perfect with vinyl warmth."
+    },
+    "reggae_dub": {
+      "score": 0.75,
+      "notes": "Good fit: offbeat skanks + pentatonic lead feels natural; keep the bass on stable tones."
+    },
+    "trap": {
+      "score": 0.86,
+      "notes": "Excellent for catchy hooks; pentatonic contour reads instantly even over dense drums."
+    },
+    "rock": {
+      "score": 0.84,
+      "notes": "Excellent: maps well to guitar and riff logic; easy to keep melodic identity even at higher tempos."
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual",
+    "schema": "raga_rules_v1"
+  },
+  "fusion_notes": [
+    "Clean pentatonic (no Ma, no Ni) offers open intervals",
+    "highly adaptable to Western harmony",
+    "Avoid turning the melody into a generic major pentatonic riff: keep raga-like cadence shapes and ornamented turns.",
+    "Be cautious with resting emphasis: if you over-stress Dha as a landing tone, it can drift toward close neighbors.",
+    "Avoid 'extra' grace notes (especially the missing Ma/Ni) unless you intentionally want the sound of a related raga."
+  ]
+}

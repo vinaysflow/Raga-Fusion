@@ -1,0 +1,158 @@
+[
+  {
+    "direction_id": 1,
+    "title": "Arc section classification",
+    "current_status": "~64% of phrases fall back to gat_development; alap, peak, and resolution are sparse.",
+    "research_directions": [
+      "Expert labeling: Get 200–300 phrases labeled for arc section by an expert.",
+      "Temporal features: Estimate position_ratio from original recording timestamps.",
+      "ML model: Train classifier on phrase_density, contour_direction, pitch_histogram, position_ratio.",
+      "Literature review: Refine heuristics with Napier (2019) proportions and Saraga structural annotations."
+    ],
+    "key_findings": "Napier 2019 (235 ālāp examples): upper-tonic climax at 55% of whole performance, rhythmic intensification at 70%; Saraga provides section boundaries for 75 recordings and phrases for 53.",
+    "ingestible_updates": {
+      "arc_rules": {
+        "alap_threshold": "position_ratio < 0.45 AND density < 0.3",
+        "peak_threshold": "0.55 < position_ratio < 0.75 AND high density + ascending contour",
+        "resolution": "position_ratio > 0.80"
+      },
+      "seed_datasets": ["Saraga_structural_75", "Napier_proportions"]
+    },
+    "priority": "Medium",
+    "effort": "Medium",
+    "impact": "High",
+    "rationale": "Directly enables section-aware fusion and better arc_profile adherence."
+  },
+  {
+    "direction_id": 2,
+    "title": "Ornament detection",
+    "current_status": "F1 ~0.02; many FPs and low recall.",
+    "research_directions": [
+      "ROD vs. detector comparison: Tune thresholds on ROD disagreements.",
+      "Per-type calibration: Separate models/rules for gamak, meend, kan, murki.",
+      "ML approach: Train on ROD + f0 contours (ED-TCN baseline already 90% F1).",
+      "Confidence calibration: Raise 0.5 floor."
+    ],
+    "key_findings": "ROD 2025: 212 recordings (4.08 h), 6 ornaments (kaṇ, mīnd, murkī, nyās, andolan, gamak), expert active annotation, ED-TCN F1 90.06% (collar), generalizes to concerts at 67.59% after fine-tune.",
+    "ingestible_updates": {
+      "ornament_model": "ED-TCN or fine-tuned CRNN",
+      "per_type_thresholds": {"gamak": 0.6, "meend": 0.45},
+      "datasets": ["ROD_full_212"]
+    },
+    "priority": "High",
+    "effort": "High",
+    "impact": "Medium",
+    "rationale": "Enables reliable ornament density for recommender and phrase characterization."
+  },
+  {
+    "direction_id": 3,
+    "title": "Phrase intent tags",
+    "current_status": "No phrases have intent_tags; fusion uses request-level intent only.",
+    "research_directions": [
+      "Derived tags from density, contour, energy, pitch range.",
+      "Human labeling: 50–100 phrases as seed.",
+      "Corpus analysis: Map expert descriptions (alap=meditative, taan=energetic) to metadata."
+    ],
+    "key_findings": "Saraga phrases + Napier energy build-up provide direct mapping; simple rule-based bootstrap possible immediately.",
+    "ingestible_updates": {
+      "tag_schema": ["meditative", "exploratory", "energetic", "dense", "sparse", "climax"],
+      "seed_labels": 50
+    },
+    "priority": "Low",
+    "effort": "Low",
+    "impact": "Medium",
+    "rationale": "Quick win for per-phrase fusion selection and diversity."
+  },
+  {
+    "direction_id": 4,
+    "title": "Raga–genre tempo limits",
+    "current_status": "Fusion notes unstructured.",
+    "research_directions": [
+      "Structured extraction: Add tempo_ceiling_bpm, tempo_floor_bpm, best_bpm_range per raga–genre.",
+      "Literature: Traditional vilambit 30-70 BPM etc.",
+      "Validation: Test at different tempos."
+    ],
+    "key_findings": "Traditional: vilambit 30-70, madhya 70-180, drut 180-350 BPM. Grave ragas (Darbari) <60 BPM for andolan; fusion (Charanjit Singh disco 120-140 BPM) possible with ornament adaptation.",
+    "ingestible_updates": {
+      "example_per_raga": {
+        "darbari_kanada": {"electronic": {"ceiling": 100, "note": "andolan → meend above 90 BPM"}, "reggae_dub": {"best_range": "70-85"}},
+        "bhairav": {"electronic": {"ceiling": 90}, "downtempo": {"best_range": "70-95"}},
+        "marwa": {"electronic": {"ceiling": 80}, "chillhop": {"ceiling": 85}}
+      }
+    },
+    "priority": "Low",
+    "effort": "Low",
+    "impact": "High",
+    "rationale": "Hard constraints prevent character loss in production."
+  },
+  {
+    "direction_id": 5,
+    "title": "Style affinity validation",
+    "current_status": "74% non-default scores from LLM; unvalidated by listening.",
+    "research_directions": [
+      "ABX listening tests on recommended pairs.",
+      "Expert review of sample pairs.",
+      "Gap filling for default 0.5 scores."
+    ],
+    "key_findings": "Existing fusion discography (Shankar-Jaikishan 1968 jazz, Charanjit Singh 1982 disco, Anoushka Shankar downtempo) provides ground-truth examples for calibration.",
+    "ingestible_updates": {"validation_status": "pending_abx"},
+    "priority": "Medium",
+    "effort": "Medium",
+    "impact": "Medium",
+    "rationale": "Builds trust in recommendation engine."
+  },
+  {
+    "direction_id": 6,
+    "title": "Thin-raga expansion",
+    "current_status": "Asavari 20, kafi 42; limited diversity.",
+    "research_directions": [
+      "Needs analysis for ragas below 100 phrases.",
+      "Source discovery: Saraga + other archives.",
+      "Quality vs. quantity threshold."
+    ],
+    "key_findings": "Saraga Hindustani: 108 recordings, 61 ragas, 53 with manual phrase annotations, 75 with structural sections—direct source for expansion.",
+    "ingestible_updates": {"target_min_phrases": 100, "priority_ragas": ["asavari", "kafi"]},
+    "priority": "Medium",
+    "effort": "Medium",
+    "impact": "High",
+    "rationale": "Fixes coverage gaps for balanced generation."
+  },
+  {
+    "direction_id": 7,
+    "title": "Quality score calibration",
+    "current_status": "Most phrases 0.7–0.9; unclear human correspondence.",
+    "research_directions": [
+      "Human ratings on 100–200 phrases.",
+      "Threshold tuning (authenticity, pakad).",
+      "Raga-specific adjustments."
+    ],
+    "key_findings": "Correlate with ROD/Saraga expert annotations for ground truth.",
+    "ingestible_updates": {"calibration_method": "human_rating_correlation"},
+    "priority": "Medium",
+    "effort": "Medium",
+    "impact": "Medium",
+    "rationale": "Better filtering and ranking."
+  },
+  {
+    "direction_id": 8,
+    "title": "Cross-raga compatibility",
+    "current_status": "No explicit medley/transition logic.",
+    "research_directions": [
+      "Thaat/family matrix.",
+      "Melodic similarity modeling.",
+      "Expert pairwise ratings."
+    ],
+    "key_findings": "Same thaat = high compatibility (0.9); shared vadi/samvadi or ≥4 swaras = medium (0.6-0.8). Bhatkhande 10 thaats provide clean basis.",
+    "ingestible_updates": {
+      "compatibility_matrix": {
+        "same_thaat": 0.9,
+        "shared_vadi": 0.7,
+        "example": {"yaman": {"bhairav": 0.4}}
+      }
+    },
+    "priority": "Low",
+    "effort": "Low",
+    "impact": "Low",
+    "rationale": "Enables medleys and multi-raga fusion."
+  }
+]

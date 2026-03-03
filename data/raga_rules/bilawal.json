@@ -1,40 +1,149 @@
 {
   "raga": {
     "name": "Bilawal",
-    "aliases": ["Bilaval"],
+    "aliases": [
+      "Bilaval"
+    ],
     "thaat": "Bilawal",
     "family": "Bilawal",
     "jati": "Sampoorna-Sampoorna",
     "description": "The pure major scale raga. Bright, balanced, and foundational. Often used as a baseline for teaching shuddh (natural) swaras."
   },
   "scale": {
-    "degrees": [0, 2, 4, 5, 7, 9, 11],
-    "svaras": ["S", "R", "G", "m", "P", "D", "N"],
-    "svaras_full": ["Sa", "Re", "Ga", "Ma (shuddh)", "Pa", "Dha", "Ni"],
-    "western_notes_sa_c": ["C", "D", "E", "F", "G", "A", "B"],
+    "degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "G",
+      "m",
+      "P",
+      "D",
+      "N"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re",
+      "Ga",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha",
+      "Ni"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "A",
+      "B"
+    ],
     "note_types": {
-      "S": { "degree": 0, "type": "shuddh", "western": "1 (root)" },
-      "R": { "degree": 2, "type": "shuddh", "western": "2 (major 2nd)" },
-      "G": { "degree": 4, "type": "shuddh", "western": "3 (major 3rd)" },
-      "m": { "degree": 5, "type": "shuddh", "western": "4 (perfect 4th)" },
-      "P": { "degree": 7, "type": "shuddh", "western": "5 (perfect 5th)" },
-      "D": { "degree": 9, "type": "shuddh", "western": "6 (major 6th)" },
-      "N": { "degree": 11, "type": "shuddh", "western": "7 (major 7th)" }
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "G": {
+        "degree": 4,
+        "type": "shuddh",
+        "western": "3 (major 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "D": {
+        "degree": 9,
+        "type": "shuddh",
+        "western": "6 (major 6th)"
+      },
+      "N": {
+        "degree": 11,
+        "type": "shuddh",
+        "western": "7 (major 7th)"
+      }
     },
     "forbidden": [
-      { "degree": 1, "svara": "r", "name": "Komal Re", "reason": "Bilawal uses only shuddh Re." },
-      { "degree": 3, "svara": "g", "name": "Komal Ga", "reason": "Bilawal uses only shuddh Ga." },
-      { "degree": 6, "svara": "M'", "name": "Tivra Ma", "reason": "Bilawal uses shuddh Ma (natural 4th)." },
-      { "degree": 8, "svara": "d", "name": "Komal Dha", "reason": "Bilawal uses only shuddh Dha." },
-      { "degree": 10, "svara": "n", "name": "Komal Ni", "reason": "Bilawal uses only shuddh Ni." }
+      {
+        "degree": 1,
+        "svara": "r",
+        "name": "Komal Re",
+        "reason": "Bilawal uses only shuddh Re."
+      },
+      {
+        "degree": 3,
+        "svara": "g",
+        "name": "Komal Ga",
+        "reason": "Bilawal uses only shuddh Ga."
+      },
+      {
+        "degree": 6,
+        "svara": "M'",
+        "name": "Tivra Ma",
+        "reason": "Bilawal uses shuddh Ma (natural 4th)."
+      },
+      {
+        "degree": 8,
+        "svara": "d",
+        "name": "Komal Dha",
+        "reason": "Bilawal uses only shuddh Dha."
+      },
+      {
+        "degree": 10,
+        "svara": "n",
+        "name": "Komal Ni",
+        "reason": "Bilawal uses only shuddh Ni."
+      }
     ]
   },
   "movement": {
     "aroha": "S R G m P D N S'",
     "avaroha": "S' N D P m G R S",
-    "aroha_degrees": [0, 2, 4, 5, 7, 9, 11, 12],
-    "avaroha_degrees": [12, 11, 9, 7, 5, 4, 2, 0],
-    "pakad": ["G m P D", "D N S' N D", "P m G R S"],
+    "aroha_degrees": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      11,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
+    "pakad": [
+      "G m P D",
+      "D N S' N D",
+      "P m G R S"
+    ],
     "pakad_string": "G m P D, D N S' N D, P m G R S"
   },
   "emphasis": {
@@ -52,30 +161,103 @@
       "western": "E (major 3rd, when Sa=C)",
       "role": "Queen note — balances the vadi and anchors the scale."
     },
-    "important_notes": ["D", "G", "P"],
-    "resting_notes": ["S", "P", "G"]
+    "important_notes": [
+      "D",
+      "G",
+      "P"
+    ],
+    "resting_notes": [
+      "S",
+      "P",
+      "G"
+    ]
   },
   "context": {
-    "time": { "prahar": "First prahar of day", "window": "6:00 AM – 9:00 AM", "season": "All seasons" },
-    "mood": ["Bright", "Peaceful", "Balanced"],
+    "time": {
+      "prahar": "First prahar of day",
+      "window": "6:00 AM – 9:00 AM",
+      "season": "All seasons"
+    },
+    "mood": [
+      "Bright",
+      "Peaceful",
+      "Balanced"
+    ],
     "rasa": "Shanta (calm) and Hasya (light joy)",
     "aesthetic": "Clear and steady — a baseline for shuddh swara expression."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.26,
+    "peak_position_ratio": 0.63,
+    "peak_ceiling": 0.81,
+    "opening_energy": 0.34
   },
   "western_equivalent": {
     "mode": "Ionian (Major)",
     "key_example": "C Ionian",
-    "interval_semitones": [2, 2, 1, 2, 2, 2, 1],
+    "interval_semitones": [
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      1
+    ],
     "relationship": "Bilawal maps directly to the major scale."
   },
   "genre_compatibility": {
-    "lofi": { "score": 0.85, "notes": "Warm major scale works well for mellow beats." },
-    "ambient": { "score": 0.88, "notes": "Stable tonal center supports long pads." },
-    "jazz_fusion": { "score": 0.8, "notes": "Major harmony is natural for fusion voicings." },
-    "cinematic": { "score": 0.78, "notes": "Clear major tonality is suitable for uplifting cues." }
+    "lofi": {
+      "score": 0.85,
+      "notes": "Warm major scale works well for mellow beats."
+    },
+    "ambient": {
+      "score": 0.88,
+      "notes": "Stable tonal center supports long pads."
+    },
+    "jazz_fusion": {
+      "score": 0.85,
+      "notes": "Plain major scale for straightforward major-key jazz."
+    },
+    "cinematic": {
+      "score": 0.78,
+      "notes": "Bright stable for uplifting or heroic themes."
+    },
+    "downtempo": {
+      "score": 0.78,
+      "notes": "Good: major-mode warmth works well at 80–100 BPM, especially with acoustic instrumentation."
+    },
+    "electronic": {
+      "score": 0.85,
+      "notes": "Strong: major hooks/arps work immediately; keep melodic grammar raga-like so it doesn't become plain EDM-pop."
+    },
+    "chillhop": {
+      "score": 0.82,
+      "notes": "Stable brightness with warmth."
+    },
+    "reggae_dub": {
+      "score": 0.75,
+      "notes": "Good: major reggae is common; anchor bass on stable tones and keep the lead lightly ornamented."
+    },
+    "trap": {
+      "score": 0.75,
+      "notes": "Catchy major hooks."
+    },
+    "rock": {
+      "score": 0.85,
+      "notes": "Strong: major-scale riffs and melodies map well to guitars; can support energetic rock without losing coherence."
+    }
   },
   "metadata": {
     "version": "1.0",
     "created_by": "manual_seed",
     "schema": "raga_rules_v1"
-  }
+  },
+  "fusion_notes": [
+    "Essentially Ionian/major",
+    "easiest Western harmonic integration",
+    "Bilawal is close to 'plain major'; the identity lives in pakad-like turns and where you choose to rest (nyas), not the note-set alone.",
+    "Use ornamentation (slides, light shakes) to keep it from becoming a generic major topline.",
+    "If you introduce borrowed/altered notes for color, do it sparingly so the core remains 'all-shuddh' in feel."
+  ]
 }

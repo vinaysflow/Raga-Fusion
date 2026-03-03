@@ -63,6 +63,8 @@ from analyze_raga import (
     detect_sa,
 )
 from raga_scorer import RagaScorer
+from ornament_detector import detect_ornaments
+from raga_arc_profiler import classify_arc_section, compute_note_density, infer_register, median_f0
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -439,6 +441,15 @@ def extract_phrases(audio_path, output_dir, count=20, sa_override=None,
     y, sr, duration = load_audio(audio_path)
     print(f"  Loaded {duration:.1f}s of audio.")
 
+    # 1b. Estimate tempo confidence (used for arc section classification)
+    tempo_confidence = 0.0
+    try:
+        tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
+        beat_count = len(beats) if hasattr(beats, "__len__") else 0
+        tempo_confidence = min(1.0, beat_count / max(1.0, duration / 2))
+    except Exception:
+        tempo_confidence = 0.0
+
     # 2. Detect boundaries
     print("  Detecting onsets and energy envelope ...")
     onset_bounds = detect_onset_boundaries(y, sr)
@@ -594,12 +605,22 @@ def extract_phrases(audio_path, output_dir, count=20, sa_override=None,
         note_info = analyze_phrase_notes(f0, sa_pc, allowed_degrees=allowed)
         dur = end - start
 
+        note_density = compute_note_density(len(note_info["notes_sequence"]), dur)
+        register = infer_register(median_f0(f0), sa_hz)
+        position_ratio = start / max(duration, 0.01)
+        arc_section, arc_confidence = classify_arc_section(
+            norm_e, note_density, tempo_confidence, register, position_ratio
+        )
+        ornaments = detect_ornaments(f0, ~np.isnan(f0), sr, HOP_LENGTH)
+
         entry = {
             'phrase_id': phrase_id,
             'file': wav_name,
             'start_time': round(start, 2),
             'end_time': round(end, 2),
             'duration': round(dur, 2),
+            'source_duration': round(duration, 2),
+            'position_ratio': round(position_ratio, 4),
             'notes_detected': note_info['notes_detected'],
             'notes_sequence': note_info['notes_sequence'],
             'dominant_note': note_info['dominant_note'],
@@ -608,6 +629,12 @@ def extract_phrases(audio_path, output_dir, count=20, sa_override=None,
             'voiced_ratio': round(voiced_ratio, 3),
             'energy_level': round(norm_e, 3),
             'quality_score': round(quality, 3),
+            'note_density': round(note_density, 3),
+            'register': register,
+            'arc_section': arc_section,
+            'arc_confidence': round(arc_confidence, 3),
+            'arc_fraction': round(position_ratio, 3),
+            'ornaments_detected': ornaments,
         }
         metadata.append(entry)
 

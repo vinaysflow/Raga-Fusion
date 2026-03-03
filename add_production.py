@@ -20,6 +20,7 @@ Requires:
 
 import argparse
 import json
+import re
 import sys
 import textwrap
 from collections import Counter
@@ -35,7 +36,7 @@ except ImportError:
     sys.exit(1)
 
 try:
-    from scipy.signal import butter, sosfilt
+    from scipy.signal import butter, resample_poly, sosfilt
 except ImportError:
     print("\n  ERROR: scipy is required but not installed.")
     print("  Run:  pip install scipy\n")
@@ -53,8 +54,12 @@ DEFAULT_STYLES = Path(__file__).resolve().parent / "data" / "styles.json"
 DEFAULT_BPM = 75
 DEFAULT_GENRE = "lofi"
 
-MIX_LEVELS = {"melody": 0.60, "drums": 0.20, "bass": 0.20}
+MIX_LEVELS = {"melody": 0.60, "drums": 0.20, "bass": 0.20, "tanpura": 0.12}
 CRACKLE_DB = -30.0
+
+ACCOMP_BASE = Path(__file__).resolve().parent / "data" / "accompaniments"
+TANPURA_DIR = ACCOMP_BASE / "tanpura"
+TAAL_DIR = ACCOMP_BASE / "taal"
 
 MASTER_HPF_CUTOFF = 40        # Hz
 MASTER_COMP_THRESH_DB = -18.0
@@ -111,19 +116,20 @@ def _prod_cache_save(key: str, arr: np.ndarray) -> None:
 #  Sa detection
 # ═══════════════════════════════════════════════════════════════════════
 
-def _note_name_to_hz(name: str) -> float:
-    """Convert a note name like 'C#4' or 'D' to Hz.
+def _note_name_to_midi(name: str, default_octave: int = 4) -> int | None:
+    """Convert a note name like 'C#4' or 'D' to MIDI.
 
     If no octave is given, defaults to octave 4.
+    Returns None if parsing fails.
     """
     name = name.strip()
     if not name:
-        return 261.63
+        return None
     if name[-1].isdigit():
         octave = int(name[-1])
         note = name[:-1]
     else:
-        octave = 4
+        octave = default_octave
         note = name
     note = note.capitalize()
     if len(note) > 1:
@@ -131,10 +137,21 @@ def _note_name_to_hz(name: str) -> float:
     try:
         pc = NOTE_NAMES.index(note)
     except ValueError:
+        return None
+    return 12 * (octave + 1) + pc
+
+
+def _midi_to_hz(midi: float) -> float:
+    return 440.0 * (2.0 ** ((midi - 69) / 12.0))
+
+
+def _note_name_to_hz(name: str) -> float:
+    """Convert a note name like 'C#4' or 'D' to Hz."""
+    midi = _note_name_to_midi(name)
+    if midi is None:
         print(f"  WARNING: unrecognised note '{name}', defaulting to C4")
         return 261.63
-    midi = 12 * (octave + 1) + pc
-    return 440.0 * (2.0 ** ((midi - 69) / 12.0))
+    return _midi_to_hz(midi)
 
 
 def _autocorrelation_pitch(frame: np.ndarray, sr: int, fmin: float = 60, fmax: float = 1000) -> float | None:
@@ -190,6 +207,82 @@ def detect_sa_from_melody(audio: np.ndarray, sr: int) -> tuple[float, str]:
         sa_midi = 72 + sa_pc
     sa_hz = 440.0 * (2.0 ** ((sa_midi - 69) / 12.0))
     return sa_hz, f"{sa_note}{sa_midi // 12 - 1}"
+
+
+def _parse_note_from_filename(name: str) -> str | None:
+    match = re.search(r"([A-Ga-g])(#?)(\d)", name)
+    if not match:
+        return None
+    note = match.group(1).upper()
+    accidental = match.group(2)
+    octave = match.group(3)
+    return f"{note}{accidental}{octave}"
+
+
+def _parse_bpm_from_filename(name: str) -> int | None:
+    match = re.search(r"_([0-9]{2,3})\.wav$", name)
+    if not match:
+        return None
+    return int(match.group(1))
+
+
+def _find_best_tanpura(sa_note: str) -> Path | None:
+    if not TANPURA_DIR.exists():
+        return None
+    target_midi = _note_name_to_midi(sa_note, default_octave=3)
+    if target_midi is None:
+        return None
+    best = None
+    best_diff = 1e9
+    for p in TANPURA_DIR.glob("*.wav"):
+        note = _parse_note_from_filename(p.name)
+        if not note:
+            continue
+        midi = _note_name_to_midi(note)
+        if midi is None:
+            continue
+        diff = abs(midi - target_midi)
+        if diff < best_diff:
+            best = p
+            best_diff = diff
+    return best
+
+
+def _find_best_taal(sa_note: str, bpm: float) -> Path | None:
+    if not TAAL_DIR.exists():
+        return None
+    target_midi = _note_name_to_midi(sa_note, default_octave=3)
+    if target_midi is None:
+        return None
+    best = None
+    best_score = 1e9
+    for p in TAAL_DIR.glob("*.wav"):
+        note = _parse_note_from_filename(p.name)
+        file_bpm = _parse_bpm_from_filename(p.name)
+        if not note or file_bpm is None:
+            continue
+        midi = _note_name_to_midi(note)
+        if midi is None:
+            continue
+        note_diff = abs(midi - target_midi)
+        bpm_diff = abs(file_bpm - bpm)
+        score = note_diff * 1.0 + bpm_diff * 0.02
+        if score < best_score:
+            best = p
+            best_score = score
+    return best
+
+
+def _load_and_fit_audio(path: Path, target_sr: int, total_samples: int) -> np.ndarray:
+    audio, sr = sf.read(str(path), dtype="float32")
+    if audio.ndim > 1:
+        audio = audio.mean(axis=1)
+    if sr != target_sr:
+        audio = resample_poly(audio, target_sr, sr).astype(np.float32)
+    if len(audio) < total_samples:
+        reps = int(np.ceil(total_samples / len(audio)))
+        audio = np.tile(audio, reps)
+    return audio[:total_samples].astype(np.float32)
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -823,6 +916,7 @@ def mix_layers(melody: np.ndarray,
                drums: np.ndarray,
                bass: np.ndarray,
                crackle: np.ndarray | None,
+               tanpura: np.ndarray | None = None,
                levels: dict[str, float] | None = None) -> np.ndarray:
     """Sum all layers at their respective volume levels."""
     lvl = levels or MIX_LEVELS
@@ -830,6 +924,10 @@ def mix_layers(melody: np.ndarray,
     mixed = (melody.astype(np.float64) * lvl["melody"]
              + drums.astype(np.float64) * lvl["drums"]
              + bass.astype(np.float64) * lvl["bass"])
+
+    if tanpura is not None:
+        tan_lvl = lvl.get("tanpura", 0.12)
+        mixed += tanpura.astype(np.float64) * tan_lvl
 
     if crackle is not None:
         crackle_linear = 10.0 ** (CRACKLE_DB / 20.0)
@@ -1018,6 +1116,7 @@ def master(audio: np.ndarray, sr: int, style: str = "lofi") -> np.ndarray:
 def print_report(input_path: str, duration: float, sa_note: str,
                  sa_hz: float, genre: str, bpm: float,
                  bass_root_hz: float, crackle_on: bool,
+                 drums_source: str, tanpura_on: bool,
                  output_path: str) -> None:
     """Print a structured production report."""
     sep = "═" * 62
@@ -1040,6 +1139,9 @@ def print_report(input_path: str, duration: float, sa_note: str,
     for name, lvl in MIX_LEVELS.items():
         pct = int(lvl * 100)
         print(f"    {name.capitalize():14s}: {pct}%  {bar(pct)}")
+    print(f"    {'Drums source':14s}: {drums_source}")
+    tanpura_str = "on   (tanpura drone)" if tanpura_on else "off"
+    print(f"    {'Tanpura':14s}: {tanpura_str}")
     crackle_str = "on   (ambient texture)" if crackle_on else "off"
     print(f"    {'Vinyl crackle':14s}: {crackle_str}")
 
@@ -1135,6 +1237,7 @@ def main() -> None:
                 style_name = args.style
             else:
                 print(f"  WARNING: style '{args.style}' not in {style_path}, using genre defaults")
+                style_name = args.style
         else:
             print(f"  WARNING: styles file not found, using genre defaults")
 
@@ -1164,27 +1267,64 @@ def main() -> None:
 
     # ── Load raga rules ───────────────────────────────────────────────
     scale_degrees = [0, 2, 4, 6, 7, 9, 11]  # Yaman default
+    tempo_limits = {}
     if args.rules.exists():
         with open(args.rules) as f:
             rules = json.load(f)
         scale_degrees = rules.get("scale", {}).get("degrees", scale_degrees)
         raga_name = rules.get("raga", {}).get("name", "Unknown")
+        tempo_limits = rules.get("tempo_limits") or {}
         print(f"  Raga rules: {raga_name} (scale degrees: {scale_degrees})")
     else:
         print(f"  WARNING: rules file {args.rules} not found, using Yaman defaults")
 
+    # ── Apply tempo_limits (cap BPM if genre has ceiling) ──────────────
+    if tempo_limits and style_name in tempo_limits:
+        lim = tempo_limits[style_name]
+        ceiling = lim.get("ceiling_bpm")
+        if ceiling is not None and style_bpm > ceiling:
+            print(f"  Tempo limit: {style_name} ceiling {ceiling} BPM, clamping {int(style_bpm)} -> {int(ceiling)}")
+            style_bpm = float(ceiling)
+        best_range = lim.get("best_range_bpm")
+        if best_range and isinstance(best_range, (list, tuple)) and len(best_range) >= 2:
+            lo, hi = best_range[0], best_range[1]
+            if style_bpm > hi:
+                print(f"  Tempo limit: {style_name} best range {lo}-{hi} BPM, clamping {int(style_bpm)} -> {int(hi)}")
+                style_bpm = float(hi)
+            elif style_bpm < lo:
+                print(f"  Tempo limit: {style_name} best range {lo}-{hi} BPM, raising {int(style_bpm)} -> {int(lo)}")
+                style_bpm = float(lo)
+
     # ── Deterministic RNG ─────────────────────────────────────────────
     rng = np.random.default_rng(RNG_SEED)
 
-    # ── Generate layers (with cache) ─────────────────────────────────
-    drum_key = _prod_cache_key("drums", sr=sr, samples=total_samples, bpm=style_bpm, pat=style_drum_pattern)
-    drums = _prod_cache_load(drum_key)
-    if drums is not None:
-        print(f"\n  Drums loaded from cache ({style_drum_pattern})")
+    # ── Accompaniments (tanpura + taal) ───────────────────────────────
+    tanpura = None
+    tanpura_path = _find_best_tanpura(sa_note)
+    if tanpura_path:
+        print(f"\n  Using tanpura drone: {tanpura_path.name}")
+        tanpura = _load_and_fit_audio(tanpura_path, sr, total_samples)
     else:
-        print(f"\n  Generating {style_name} drums ({style_drum_pattern}) at {int(style_bpm)} BPM …")
-        drums = generate_drum_loop(sr, total_samples, style_bpm, rng, pattern=style_drum_pattern)
-        _prod_cache_save(drum_key, drums)
+        print("\n  No tanpura drone found — using melody-only base")
+
+    drums = None
+    drums_source = "synth"
+    taal_path = _find_best_taal(sa_note, style_bpm)
+    if taal_path:
+        print(f"  Using taal loop: {taal_path.name}")
+        drums = _load_and_fit_audio(taal_path, sr, total_samples)
+        drums_source = f"taal:{taal_path.name}"
+
+    # ── Generate layers (with cache) ─────────────────────────────────
+    if drums is None:
+        drum_key = _prod_cache_key("drums", sr=sr, samples=total_samples, bpm=style_bpm, pat=style_drum_pattern)
+        drums = _prod_cache_load(drum_key)
+        if drums is not None:
+            print(f"\n  Drums loaded from cache ({style_drum_pattern})")
+        else:
+            print(f"\n  Generating {style_name} drums ({style_drum_pattern}) at {int(style_bpm)} BPM …")
+            drums = generate_drum_loop(sr, total_samples, style_bpm, rng, pattern=style_drum_pattern)
+            _prod_cache_save(drum_key, drums)
 
     bass_key = _prod_cache_key("bass", sr=sr, samples=total_samples, bpm=style_bpm,
                                sa_hz=round(sa_hz, 2), scale=str(scale_degrees), pat=style_bass_pattern)
@@ -1210,7 +1350,7 @@ def main() -> None:
 
     # ── Mix ────────────────────────────────────────────────────────────
     print("  Mixing layers …")
-    mixed = mix_layers(melody, drums, bass, crackle, levels=style_levels)
+    mixed = mix_layers(melody, drums, bass, crackle, tanpura=tanpura, levels=style_levels)
 
     # ── Apply FX ──────────────────────────────────────────────────────
     if "pad" in style_fx:
@@ -1248,6 +1388,8 @@ def main() -> None:
         bpm=style_bpm,
         bass_root_hz=bass_root_hz,
         crackle_on=style_crackle,
+        drums_source=drums_source,
+        tanpura_on=tanpura is not None,
         output_path=str(out_path),
     )
     print(f"  Done — wrote {out_path} ({duration:.2f}s)")

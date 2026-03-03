@@ -1,0 +1,302 @@
+{
+  "raga": {
+    "name": "Darbari Kanada",
+    "aliases": [
+      "Darbari",
+      "Darbari Kanhada"
+    ],
+    "thaat": "Asavari",
+    "family": "Asavari",
+    "jati": "Sampoorna-Sampoorna",
+    "description": "A profound late-night raga known for its gravity and majestic depth. Heavy andolan on komal Ga and komal Dha is central to its character."
+  },
+  "scale": {
+    "degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10
+    ],
+    "svaras": [
+      "S",
+      "R",
+      "g",
+      "m",
+      "P",
+      "d",
+      "n"
+    ],
+    "svaras_full": [
+      "Sa",
+      "Re (shuddh)",
+      "Ga (komal)",
+      "Ma (shuddh)",
+      "Pa",
+      "Dha (komal)",
+      "Ni (komal)"
+    ],
+    "western_notes_sa_c": [
+      "C",
+      "D",
+      "Eb",
+      "F",
+      "G",
+      "Ab",
+      "Bb"
+    ],
+    "note_types": {
+      "S": {
+        "degree": 0,
+        "type": "shuddh",
+        "western": "1 (root)"
+      },
+      "R": {
+        "degree": 2,
+        "type": "shuddh",
+        "western": "2 (major 2nd)"
+      },
+      "g": {
+        "degree": 3,
+        "type": "komal",
+        "western": "b3 (minor 3rd)"
+      },
+      "m": {
+        "degree": 5,
+        "type": "shuddh",
+        "western": "4 (perfect 4th)"
+      },
+      "P": {
+        "degree": 7,
+        "type": "shuddh",
+        "western": "5 (perfect 5th)"
+      },
+      "d": {
+        "degree": 8,
+        "type": "komal",
+        "western": "b6 (minor 6th)"
+      },
+      "n": {
+        "degree": 10,
+        "type": "komal",
+        "western": "b7 (minor 7th)"
+      }
+    },
+    "forbidden": [
+      {
+        "degree": 4,
+        "svara": "G",
+        "name": "Shuddh Gandhar",
+        "reason": "Darbari requires komal Ga with heavy andolan."
+      },
+      {
+        "degree": 9,
+        "svara": "D",
+        "name": "Shuddh Dhaivat",
+        "reason": "Darbari uses komal Dha as a defining color."
+      },
+      {
+        "degree": 11,
+        "svara": "N",
+        "name": "Shuddh Nishad",
+        "reason": "Komal Ni is essential for Darbari's grave mood."
+      },
+      {
+        "degree": 6,
+        "svara": "M'",
+        "name": "Tivra Madhyam",
+        "reason": "Darbari uses only shuddh Ma."
+      }
+    ]
+  },
+  "movement": {
+    "aroha": "S R g m P d n S'",
+    "avaroha": "S' n d P m g R S",
+    "aroha_degrees": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12
+    ],
+    "avaroha_degrees": [
+      12,
+      10,
+      8,
+      7,
+      5,
+      3,
+      2,
+      0
+    ],
+    "pakad": [
+      "R g m P",
+      "d n P",
+      "m g R S"
+    ],
+    "pakad_string": "R g m P, d n P, m g R S",
+    "characteristic_phrases": [
+      {
+        "phrase": "R g m P",
+        "context": "Slow ascent with andolan on komal Ga"
+      },
+      {
+        "phrase": "d n P",
+        "context": "Upper register descent with komal Dha and Ni"
+      },
+      {
+        "phrase": "m g R S",
+        "context": "Grave resolution through komal Ga"
+      }
+    ],
+    "note_rules": {
+      "Andolan": "Komal Ga and komal Dha are oscillated heavily; straight intonation sounds uncharacteristic",
+      "Ga_Ni_treatment": "Komal Ga is often elongated, komal Ni is used sparingly as a color",
+      "Pa_role": "Pa anchors the upper register and stabilizes heavy oscillations"
+    }
+  },
+  "emphasis": {
+    "vadi": {
+      "degree": 2,
+      "svara": "R",
+      "full_name": "Shuddh Rishabh",
+      "western": "D (major 2nd, when Sa=C)",
+      "role": "King note — sustains gravitas and acts as the tonal pivot."
+    },
+    "samvadi": {
+      "degree": 7,
+      "svara": "P",
+      "full_name": "Shuddh Pancham",
+      "western": "G (perfect 5th, when Sa=C)",
+      "role": "Queen note — stabilizes the raga and provides a firm resting point."
+    },
+    "important_notes": [
+      "R",
+      "g",
+      "d",
+      "P"
+    ],
+    "resting_notes": [
+      "R",
+      "P",
+      "S"
+    ]
+  },
+  "context": {
+    "time": {
+      "prahar": "Second prahar of night",
+      "window": "9:00 PM – 12:00 AM",
+      "season": "Monsoon and winter"
+    },
+    "mood": [
+      "Majestic",
+      "Grave",
+      "Somber",
+      "Powerful"
+    ],
+    "rasa": "Veera (heroic) and Gambhira (gravity)",
+    "aesthetic": "Deep, heavy, and dignified. Darbari's slow oscillations evoke a royal court atmosphere."
+  },
+  "arc_profile": {
+    "alap_ratio": 0.42,
+    "peak_position_ratio": 0.7,
+    "peak_ceiling": 0.68,
+    "opening_energy": 0.2
+  },
+  "western_equivalent": {
+    "mode": "Natural minor (approximate)",
+    "key_example": "C Aeolian",
+    "interval_pattern": [
+      "W",
+      "H",
+      "W",
+      "W",
+      "H",
+      "W",
+      "W"
+    ],
+    "interval_semitones": [
+      2,
+      1,
+      2,
+      2,
+      1,
+      2,
+      2
+    ],
+    "relationship": "Pitch content resembles natural minor, but Darbari's identity is driven by andolan and phrase shape."
+  },
+  "genre_compatibility": {
+    "lofi": {
+      "score": 0.8,
+      "notes": "Slow, weighty phrases can add gravitas to late-night lofi."
+    },
+    "ambient": {
+      "score": 0.93,
+      "notes": "Sustained oscillations and deep mood align strongly with ambient textures."
+    },
+    "calm": {
+      "score": 0.75,
+      "notes": "More solemn than calm; works when calm is interpreted as deep stillness."
+    },
+    "upbeat": {
+      "score": 0.4,
+      "notes": "The raga's heavy gravity does not naturally support upbeat energy."
+    },
+    "jazz_fusion": {
+      "score": 0.75,
+      "notes": "Natural-minor feel with andolan suits slow blues/jazz, but gravity limits fast improv."
+    },
+    "cinematic": {
+      "score": 0.92,
+      "notes": "Majestic somber depth perfect for epic orchestral tension."
+    },
+    "downtempo": {
+      "score": 0.88,
+      "notes": "Patient exploration thrives in spacious organic mixes."
+    },
+    "electronic": {
+      "score": 0.45,
+      "notes": "Heavy andolan loses character above 100 BPM; better at slower house."
+    },
+    "chillhop": {
+      "score": 0.78,
+      "notes": "Somber lines add vinyl-depth melancholy."
+    },
+    "reggae_dub": {
+      "score": 0.8,
+      "notes": "Low-register gravity anchors deep dub bass perfectly."
+    },
+    "trap": {
+      "score": 0.4,
+      "notes": "Grave mood clashes with aggressive hi-hats; too patient for rolls."
+    },
+    "rock": {
+      "score": 0.55,
+      "notes": "Majestic power works in slow heavy riffs, not fast punk."
+    }
+  },
+  "tempo_limits": {
+    "electronic": {"ceiling_bpm": 100, "note": "andolan → meend above 90 BPM"},
+    "reggae_dub": {"best_range_bpm": [70, 85]},
+    "downtempo": {"best_range_bpm": [55, 75]},
+    "chillhop": {"ceiling_bpm": 90}
+  },
+  "metadata": {
+    "version": "1.0",
+    "created_by": "manual",
+    "schema": "raga_rules_v1"
+  },
+  "fusion_notes": [
+    "Heavy andolan (oscillation) on komal Ga and komal Dha does not survive tempo acceleration above ~90 BPM",
+    "substitute with slow meend or gamak in faster genres",
+    "Treat tempo as an 'illusion': even in rhythmic sections, keep melodic delivery slow and roomy (half-time or spacious syncopation).",
+    "Preserve heavy komal Ga/Dha oscillations with pitch-bend automation (or expressive sampling), not strict MIDI quantization.",
+    "Favor low/middle-register phrasing and avoid bright, fast arpeggios that make it feel like generic natural minor."
+  ]
+}
